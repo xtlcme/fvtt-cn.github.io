@@ -1,6 +1,6 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>FoundryVTT 中文社区 – 服务器部署入门</title><link>/deployment/gettingstarted/</link><description>Recent content in 服务器部署入门 on FoundryVTT 中文社区</description><generator>Hugo -- gohugo.io</generator><atom:link href="/deployment/gettingstarted/index.xml" rel="self" type="application/rss+xml"/><item><title>Deployment: 云服务器挑选/购买指南</title><link>/deployment/gettingstarted/cloud/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/deployment/gettingstarted/cloud/</guid><description>
-&lt;p>待施工&lt;/p></description></item><item><title>Deployment: Ubuntu 部署 FoundryVTT 教程</title><link>/deployment/gettingstarted/ubuntu/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/deployment/gettingstarted/ubuntu/</guid><description>
-&lt;p>待施工&lt;/p></description></item><item><title>Deployment: CentOS 部署 FoundryVTT 教程</title><link>/deployment/gettingstarted/centos/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/deployment/gettingstarted/centos/</guid><description/></item><item><title>Deployment: Docker 部署 FoundryVTT 教程</title><link>/deployment/gettingstarted/docker/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/deployment/gettingstarted/docker/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>FoundryVTT 中文社区 – 服务器部署入门</title><link>https://fvtt-cn.github.io/deployment/gettingstarted/</link><description>Recent content in 服务器部署入门 on FoundryVTT 中文社区</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://fvtt-cn.github.io/deployment/gettingstarted/index.xml" rel="self" type="application/rss+xml"/><item><title>Deployment: 云服务器挑选/购买指南</title><link>https://fvtt-cn.github.io/deployment/gettingstarted/cloud/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/deployment/gettingstarted/cloud/</guid><description>
+&lt;p>待施工&lt;/p></description></item><item><title>Deployment: Ubuntu 部署 FoundryVTT 教程</title><link>https://fvtt-cn.github.io/deployment/gettingstarted/ubuntu/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/deployment/gettingstarted/ubuntu/</guid><description>
+&lt;p>待施工&lt;/p></description></item><item><title>Deployment: CentOS 部署 FoundryVTT 教程</title><link>https://fvtt-cn.github.io/deployment/gettingstarted/centos/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/deployment/gettingstarted/centos/</guid><description/></item><item><title>Deployment: Docker 部署 FoundryVTT 教程</title><link>https://fvtt-cn.github.io/deployment/gettingstarted/docker/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/deployment/gettingstarted/docker/</guid><description>
 &lt;p>Foundry VTT 目前拥有若干个来自不同用户实现的 Dockerfile，这些实现中，较为推荐 &lt;a href="https://github.com/felddy/foundryvtt-docker">felddy/foundryvtt&lt;/a> 的镜像。&lt;/p>
 &lt;h2 id="介绍">介绍&lt;/h2>
 &lt;p>目前可以通过中文社区的自动脚本进行容器化部署，也可以手动启动容器。&lt;/p>
@@ -37,7 +37,7 @@
 &lt;p>境内服务器安装 Docker 时会等待较长时间，可以耐心等待&lt;/p>
 &lt;/blockquote>
 &lt;p>然后脚本会提示输入参数，每条参数输入完成后回车即可，参数包含（✅：必需 | ⭕：可选）：
-&lt;img src="/images/deployment/docker-script-input.png" alt="">&lt;/p>
+&lt;img src="https://fvtt-cn.github.io/images/deployment/docker-script-input.png" alt="">&lt;/p>
 &lt;ul>
 &lt;li>✅ FVTT 账号&lt;/li>
 &lt;li>✅ FVTT 密码&lt;/li>
@@ -71,7 +71,7 @@
 &lt;/li>
 &lt;li>
 &lt;p>部署完成后，脚本会提示如何访问 FVTT，如图所示：
-&lt;img src="/images/deployment/docker-script-result.png" alt="">&lt;/p>
+&lt;img src="https://fvtt-cn.github.io/images/deployment/docker-script-result.png" alt="">&lt;/p>
 &lt;/li>
 &lt;/ol>
 &lt;blockquote>
@@ -188,5 +188,5 @@ header_up X-Forwarded-Proto {scheme}
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span>-e &lt;span style="color:#000">FOUNDRY_ADMIN_KEY&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;设置一个部署完成后管理FVTT的密码&amp;#39;&lt;/span> &lt;span style="color:#4e9a06">\
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span>felddy/foundryvtt:release
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;/ol></description></item><item><title>Deployment: Windows 部署 FoundryVTT 教程</title><link>/deployment/gettingstarted/windows/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/deployment/gettingstarted/windows/</guid><description>
+&lt;/ol></description></item><item><title>Deployment: Windows 部署 FoundryVTT 教程</title><link>https://fvtt-cn.github.io/deployment/gettingstarted/windows/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/deployment/gettingstarted/windows/</guid><description>
 &lt;p>待施工&lt;/p></description></item></channel></rss>
