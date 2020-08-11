@@ -103,7 +103,7 @@
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo ./fvtt.sh
 &lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
 &lt;p>安装时会检查是否能获取 root 权限，并且如果没有安装 Docker 会自动安装 Docker&lt;/p>
-&lt;p>境内服务器安装 Docker 时会等待较长时间，可以耐心等待&lt;/p>
+&lt;p>境内服务器下载镜像时会等待较长时间，可以耐心等待&lt;/p>
 &lt;/blockquote>
 &lt;p>然后脚本会提示输入参数，每条参数输入完成后回车即可，参数包含（✅：必需 | ⭕：可选）：
 &lt;img src="https://fvtt-cn.github.io/images/deployment/docker-script-input.png" alt="">&lt;/p>
