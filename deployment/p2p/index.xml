@@ -1,3 +1,43 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>FoundryVTT 中文社区 – P2P 使用入门</title><link>https://fvtt-cn.github.io/deployment/p2p/</link><description>Recent content in P2P 使用入门 on FoundryVTT 中文社区</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://fvtt-cn.github.io/deployment/p2p/index.xml" rel="self" type="application/rss+xml"/><item><title>Deployment: 事先检查能否 P2P 联机成功</title><link>https://fvtt-cn.github.io/deployment/p2p/check/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/deployment/p2p/check/</guid><description>
-&lt;p>待施工&lt;/p></description></item><item><title>Deployment: 一般情况下的 P2P 使用教程</title><link>https://fvtt-cn.github.io/deployment/p2p/normal/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/deployment/p2p/normal/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>FoundryVTT 中文社区 – P2P 使用入门</title><link>https://fvtt-cn.github.io/deployment/p2p/</link><description>Recent content in P2P 使用入门 on FoundryVTT 中文社区</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://fvtt-cn.github.io/deployment/p2p/index.xml" rel="self" type="application/rss+xml"/><item><title>Deployment: 事先检查 P2P 能否联机成功</title><link>https://fvtt-cn.github.io/deployment/p2p/check/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/deployment/p2p/check/</guid><description>
+&lt;p>P2P 是否连接成功对连接双方的网络都有要求，简单来说，需要确保双方的 NAT 类型之间可以连接。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>NAT 类型&lt;/th>
+&lt;th>开放&lt;/th>
+&lt;th>中等&lt;/th>
+&lt;th>严格&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>开放&lt;/td>
+&lt;td>✔&lt;/td>
+&lt;td>✔&lt;/td>
+&lt;td>✔&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>中等&lt;/td>
+&lt;td>✔&lt;/td>
+&lt;td>✔&lt;/td>
+&lt;td>❌　&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>严格&lt;/td>
+&lt;td>✔&lt;/td>
+&lt;td>❌&lt;/td>
+&lt;td>❌&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>可以看出，如果启动 FVTT 的环境的 NAT 类型是开放，则一般可以连接上（但并不保证网络连接质量好）。&lt;/p>
+&lt;h2 id="如何测试-nat-类型">如何测试 NAT 类型&lt;/h2>
+&lt;p>在 Windows 下，我们使用 &lt;a href="https://github.com/HMBSbige/NatTypeTester">NatTypeTester&lt;/a> 来检测本地的 NAT 类型。&lt;/p>
+&lt;p>下载链接：&lt;a href="https://github.com/HMBSbige/NatTypeTester/releases/download/2.2/NatTypeTester.7z">点此&lt;/a>，解压后运行，点击 Test 即可进行测试&lt;/p>
+&lt;blockquote>
+&lt;p>可以尝试测试第二次以触发 Windows 防火墙放行，放行后可能会检测出更开放的 NAT 类型&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;img src="https://fvtt-cn.github.io/images/deployment/nat-typetest.png" alt="nat-type-tester">&lt;/p>
+&lt;p>如果如图中所示， &lt;code>NAT type&lt;/code>一栏显示 &lt;code>FullCone&lt;/code> 即代表 NAT 类型为开放，P2P 连接性较好。&lt;/p>
+&lt;p>如果是其他情况，尤其是 &lt;code>Symmetric&lt;/code> 或者 &lt;code>UdpBlocked&lt;/code>，基本难以直接稳定地建立 P2P 连接，最好使用内网穿透等工具辅助建立连接，或者直接使用服务器部署。&lt;/p></description></item><item><title>Deployment: 一般情况下的 P2P 使用教程</title><link>https://fvtt-cn.github.io/deployment/p2p/normal/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/deployment/p2p/normal/</guid><description>
 &lt;p>待施工&lt;/p></description></item><item><title>Deployment: 使用 Zerotier 进行 P2P 联机</title><link>https://fvtt-cn.github.io/deployment/p2p/zerotier/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/deployment/p2p/zerotier/</guid><description/></item></channel></rss>
