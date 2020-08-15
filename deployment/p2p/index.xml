@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>FoundryVTT 中文社区 – P2P 使用入门</title><link>https://fvtt-cn.github.io/deployment/p2p/</link><description>Recent content in P2P 使用入门 on FoundryVTT 中文社区</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://fvtt-cn.github.io/deployment/p2p/index.xml" rel="self" type="application/rss+xml"/><item><title>Deployment: 事先检查 P2P 能否联机成功</title><link>https://fvtt-cn.github.io/deployment/p2p/check/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/deployment/p2p/check/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>FoundryVTT 中文社区 – P2P 使用入门</title><link>https://fvtt-cn.github.io/deployment/p2p/</link><description>Recent content in P2P 使用入门 on FoundryVTT 中文社区</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://fvtt-cn.github.io/deployment/p2p/index.xml" rel="self" type="application/rss+xml"/><item><title>Deployment: 事先检查 P2P 能否联机</title><link>https://fvtt-cn.github.io/deployment/p2p/check/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/deployment/p2p/check/</guid><description>
 &lt;p>P2P 是否连接成功对连接双方的网络都有要求，简单来说，需要确保双方的 NAT 类型之间可以连接。&lt;/p>
 &lt;table>
 &lt;thead>
@@ -39,7 +39,15 @@
 &lt;/blockquote>
 &lt;p>&lt;img src="https://fvtt-cn.github.io/images/deployment/nat-typetest.png" alt="nat-type-tester">&lt;/p>
 &lt;p>如果如图中所示， &lt;code>NAT type&lt;/code>一栏显示 &lt;code>FullCone&lt;/code> 即代表 NAT 类型为开放，P2P 连接性较好。&lt;/p>
-&lt;p>如果是其他情况，尤其是 &lt;code>Symmetric&lt;/code> 或者 &lt;code>UdpBlocked&lt;/code>，基本难以直接稳定地建立 P2P 连接，最好使用内网穿透等工具辅助建立连接，或者直接使用服务器部署。&lt;/p></description></item><item><title>Deployment: 一般情况下的 P2P 使用教程</title><link>https://fvtt-cn.github.io/deployment/p2p/normal/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/deployment/p2p/normal/</guid><description>
+&lt;p>如果是其他情况，尤其是 &lt;code>Symmetric&lt;/code> 或者 &lt;code>UdpBlocked&lt;/code>，基本上难以直接稳定地建立 P2P 连接。&lt;/p>
+&lt;h2 id="如何测试是否公网-ip">如何测试是否公网 IP&lt;/h2>
+&lt;p>国内运营商一般不会主动分配给用户公网 IP，通过客服或许可以申请公网 IP，常用理由如玩游戏无法连接上等等（事实确实如此）。&lt;/p>
+&lt;ul>
+&lt;li>查看自己路由器上分配到的 WAN 口 IP 地址&lt;/li>
+&lt;li>在 &lt;a href="https://www.ipip.net/">IPIP&lt;/a> 上查看自己暴露出的 IP 地址&lt;/li>
+&lt;/ul>
+&lt;p>如果这两个 IP 地址一致，则基本上应该是获得了公网 IP。&lt;/p>
+&lt;p>如果拥有公网 IP，其他玩家可以直接通过公网 IP 来访问启动的 FVTT。如果没有，最好使用&lt;a href="../normal/#%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F">虚拟局域网或内网穿透&lt;/a>等工具辅助建立连接，或者直接使用&lt;a href="../../gettingstarted">服务器部署&lt;/a>。&lt;/p></description></item><item><title>Deployment: 一般情况下的 P2P 使用教程</title><link>https://fvtt-cn.github.io/deployment/p2p/normal/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/deployment/p2p/normal/</guid><description>
 &lt;blockquote>
 &lt;p>如果你的网络质量不错，并且拥有公网 IP，可以参见此文在本地运行 FVTT 并联机。
 本篇教程参考 FVTT 英文社群网站 &lt;a href="https://foundry-vtt-community.github.io/wiki/Windows/">Windows 托管教程&lt;/a>以及&lt;a href="https://foundryvtt.com/article/installation/">官方安装教程&lt;/a>。&lt;/p>
@@ -76,6 +84,7 @@
 如果需要自己连到自己开启的 FVTT 游戏中（比如用浏览器测试玩家视角），应该使用 localhost 而不是 IP 地址，比如 &lt;code>http://localhost:30000&lt;/code>
 &lt;/div>
 &lt;hr>
+&lt;h3 id="内网穿透">内网穿透&lt;/h3>
 &lt;p>如果你和其他玩家无法通过互联网地址访问你的 FVTT，那么接下来需要构建虚拟局域网，或者使用内网穿透把端口转发到公网来让玩家可以访问，典型的解决方案如下：&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="../zerotier">ZeroTier&lt;/a>：虚拟局域网&lt;/li>
