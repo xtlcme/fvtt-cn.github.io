@@ -62,7 +62,31 @@
 &lt;li>Namecheap 的域名一年&lt;/li>
 &lt;li>&amp;hellip;&lt;/li>
 &lt;/ul>
-&lt;p>如果认证无法通过，那境内最好的选择可能就是阿里云轻量应用服务器，简单直接没有别的套路，5Mbps 还算能用，每个月 1TB 的流量跑 FVTT 管够。&lt;/p></description></item><item><title>Deployment: 域名购买/绑定指南</title><link>https://fvtt-cn.github.io/deployment/gettingstarted/domain-name/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/deployment/gettingstarted/domain-name/</guid><description>
+&lt;p>如果认证无法通过，那境内最好的选择可能就是阿里云轻量应用服务器，简单直接没有别的套路，5Mbps 还算能用，每个月 1TB 的流量跑 FVTT 管够。&lt;/p>
+&lt;h2 id="其他问题">其他问题&lt;/h2>
+&lt;p>除了选购以外，使用云服务器过程中也可能遇到其他问题。&lt;/p>
+&lt;h3 id="部署完毕后无法访问">部署完毕后无法访问&lt;/h3>
+&lt;p>无论使用那种方式部署，完毕后，如果无法访问，常常是因为云服务器的防火墙设置，尚未放行 FVTT 正在使用的端口。&lt;/p>
+&lt;p>一般来说，如果设置了域名并反代，需要设置&lt;strong>入方向&lt;/strong>的端口 80, 443 开放。&lt;/p>
+&lt;p>而如果只是使用 30000 端口或者修改的其他端口，只需要设置对应端口在&lt;strong>入方向&lt;/strong>上开放即可。&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;a href="../docker/#%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2%E8%84%9A%E6%9C%AC%E4%B8%AD%E6%96%87%E7%A4%BE%E5%8C%BA-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B">Docker 部署方式自动脚本&lt;/a>如果不使用域名，文件管理器的网站需要打开入方向 30001 端口。&lt;/p>
+&lt;/blockquote>
+&lt;p>以下是几种常见的云服务器的防火墙设置方法：&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://help.aliyun.com/document_detail/25471.html">阿里云 ECS&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://help.aliyun.com/document_detail/59086.html">阿里云轻量应用服务器&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://cloud.tencent.com/document/product/213/15377">腾讯云 CVM&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="https://cloud.tencent.com/document/product/1207/44577">腾讯轻量应用服务器&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://docs.microsoft.com/zh-cn/azure/virtual-machines/windows/nsg-quickstart-portal">Azure VM&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://aws.amazon.com/cn/premiumsupport/knowledge-center/connect-http-https-ec2/">AWS EC2&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Deployment: 域名购买/绑定指南</title><link>https://fvtt-cn.github.io/deployment/gettingstarted/domain-name/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/deployment/gettingstarted/domain-name/</guid><description>
 &lt;h2 id="购买域名">购买域名&lt;/h2>
 &lt;p>目前各大云服务提供商基本都提供了域名购买、托管以及 DNS 解析服务，实现一站式服务。&lt;/p>
 &lt;p>服务器对域名没有任何要求，但需要注意，如果购买域名并绑定国内服务器使用，则需要备案，而备案对域名后缀（顶级域名）有要求。目前国内云平台购买域名时，如果遇到不能备案的后缀，会提示无法备案，所以注意查看信息就不必担心购买域名之后无法使用的问题。&lt;/p>
@@ -76,7 +100,7 @@
 &lt;h2 id="备案">备案&lt;/h2>
 &lt;div class="alert alert-primary" role="alert">
 &lt;h4 class="alert-heading">可选&lt;/h4>
-仅国内服务器架设网站需要备案，如果使用境外服务器（含香港）提供服务，无需备案
+仅国内服务器架设网站使用域名时需要备案，如果使用境外服务器（含香港），无需备案
 &lt;/div>
 &lt;p>目前方便的备案方式是通过各个云服务自己的备案渠道申请，这就要求需要在该平台购买云服务器或者域名，所以尽量在一个云服务提供商处解决所有问题，而不要拼凑着买。&lt;/p>
 &lt;ul>
