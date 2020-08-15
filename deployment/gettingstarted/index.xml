@@ -222,7 +222,9 @@ header_up X-Forwarded-Proto {scheme}
 &lt;h4 class="alert-heading">注意&lt;/h4>
 如果无法访问，检查是否开启服务器防火墙的 80/443 端口，这两个端口需要打开
 &lt;/div></description></item><item><title>Deployment: CentOS 部署 FoundryVTT 教程</title><link>https://fvtt-cn.github.io/deployment/gettingstarted/centos/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/deployment/gettingstarted/centos/</guid><description>
+&lt;blockquote>
 &lt;p>这里介绍&lt;a href="https://www.peatsuki.com/008.html">雙月ひめは的 CentOS 教程&lt;/a>以及其&lt;a href="https://www.peatsuki.com/010.html">一键部署脚本教程&lt;/a>。&lt;/p>
+&lt;/blockquote>
 &lt;hr>
 &lt;h2 id="脚本部署">脚本部署&lt;/h2>
 &lt;p>命令如下：&lt;/p>
@@ -526,4 +528,33 @@ header_up X-Forwarded-Proto {scheme}
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span>felddy/foundryvtt:release
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;/ol></description></item><item><title>Deployment: Windows 部署 FoundryVTT 教程</title><link>https://fvtt-cn.github.io/deployment/gettingstarted/windows/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/deployment/gettingstarted/windows/</guid><description>
-&lt;p>待施工&lt;/p></description></item></channel></rss>
+&lt;blockquote>
+&lt;p>本篇教程参考 FVTT 英文社群网站 &lt;a href="https://foundry-vtt-community.github.io/wiki/Windows/">Windows 托管教程&lt;/a>和&lt;a href="http://www.goddessfantasy.net/bbs/index.php?topic=117014.0">猫斯基的 Windows Server 部署教程&lt;/a>。&lt;/p>
+&lt;/blockquote>
+&lt;hr>
+&lt;p>如果你没有公网 IP，又不缺一台服务器的钱，那么你可以考虑租一台服务器并架设一个 FoundryVTT 在上面。&lt;/p>
+&lt;p>服务器有数种系统，例如 Windows、Linux、MacOS、Ubantu 等。本教程以 Windows 系统为例。&lt;/p>
+&lt;p>那么我们假设你已经购买了服务器，并且安装好了 Windows Server 系统，连接上了&lt;strong>远程桌面&lt;/strong>，接下来就进行部署：&lt;/p>
+&lt;h2 id="基础配置">基础配置&lt;/h2>
+&lt;ol>
+&lt;li>下载并安装 Node.js，在 &lt;a href="https://nodejs.org/zh-cn/download/">Node.js 官网安装页面&lt;/a>上，点击 Windows 安装包下载&lt;/li>
+&lt;li>将 Node.js 安装包通过 &lt;em>远程桌面&lt;/em> 复制到服务器上，然后在服务器上点击安装包文件，一路确认，安装 Node.js&lt;/li>
+&lt;li>从 Foundry VTT 官网上下载最新包，使用 Node.js 部署，所以选择第四项
+&lt;ul>
+&lt;li>&lt;img src="https://fvtt-cn.github.io/images/deployment/download-url.png" alt="">&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>将压缩包通过 &lt;em>远程桌面&lt;/em> 复制到服务器上，直接拖拽或者 &lt;kbd>Ctrl+C/V&lt;/kbd> 均可，然后解压到某文件夹内（比如桌面）&lt;/li>
+&lt;li>在这个目录下，启动 CMD。如图所示，在资源管理器地址栏下输入 &lt;code>cmd&lt;/code>，然后回车打开 CMD 窗口
+&lt;ul>
+&lt;li>&lt;img src="https://fvtt-cn.github.io/images/deployment/win-unzip-cmd.png" alt="">&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>接着运行这个命令
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-powershell" data-lang="powershell">&lt;span style="color:#000">node&lt;/span> &lt;span style="color:#000;font-weight:bold">.\&lt;/span>&lt;span style="color:#000">resources&lt;/span>&lt;span style="color:#000;font-weight:bold">\&lt;/span>&lt;span style="color:#000">app&lt;/span>&lt;span style="color:#000;font-weight:bold">\&lt;/span>&lt;span style="color:#000">main&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">js&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ol>
+&lt;p>如果能够看到进行了类似以下的输出，那么证明启动成功。&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">FoundryVTT &lt;span style="color:#000;font-weight:bold">|&lt;/span> 2020-08-15 14:50:37 &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>info&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> Foundry Virtual Tabletop - Version 0.6.5
+FoundryVTT &lt;span style="color:#000;font-weight:bold">|&lt;/span> 2020-08-15 14:50:37 &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>info&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> Running on Node.js - Version 14.8.0
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>在自己电脑的浏览器上输入 &lt;code>http://[服务器IP]:30000&lt;/code> 即可访问 FVTT，然后就可以把远程桌面关闭了。&lt;/p></description></item></channel></rss>
