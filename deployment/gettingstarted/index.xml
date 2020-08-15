@@ -63,13 +63,165 @@
 &lt;li>&amp;hellip;&lt;/li>
 &lt;/ul>
 &lt;p>如果认证无法通过，那境内最好的选择可能就是阿里云轻量应用服务器，简单直接没有别的套路，5Mbps 还算能用，每个月 2T 的流量跑 FVTT 管够。&lt;/p>
-&lt;h2 id="购买指南">购买指南&lt;/h2>
+&lt;h2 id="购买服务器">购买服务器&lt;/h2>
+&lt;p>待施工&lt;/p></description></item><item><title>Deployment: 域名购买、绑定</title><link>https://fvtt-cn.github.io/deployment/gettingstarted/domain-name/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/deployment/gettingstarted/domain-name/</guid><description>
+&lt;h2 id="购买域名">购买域名&lt;/h2>
 &lt;p>待施工&lt;/p>
-&lt;h3 id="购买服务器">购买服务器&lt;/h3>
+&lt;h2 id="备案">备案&lt;/h2>
+&lt;div class="alert alert-primary" role="alert">
+&lt;h4 class="alert-heading">可选&lt;/h4>
+仅国内服务器架设网站需要备案，如果使用境外服务器（含香港）提供服务，无需备案
+&lt;/div>
 &lt;p>待施工&lt;/p>
-&lt;h3 id="购买绑定域名">购买、绑定域名&lt;/h3>
-&lt;p>待施工&lt;/p></description></item><item><title>Deployment: Ubuntu 部署 FoundryVTT 教程</title><link>https://fvtt-cn.github.io/deployment/gettingstarted/ubuntu/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/deployment/gettingstarted/ubuntu/</guid><description>
-&lt;p>待施工&lt;/p></description></item><item><title>Deployment: CentOS 部署 FoundryVTT 教程</title><link>https://fvtt-cn.github.io/deployment/gettingstarted/centos/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/deployment/gettingstarted/centos/</guid><description/></item><item><title>Deployment: Docker 部署 FoundryVTT 教程</title><link>https://fvtt-cn.github.io/deployment/gettingstarted/docker/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/deployment/gettingstarted/docker/</guid><description>
+&lt;h2 id="绑定子域名">绑定（子）域名&lt;/h2>
+&lt;div class="alert alert-warning" role="alert">
+&lt;h4 class="alert-heading">注意&lt;/h4>
+国内服务器未备案无法使用域名来访问网站
+&lt;/div>
+&lt;p>绑定域名依赖于购买域名的域名提供商和 DNS 服务，各家的界面、操作会有一些不同，但域名的基本管理方式和相关术语是一致的。简单来说，&lt;strong>你需要创建一条 A 记录，映射到你将要安装 FVTT 的服务器的 IP 地址&lt;/strong>。&lt;/p>
+&lt;p>如图所示，是腾讯云的 DNS 解析管理界面，正在添加的记录便是 &lt;code>foundry.xxx.yyy&lt;/code>（&lt;code>xxx.yyy&lt;/code> 是你注册的域名），其他 DNS 解析设置界面大同小异，详细可以参见平台自己的帮助。&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>主机记录&lt;/strong>填写你想使用的子域名或者使用&lt;code>@&lt;/code>来代表直接使用 &lt;code>xxx.yyy&lt;/code> 访问 FVTT&lt;/li>
+&lt;li>&lt;strong>记录类型&lt;/strong>选择 A 记录&lt;/li>
+&lt;li>&lt;strong>记录值&lt;/strong>填写需要服务器的 &lt;strong>公网&lt;/strong> IP，其他 IP 无法访问&lt;/li>
+&lt;/ul>
+&lt;p>其他设置都使用默认设置即可。&lt;/p>
+&lt;p>&lt;img src="https://fvtt-cn.github.io/images/deployment/domain-name.png" alt="">&lt;/p></description></item><item><title>Deployment: Ubuntu 部署 FoundryVTT 教程</title><link>https://fvtt-cn.github.io/deployment/gettingstarted/ubuntu/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/deployment/gettingstarted/ubuntu/</guid><description>
+&lt;blockquote>
+&lt;p>本篇教程参考 FVTT 英文社群网站 &lt;a href="https://foundry-vtt-community.github.io/wiki/Ubuntu-VM/">Ubuntu VM 部署教程&lt;/a>。&lt;/p>
+&lt;/blockquote>
+&lt;hr>
+&lt;h2 id="介绍">介绍&lt;/h2>
+&lt;p>Ubuntu 目前逐步取代了其他发行版，取得了新的大量的市场份额，无论是在桌面端还是在服务器端。这篇教程主要讲述如何在安装了 Ubuntu Server 的服务器上部署 Foundry VTT，并使其保持运行并使用反向代理访问。&lt;/p>
+&lt;p>我们会使用 node 的进程管理工具来保证 Foundry VTT 的实例持续运行，而且提供详尽的统计信息，还包括方便的启动、停止、重启命令，以及服务器重启时自动启动 FVTT 的服务。&lt;/p>
+&lt;p>如果拥有域名的话，你和玩家们将会从浏览器上输入域名，通过 HTTPS 加密的反向代理访问 FVTT；如果没有使用到域名，也会输入反代后的对应 IP 和端口访问。&lt;/p>
+&lt;p>本篇教程介绍的部署方式，不会直接让玩家们访问 FVTT 实例暴露出的端口。这样做可以获得一些反代的优势，同时不会有什么显著的缺点，了解反代的优劣势具体可以参考网上一些介绍反向代理的文章。&lt;/p>
+&lt;h2 id="配置服务器环境">配置服务器环境&lt;/h2>
+&lt;p>Ubuntu 服务器上运行 FVTT，需要配置好运行环境：&lt;/p>
+&lt;ul>
+&lt;li>Node.js 运行时，其对应的软件包管理器 npm，以及使用 npm 安装的 pm2（进程管理工具）&lt;/li>
+&lt;li>反向代理软件 Caddy，以及其暴露端口的防火墙（比如 80、443）&lt;/li>
+&lt;/ul>
+&lt;p>首先，假设已经登入了 Ubuntu Server 服务器，并且能够获得 root 权限&lt;/p>
+&lt;h3 id="第一步安装-nodejs-npm-和-unzip">第一步：安装 Node.js, npm 和 Unzip&lt;/h3>
+&lt;p>运行下面命令（适用于 Ubuntu，其他 Linux 发行版使用的命令可能不一致）：&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">curl -sL https://deb.nodesource.com/setup_13.x &lt;span style="color:#000;font-weight:bold">|&lt;/span> sudo -E bash -
+sudo apt-get install -y nodejs unzip
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>以上命令会安装 node.js 以及包管理器 npm。使用 &lt;code>node --version&lt;/code> 和 &lt;code>npm --version&lt;/code> 来确认安装是否成功以及版本号。&lt;/p>
+&lt;h3 id="第二步安装-caddy">第二步：安装 Caddy&lt;/h3>
+&lt;p>运行以下命令将会安装 Caddy：&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">curl -fsSL https://github.com/caddyserver/getcaddy.com/raw/master/index.txt &lt;span style="color:#000;font-weight:bold">|&lt;/span> sudo bash
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>接下来将 Caddy 设置为系统服务：&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo groupadd --system caddy
+sudo useradd --system --gid caddy --create-home --home-dir /var/lib/caddy --shell /usr/sbin/nologin --comment &lt;span style="color:#4e9a06">&amp;#34;Caddy web server&amp;#34;&lt;/span> caddy
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>以上命令将会创建用于启动 Caddy 的 Linux 用户和用户组，接下来将设置好服务：&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo wget -O /etc/systemd/system/caddy.service https://github.com/caddyserver/dist/raw/master/init/caddy.service
+sudo systemctl &lt;span style="color:#204a87">enable&lt;/span> caddy
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="第三步安装-nodejs-进程管理工具pm2">第三步：安装 Node.js 进程管理工具：pm2&lt;/h3>
+&lt;p>使用刚才安装的 npm，全局安装 pm2：&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo npm install -g pm2
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="第四步下载-fvtt-并测试">第四步：下载 FVTT 并测试&lt;/h3>
+&lt;p>创建 FVTT 使用的目录并切换：&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">mkdir ~/foundry &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span> &lt;span style="color:#204a87">cd&lt;/span> ~/foundry
+&lt;span style="color:#204a87">pwd&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>pwd&lt;/code> 命令输出结果应当是 &lt;code>/home/[XXX]/foundry&lt;/code>，&lt;code>[XXX]&lt;/code> 是登录服务器使用的 Linux 用户名。&lt;/p>
+&lt;p>从官网上获取 FVTT 下载链接（Linux），在服务器上运行：&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">wget https://foundryvtt.s3-us-west-2.amazonaws.com/releases/&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>Key&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>/FoundryVirtualTabletop-linux-x64.zip
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>后面的这段链接替换为从官网处复制到的链接&lt;/strong>&lt;/p>
+&lt;p>下载完毕后，解压 FVTT（如果文件名不一致，更换为下载保存的 FVTT 压缩包文件名）：&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">unzip FoundryVirtualTabletop-linux-x64.zip
+rm FoundryVirtualTabletop-linux-x64.zip
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>然后测试确认 FVTT 是否能够正常运行：&lt;code>node /home/[XXX]/foundry/resources/app/main.js --port=62621&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">FoundryVTT &lt;span style="color:#000;font-weight:bold">|&lt;/span> 2020-07-06 07:48:44 &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>info&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> Foundry Virtual Tabletop - Version 0.6.5
+FoundryVTT &lt;span style="color:#000;font-weight:bold">|&lt;/span> 2020-07-06 07:48:44 &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>info&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> Running on Node.js - Version 12.18.2
+FoundryVTT &lt;span style="color:#000;font-weight:bold">|&lt;/span> 2020-07-06 07:48:44 &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>info&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> Application Options:
+&lt;span style="color:#ce5c00;font-weight:bold">{&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#34;port&amp;#34;&lt;/span>: 62621,
+&lt;span style="color:#4e9a06">&amp;#34;upnp&amp;#34;&lt;/span>: false,
+&lt;span style="color:#4e9a06">&amp;#34;fullscreen&amp;#34;&lt;/span>: false,
+&lt;span style="color:#4e9a06">&amp;#34;hostname&amp;#34;&lt;/span>: null,
+&lt;span style="color:#4e9a06">&amp;#34;routePrefix&amp;#34;&lt;/span>: null,
+&lt;span style="color:#4e9a06">&amp;#34;sslCert&amp;#34;&lt;/span>: null,
+&lt;span style="color:#4e9a06">&amp;#34;sslKey&amp;#34;&lt;/span>: null,
+&lt;span style="color:#4e9a06">&amp;#34;awsConfig&amp;#34;&lt;/span>: null,
+&lt;span style="color:#4e9a06">&amp;#34;proxySSL&amp;#34;&lt;/span>: false,
+&lt;span style="color:#4e9a06">&amp;#34;proxyPort&amp;#34;&lt;/span>: null
+&lt;span style="color:#ce5c00;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>如果显示类似于上述的输出结果并且没有显示什么错误，证明 FVTT 已经可以正常运行了！&lt;/p>
+&lt;p>然后按下 &lt;kbd>Ctrl+C&lt;/kbd> 直接杀掉用来测试的 FVTT 进程，准备进行下一步。&lt;/p>
+&lt;h2 id="pm2-运行-fvtt">pm2 运行 FVTT&lt;/h2>
+&lt;p>需要的运行环境都已经配置完毕，接下来需要将 pm2 设置为随系统启动，并让 pm2 管理和运行 FVTT 进程。&lt;/p>
+&lt;h3 id="pm2-配置为系统服务">pm2 配置为系统服务&lt;/h3>
+&lt;p>首先我们要将 pm2 设置为随服务器开机启动。可以使用 pm2 自带的服务文件生成，对于 Ubuntu 系统，执行：&lt;code>pm2 startup&lt;/code>，结果如下：&lt;/p>
+&lt;pre>&lt;code>[PM2] Init System found: systemd
+[PM2] To setup the Startup Script, copy/paste the following command:
+sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u [XXX] --hp /home/[XXX]
+&lt;/code>&lt;/pre>&lt;p>它生成了一个命令，即&lt;code>sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u [XXX] --hp /home/[XXX]&lt;/code>这一部分，其中 &lt;code>[XXX]&lt;/code> 会被自动替换为当前登录使用的用户。复制输出的这段命令（而非从网页上复制）并且执行：&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>PM2&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>v&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> Command successfully executed.
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>如果输出结果中含有以上这段，基本上 pm2 已经被配置为系统服务。&lt;/p>
+&lt;h3 id="pm2-启动-fvtt-并持续运行">pm2 启动 FVTT 并持续运行&lt;/h3>
+&lt;p>现在需要使用 pm2 启动 FVTT，并且让 pm2 记住需要保持 FVTT 的运行，如此就可以让 pm2 在每次服务器重启时都会跟随启动，不需要手动。&lt;/p>
+&lt;p>使用 pm2 启动 FVTT，还是一样 &lt;code>[xxx]&lt;/code> 替换为登录服务器使用的用户名：&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">pm2 start &lt;span style="color:#4e9a06">&amp;#34;node /home/[XXX]/foundry/resources/app/main.js&amp;#34;&lt;/span> --name &lt;span style="color:#4e9a06">&amp;#34;foundry&amp;#34;&lt;/span> -- --port&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">8080&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>端口号&lt;code>8080&lt;/code>可以调整，但是后续的端口号都需要对应修改。&lt;/p>
+&lt;/blockquote>
+&lt;p>运行完毕后，使用 &lt;code>pm2 list&lt;/code> 来查看 pm2 正在管理的进程实例：&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>PM2&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> Starting /home/&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>XXX&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>/foundry/resources/app/main.js in fork_mode &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> instance&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>PM2&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> Done.
+┌──────────┬────┬─────────┬──────┬───────┬────────┬─────────┬────────┬─────┬───────────┬────────┬──────────┐
+│ App name │ id │ version │ mode │ pid │ status │ restart │ uptime │ cpu │ mem │ user │ watching │
+├──────────┼────┼─────────┼──────┼───────┼────────┼─────────┼────────┼─────┼───────────┼────────┼──────────┤
+│ foundry │ &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span> │ 0.3.2 │ fork │ &lt;span style="color:#0000cf;font-weight:bold">31130&lt;/span> │ online │ &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span> │ 0s │ 0% │ 8.9 MB │ &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>XXX&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> │ disabled │
+└──────────┴────┴─────────┴──────┴───────┴────────┴─────────┴────────┴─────┴───────────┴────────┴──────────┘
+Use &lt;span style="color:#4e9a06">`&lt;/span>pm2 show &amp;lt;id&lt;span style="color:#000;font-weight:bold">|&lt;/span>name&amp;gt;&lt;span style="color:#4e9a06">`&lt;/span> to get more details about an app
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>pm2 会展示如上所示的列表，并且展示大量有用的信息，比如是否运行中，进程重启次数，运行时间， CPU 使用率和内存使用率等等。使用 &lt;code>pm2 show foundry&lt;/code> 可以展示更详尽的关于启动的 FVTT 进程的信息。&lt;/p>
+&lt;p>接下来使用 &lt;code>pm2 save&lt;/code>，即可保存配置，令 pm2 记住对 FVTT 进程的管理。&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>pm2 start foundry&lt;/code> 启动 FVTT&lt;/li>
+&lt;li>&lt;code>pm2 stop foundry&lt;/code> 停止 FVTT&lt;/li>
+&lt;li>&lt;code>pm2 restart foundry&lt;/code> 重启 FVTT&lt;/li>
+&lt;li>&lt;code>pm2 delete foundry&lt;/code> 删除 FVTT 的管理项，不再使用 pm2 管理&lt;/li>
+&lt;/ul>
+&lt;p>事实上，此处如果 8080 端口防火墙已放行，就应该可以访问了。在自己的浏览器上输入 &lt;code>http://[服务器IP]:8080&lt;/code> 来尝试访问，防火墙放行即可见到 FVTT 的界面；如果不能访问，是好事，因为我们不想开放这个端口。&lt;/p>
+&lt;h2 id="设置反向代理">设置反向代理&lt;/h2>
+&lt;p>相反，用户应该使用反代来连接，而使用 Caddy 可以简化配置反代的流程。而且，如果用到域名，使用 Caddy 配置 HTTPS 将非常简单，它内置申请 LetsEncrypt 的证书并自动更新的方法，无需额外配置。&lt;/p>
+&lt;div class="alert alert-primary" role="alert">
+&lt;h4 class="alert-heading">可选&lt;/h4>
+&lt;p>&lt;strong>如果使用域名，需要将域名&lt;a href="../domain-name/#%E7%BB%91%E5%AE%9A%E5%AD%90%E5%9F%9F%E5%90%8D">绑定&lt;/a>上&lt;/strong>&lt;/p>
+&lt;p>接下来使用到的域名都假定为 &lt;code>my.foundry.com&lt;/code>，记得替换为自己的域名&lt;/p>
+&lt;/div>
+&lt;p>执行 &lt;code>sudo nano /etc/caddy/Caddyfile&lt;/code>，将会开始编辑 Caddy 的配置文件。使用域名和不使用域名基本配置文件的内容都近似，在命令进入的 nano 界面中，输入以下内容，根据使用域名与否来区分：&lt;/p>
+&lt;ul>
+&lt;li>不使用域名
+&lt;pre>&lt;code>:80 {
+reverse_proxy localhost:8080 {
+header_up Host {host}
+header_up X-Real-IP {remote_host}
+header_up X-Forwarded-For {remote_host}
+header_up X-Forwarded-Proto {scheme}
+}
+}
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;li>使用域名
+&lt;pre>&lt;code>my.foundry.com {
+reverse_proxy localhost:8080 {
+header_up Host {host}
+header_up X-Real-IP {remote_host}
+header_up X-Forwarded-For {remote_host}
+header_up X-Forwarded-Proto {scheme}
+}
+}
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;/ul>
+&lt;p>输入或者粘贴完毕后，按下 &lt;kbd>Ctrl+X&lt;/kbd>，接着按 &lt;kbd>y&lt;/kbd> 并且回车，确认保存文件。&lt;/p>
+&lt;p>然后启动已经配置好的 Caddy 服务即可：&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo systemctl start caddy
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>等待一段时间后，通过你设置的域名或者服务器 IP 地址，即可访问已经部署完毕的 FVTT，尽情使用吧。&lt;/p>
+&lt;div class="alert alert-warning" role="alert">
+&lt;h4 class="alert-heading">注意&lt;/h4>
+如果无法访问，检查是否开启服务器防火墙的 80/443 端口，这两个端口需要打开
+&lt;/div></description></item><item><title>Deployment: CentOS 部署 FoundryVTT 教程</title><link>https://fvtt-cn.github.io/deployment/gettingstarted/centos/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/deployment/gettingstarted/centos/</guid><description/></item><item><title>Deployment: Docker 部署 FoundryVTT 教程</title><link>https://fvtt-cn.github.io/deployment/gettingstarted/docker/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/deployment/gettingstarted/docker/</guid><description>
 &lt;p>Foundry VTT 目前拥有若干个来自不同用户实现的 Dockerfile，这些实现中，较为推荐 &lt;a href="https://github.com/felddy/foundryvtt-docker">felddy/foundryvtt&lt;/a> 的镜像。&lt;/p>
 &lt;h2 id="介绍">介绍&lt;/h2>
 &lt;p>目前可以通过中文社区的自动脚本进行容器化部署，也可以手动启动容器。&lt;/p>
@@ -199,7 +351,7 @@ header_up X-Forwarded-For {remote_host}
 header_up X-Forwarded-Proto {scheme}
 }
 }
-&lt;/code>&lt;/pre>&lt;p>无论是否有域名，输入或者粘贴完毕后，按 &lt;code>Ctrl+X&lt;/code>，会提示是否覆写编辑内容，按 &lt;code>y&lt;/code> 并且回车确认保存&lt;/p>
+&lt;/code>&lt;/pre>&lt;p>无论是否有域名，输入或者粘贴完毕后，按 &lt;kbd>Ctrl+X&lt;/kbd>，会提示是否覆写编辑内容，按 &lt;kbd>y&lt;/kbd> 并且回车确认保存&lt;/p>
 &lt;p>接着启动 Caddy 进行反代，执行：&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo docker run -d &lt;span style="color:#4e9a06">\
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span>--name&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>caddy &lt;span style="color:#4e9a06">\
@@ -236,7 +388,7 @@ header_up X-Forwarded-For {remote_host}
 header_up X-Forwarded-Proto {scheme}
 }
 }
-&lt;/code>&lt;/pre>&lt;p>同样在输入或者粘贴完毕后，按 &lt;code>Ctrl+X&lt;/code> 然后按 &lt;code>y&lt;/code> 并且回车确认保存&lt;/p>
+&lt;/code>&lt;/pre>&lt;p>同样在输入或者粘贴完毕后，按 &lt;kbd>Ctrl+X&lt;/kbd> 然后按 &lt;kbd>y&lt;/kbd> 并且回车确认保存&lt;/p>
 &lt;p>接着，重启 Caddy 以使其启用对 FileBrowser 的反代：&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo docker restart caddy
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
