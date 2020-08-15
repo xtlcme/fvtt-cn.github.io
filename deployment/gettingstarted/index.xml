@@ -58,30 +58,41 @@
 &lt;p>比如通过 GitHub 学生认证，可以获得：&lt;/p>
 &lt;ul>
 &lt;li>DigitalOcean 学生优惠（送 50 刀，单核 1G 配置，可以购买 10 个月）&lt;/li>
-&lt;li>Azure 学生优惠（送 100 刀，单核 1G 配置，可以买香港服务器 9 个月）&lt;/li>
+&lt;li>Azure 学生优惠（送 100 刀，单核 1G 配置的香港服务器，可以购买 9 个月）&lt;/li>
 &lt;li>Namecheap 的域名一年&lt;/li>
 &lt;li>&amp;hellip;&lt;/li>
 &lt;/ul>
-&lt;p>如果认证无法通过，那境内最好的选择可能就是阿里云轻量应用服务器，简单直接没有别的套路，5Mbps 还算能用，每个月 2T 的流量跑 FVTT 管够。&lt;/p>
-&lt;h2 id="购买服务器">购买服务器&lt;/h2>
-&lt;p>待施工&lt;/p></description></item><item><title>Deployment: 域名购买/绑定指南</title><link>https://fvtt-cn.github.io/deployment/gettingstarted/domain-name/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/deployment/gettingstarted/domain-name/</guid><description>
+&lt;p>如果认证无法通过，那境内最好的选择可能就是阿里云轻量应用服务器，简单直接没有别的套路，5Mbps 还算能用，每个月 1TB 的流量跑 FVTT 管够。&lt;/p></description></item><item><title>Deployment: 域名购买/绑定指南</title><link>https://fvtt-cn.github.io/deployment/gettingstarted/domain-name/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/deployment/gettingstarted/domain-name/</guid><description>
 &lt;h2 id="购买域名">购买域名&lt;/h2>
-&lt;p>待施工&lt;/p>
+&lt;p>目前各大云服务提供商基本都提供了域名购买、托管以及 DNS 解析服务，实现一站式服务。&lt;/p>
+&lt;p>服务器对域名没有任何要求，但需要注意，如果购买域名并绑定国内服务器使用，则需要备案，而备案对域名后缀（顶级域名）有要求。目前国内云平台购买域名时，如果遇到不能备案的后缀，会提示无法备案，所以注意查看信息就不必担心购买域名之后无法使用的问题。&lt;/p>
+&lt;p>使用域名一般有如下要求和步骤：&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>选择域名&lt;/strong>，全凭个人喜好，但注册之后无法更换，只能新买&lt;/li>
+&lt;li>&lt;strong>付款、续费&lt;/strong>，域名一般按年购买，到期之前需要续费，否则会被回收（不少首年便宜的域名，续费价格很高）&lt;/li>
+&lt;li>&lt;strong>实名认证&lt;/strong>，需要填写个人信息并公开，部分域名商可以隐藏域名拥有者实名信息（备案要求必须匹配实名）&lt;/li>
+&lt;li>&lt;strong>DNS 解析&lt;/strong>，利用 DNS 解析服务，&lt;a href="#%E7%BB%91%E5%AE%9A%E5%AD%90%E5%9F%9F%E5%90%8D">绑定域名到服务器&lt;/a>或者做其他解析&lt;/li>
+&lt;/ul>
 &lt;h2 id="备案">备案&lt;/h2>
 &lt;div class="alert alert-primary" role="alert">
 &lt;h4 class="alert-heading">可选&lt;/h4>
 仅国内服务器架设网站需要备案，如果使用境外服务器（含香港）提供服务，无需备案
 &lt;/div>
-&lt;p>待施工&lt;/p>
+&lt;p>目前方便的备案方式是通过各个云服务自己的备案渠道申请，这就要求需要在该平台购买云服务器或者域名，所以尽量在一个云服务提供商处解决所有问题，而不要拼凑着买。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://beian.miit.gov.cn/">工信部自行备案&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://beian.aliyun.com/">阿里云备案&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloud.tencent.com/product/ba">腾讯云备案&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="绑定子域名">绑定（子）域名&lt;/h2>
 &lt;div class="alert alert-warning" role="alert">
 &lt;h4 class="alert-heading">注意&lt;/h4>
 国内服务器未备案无法使用域名来访问网站
 &lt;/div>
 &lt;p>绑定域名依赖于购买域名的域名提供商和 DNS 服务，各家的界面、操作会有一些不同，但域名的基本管理方式和相关术语是一致的。简单来说，&lt;strong>你需要创建一条 A 记录，映射到你将要安装 FVTT 的服务器的 IP 地址&lt;/strong>。&lt;/p>
-&lt;p>如图所示，是腾讯云的 DNS 解析管理界面，正在添加的记录便是 &lt;code>foundry.xxx.yyy&lt;/code>（&lt;code>xxx.yyy&lt;/code> 是你注册的域名），其他 DNS 解析设置界面大同小异，详细可以参见平台自己的帮助。&lt;/p>
+&lt;p>如图所示，腾讯云的 DNS 解析管理界面，正在添加的记录便是 &lt;code>foundry.xxx.yyy&lt;/code>（&lt;code>foundry&lt;/code> 是子域名，&lt;code>xxx.yyy&lt;/code> 是你注册的域名），其他 DNS 解析设置界面大同小异，详细可以参见平台自己的帮助。&lt;/p>
 &lt;ul>
-&lt;li>&lt;strong>主机记录&lt;/strong>填写你想使用的子域名或者使用&lt;code>@&lt;/code>来代表直接使用 &lt;code>xxx.yyy&lt;/code> 访问 FVTT&lt;/li>
+&lt;li>&lt;strong>主机记录&lt;/strong>填写你想使用的子域名（比如&lt;code>foundry&lt;/code>），或者使用&lt;code>@&lt;/code>来代表直接使用 &lt;code>xxx.yyy&lt;/code> 访问&lt;/li>
 &lt;li>&lt;strong>记录类型&lt;/strong>选择 A 记录&lt;/li>
 &lt;li>&lt;strong>记录值&lt;/strong>填写需要服务器的 &lt;strong>公网&lt;/strong> IP，其他 IP 无法访问&lt;/li>
 &lt;/ul>
