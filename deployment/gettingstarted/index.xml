@@ -550,7 +550,7 @@ header_up X-Forwarded-Proto {scheme}
 &lt;ol>
 &lt;li>下载并安装 Node.js，在 &lt;a href="https://nodejs.org/zh-cn/download/">Node.js 官网安装页面&lt;/a>上，点击 Windows 安装包下载&lt;/li>
 &lt;li>将 Node.js 安装包通过 &lt;em>远程桌面&lt;/em> 复制到服务器上，然后在服务器上点击安装包文件，一路确认，安装 Node.js&lt;/li>
-&lt;li>从 Foundry VTT 官网上下载最新包，使用 Node.js 部署，所以选择第四项
+&lt;li>从 &lt;a href="https://foundryvtt.com/">Foundry VTT 官网&lt;/a>上下载最新包，使用 Node.js 部署，所以选择第四项
 &lt;ul>
 &lt;li>&lt;img src="https://fvtt-cn.github.io/images/deployment/download-url.png" alt="">&lt;/li>
 &lt;/ul>

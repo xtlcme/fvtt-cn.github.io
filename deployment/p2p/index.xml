@@ -40,4 +40,100 @@
 &lt;p>&lt;img src="https://fvtt-cn.github.io/images/deployment/nat-typetest.png" alt="nat-type-tester">&lt;/p>
 &lt;p>如果如图中所示， &lt;code>NAT type&lt;/code>一栏显示 &lt;code>FullCone&lt;/code> 即代表 NAT 类型为开放，P2P 连接性较好。&lt;/p>
 &lt;p>如果是其他情况，尤其是 &lt;code>Symmetric&lt;/code> 或者 &lt;code>UdpBlocked&lt;/code>，基本难以直接稳定地建立 P2P 连接，最好使用内网穿透等工具辅助建立连接，或者直接使用服务器部署。&lt;/p></description></item><item><title>Deployment: 一般情况下的 P2P 使用教程</title><link>https://fvtt-cn.github.io/deployment/p2p/normal/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/deployment/p2p/normal/</guid><description>
-&lt;p>待施工&lt;/p></description></item><item><title>Deployment: 使用 Zerotier 进行 P2P 联机</title><link>https://fvtt-cn.github.io/deployment/p2p/zerotier/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/deployment/p2p/zerotier/</guid><description/></item></channel></rss>
+&lt;blockquote>
+&lt;p>如果你的网络质量不错，并且拥有公网 IP，可以参见此文在本地运行 FVTT 并联机。
+本篇教程参考 FVTT 英文社群网站 &lt;a href="https://foundry-vtt-community.github.io/wiki/Windows/">Windows 托管教程&lt;/a>以及&lt;a href="https://foundryvtt.com/article/installation/">官方安装教程&lt;/a>。&lt;/p>
+&lt;/blockquote>
+&lt;hr>
+&lt;h2 id="基础配置">基础配置&lt;/h2>
+&lt;ol>
+&lt;li>登录 &lt;a href="https://foundryvtt.com/">Foundry VTT 官网&lt;/a>，下载最新的 Windows 版本安装包（图中第一个）
+&lt;ul>
+&lt;li>&lt;img src="https://fvtt-cn.github.io/images/deployment/download-url.png" alt="">&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>打开，开始安装 FVTT，一路按照指示进行安装
+&lt;ul>
+&lt;li>如果选择安装后打开 FVTT，可能会出现防火墙提示，点击&lt;code>允许访问&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>如果看到如下的窗口，证明你已经成功安装了 FVTT
+&lt;ul>
+&lt;li>&lt;img src="https://fvtt-cn.github.io/images/deployment/local-run.jpg" alt="">&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;p>之后如果需要再运行 FVTT，直接打开快捷方式或者运行安装目录下的 &lt;code>FooundryVTT.exe&lt;/code>。&lt;/p>
+&lt;p>如果你拥有公网 IP，接下来让其他玩家通过 &lt;code>http://[你的公网 IP]:30000&lt;/code> 访问（比如 &lt;code>http://1.2.3.4:30000&lt;/code>）。&lt;/p>
+&lt;p>或者可以查看 Foundry VTT 所显示的游戏邀请链接：&lt;/p>
+&lt;p>在 FVTT 软件中已经启动的世界里，打开侧边栏上齿轮状的&lt;strong>设置&lt;/strong>(Settings)，点击&lt;strong>邀请链接&lt;/strong>(Invitation Links)，查看可以访问的链接。&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>局域网&lt;/strong>(Local Network)，只能在局域网环境下访问，比如同一个路由器下的其他设备&lt;/li>
+&lt;li>&lt;strong>互联网&lt;/strong>(Internet)，暴露到互联网上的地址，但如果公网 IP 不可访问，这个地址无效&lt;/li>
+&lt;/ul>
+&lt;div class="alert alert-warning" role="alert">
+&lt;h4 class="alert-heading">Tips&lt;/h4>
+如果需要自己连到自己开启的 FVTT 游戏中（比如用浏览器测试玩家视角），应该使用 localhost 而不是 IP 地址，比如 &lt;code>http://localhost:30000&lt;/code>
+&lt;/div>
+&lt;hr>
+&lt;p>如果你和其他玩家无法通过互联网地址访问你的 FVTT，那么接下来需要构建虚拟局域网，或者使用内网穿透把端口转发到公网来让玩家可以访问，典型的解决方案如下：&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="../zerotier">ZeroTier&lt;/a>：虚拟局域网&lt;/li>
+&lt;li>&lt;a href="https://ngrok.com/">ngrok&lt;/a>：内网穿透（暂未提供教程）&lt;/li>
+&lt;li>&lt;a href="../natapp">NATAPP&lt;/a>：内网穿透&lt;/li>
+&lt;/ul></description></item><item><title>Deployment: 使用 ZeroTier 进行 P2P 联机</title><link>https://fvtt-cn.github.io/deployment/p2p/zerotier/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/deployment/p2p/zerotier/</guid><description>
+&lt;p>ZeroTier 是一款开源的构建虚拟网域的工具，同时其公司直接提供包含免费层的服务，可以用来辅助 P2P 联机。比较遗憾的是，它的服务器位于国外，导致国内玩家连接质量并不是特别理想，&lt;em>但相对于无法连接总是更好的&lt;/em>。&lt;/p>
+&lt;p>&lt;a href="https://www.zerotier.com/download/">ZeroTier One 官网下载链接&lt;/a>&lt;/p>
+&lt;h2 id="gm-使用方法">GM 使用方法&lt;/h2>
+&lt;ol>
+&lt;li>下载并安装 ZeroTier One&lt;/li>
+&lt;li>在&lt;a href="https://my.zerotier.com/login">官网登录页&lt;/a>注册 ZeroTier 账号，免费订阅可以满足需求&lt;/li>
+&lt;li>注册完毕后，打开&lt;a href="https://my.zerotier.com/network">网络管理&lt;/a>，创建一个新的网络，并设置为公开
+&lt;ul>
+&lt;li>创建新网络：&lt;img src="https://fvtt-cn.github.io/images/deployment/zerotier/net.png" alt="">&lt;/li>
+&lt;li>设置为公开：&lt;img src="https://fvtt-cn.github.io/images/deployment/zerotier/set_public.png" alt="">&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>复制网络 ID（就是类似 &lt;code>af415e486f9a53de&lt;/code> 这一串）&lt;/li>
+&lt;li>ZeroTier 会在系统托盘（右下角）显示图标
+&lt;ul>
+&lt;li>点击图标打开菜单，选择加入网络(join a network)，然后粘贴刚才复制的网络 ID 并确认&lt;/li>
+&lt;li>将网络 ID 发送给玩家，并让玩家们遵照 &lt;a href="#pl-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95">PL 使用方法&lt;/a>来加入虚拟局域网&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>打开 ZeroTier 窗口
+&lt;ul>
+&lt;li>窗口中会显示网络信息：&lt;br>&lt;img src="https://fvtt-cn.github.io/images/deployment/zerotier/local.png" alt="">&lt;/li>
+&lt;li>复制自己的托管 IP(Managed IPs)，其他玩家&lt;a href="#pl-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95">&lt;strong>加入虚拟网络后&lt;/strong>&lt;/a>通过 &lt;code>http://[托管IP]:30000&lt;/code> 访问开启的 FVTT（不需要斜杠和后面的数字）&lt;/li>
+&lt;li>比如按图中信息，其他玩家访问 &lt;code>http://10.144.100.52:30000&lt;/code> 即可&lt;/li>
+&lt;li>如果 FVTT 设置的端口号不是 30000，那么需要对应调整其他玩家访问 FVTT 的地址&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="pl-使用方法">PL 使用方法&lt;/h2>
+&lt;ol>
+&lt;li>下载并安装 ZeroTier One&lt;/li>
+&lt;li>ZeroTier 会在系统托盘（右下角）显示图标
+&lt;ul>
+&lt;li>点击图标打开菜单，选择加入网络(join a network)，粘贴 GM 发送的的网络 ID 并确认&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;div class="alert alert-warning" role="alert">
+&lt;h4 class="alert-heading">注意&lt;/h4>
+ZeroTier 安装后会作为系统服务，跟随系统启动，如果不关闭或者设置为手动，将会始终连接到创建的虚拟网络中
+&lt;/div></description></item><item><title>Deployment: 使用 NATAPP 进行 P2P 联机</title><link>https://fvtt-cn.github.io/deployment/p2p/natapp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/deployment/p2p/natapp/</guid><description>
+&lt;p>NATAPP 相比 ngrok 的优势是使用国内服务器进行转发，对于位于国内的玩家来说连接质量会好很多。NATAPP 提供免费层可供轻度使用，如果需要跨境连接，同时也提供多线和香港接入的收费服务。&lt;/p>
+&lt;hr>
+&lt;h2 id="设置-natapp">设置 NATAPP&lt;/h2>
+&lt;p>购买 NATAPP 以及基础使用参见其&lt;a href="https://natapp.cn/article/natapp_newbie">官网教程&lt;/a>。&lt;/p>
+&lt;p>不过，在购买隧道时，本地端口需要设置为 &lt;code>30000&lt;/code>。&lt;/p>
+&lt;blockquote>
+&lt;p>如果 FVTT 设置的端口号不是 30000，那么需要对应调整本地端口。&lt;/p>
+&lt;/blockquote>
+&lt;p>之后按照官网教程继续进行，完成后复制穿透网址，如 &lt;code>http://ywy9n8.natappfree.cc&lt;/code>，让玩家们访问该地址即可。&lt;/p>
+&lt;div class="alert alert-warning" role="alert">
+&lt;h4 class="alert-heading">注意&lt;/h4>
+每次开启 NATAPP 开始转发后，因为免费隧道只能提供随机域名，所以访问的地址会出现变动，需要让玩家们每次使用新的链接
+&lt;/div></description></item></channel></rss>
