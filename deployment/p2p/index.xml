@@ -88,8 +88,10 @@
 &lt;p>如果你和其他玩家无法通过互联网地址访问你的 FVTT，那么接下来需要构建虚拟局域网，或者使用内网穿透把端口转发到公网来让玩家可以访问，典型的解决方案如下：&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="../zerotier">ZeroTier&lt;/a>：虚拟局域网&lt;/li>
+&lt;li>&lt;a href="https://pgy.oray.com/">蒲公英&lt;/a>：虚拟局域网（暂未提供教程）&lt;/li>
 &lt;li>&lt;a href="https://ngrok.com/">ngrok&lt;/a>：内网穿透（暂未提供教程）&lt;/li>
 &lt;li>&lt;a href="../natapp">NATAPP&lt;/a>：内网穿透&lt;/li>
+&lt;li>&lt;a href="https://hsk.oray.com/">花生壳&lt;/a>：内网穿透（暂未提供教程）&lt;/li>
 &lt;/ul></description></item><item><title>Deployment: 使用 ZeroTier 进行 P2P 联机</title><link>https://fvtt-cn.github.io/deployment/p2p/zerotier/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/deployment/p2p/zerotier/</guid><description>
 &lt;p>ZeroTier 是一款开源的构建虚拟网域的工具，同时其公司直接提供包含免费层的服务，可以用来辅助 P2P 联机。比较遗憾的是，它的服务器位于国外，导致国内玩家连接质量并不是特别理想，&lt;em>但相对于无法连接总是更好的&lt;/em>。&lt;/p>
 &lt;p>&lt;a href="https://www.zerotier.com/download/">ZeroTier One 官网下载链接&lt;/a>&lt;/p>
