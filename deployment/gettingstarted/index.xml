@@ -64,7 +64,7 @@
 &lt;/ul>
 &lt;p>如果认证无法通过，那境内最好的选择可能就是阿里云轻量应用服务器，简单直接没有别的套路，5Mbps 还算能用，每个月 2T 的流量跑 FVTT 管够。&lt;/p>
 &lt;h2 id="购买服务器">购买服务器&lt;/h2>
-&lt;p>待施工&lt;/p></description></item><item><title>Deployment: 域名购买、绑定</title><link>https://fvtt-cn.github.io/deployment/gettingstarted/domain-name/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/deployment/gettingstarted/domain-name/</guid><description>
+&lt;p>待施工&lt;/p></description></item><item><title>Deployment: 域名购买/绑定指南</title><link>https://fvtt-cn.github.io/deployment/gettingstarted/domain-name/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/deployment/gettingstarted/domain-name/</guid><description>
 &lt;h2 id="购买域名">购买域名&lt;/h2>
 &lt;p>待施工&lt;/p>
 &lt;h2 id="备案">备案&lt;/h2>
@@ -131,7 +131,7 @@ sudo systemctl &lt;span style="color:#204a87">enable&lt;/span> caddy
 &lt;p>下载完毕后，解压 FVTT（如果文件名不一致，更换为下载保存的 FVTT 压缩包文件名）：&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">unzip FoundryVirtualTabletop-linux-x64.zip
 rm FoundryVirtualTabletop-linux-x64.zip
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>然后测试确认 FVTT 是否能够正常运行：&lt;code>node /home/[XXX]/foundry/resources/app/main.js --port=62621&lt;/code>&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>然后测试确认 FVTT 是否能够正常运行：&lt;code>node $HOME/foundry/resources/app/main.js --port=62621&lt;/code>&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">FoundryVTT &lt;span style="color:#000;font-weight:bold">|&lt;/span> 2020-07-06 07:48:44 &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>info&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> Foundry Virtual Tabletop - Version 0.6.5
 FoundryVTT &lt;span style="color:#000;font-weight:bold">|&lt;/span> 2020-07-06 07:48:44 &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>info&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> Running on Node.js - Version 12.18.2
 FoundryVTT &lt;span style="color:#000;font-weight:bold">|&lt;/span> 2020-07-06 07:48:44 &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>info&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> Application Options:
@@ -162,7 +162,7 @@ sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -
 &lt;h3 id="pm2-启动-fvtt-并持续运行">pm2 启动 FVTT 并持续运行&lt;/h3>
 &lt;p>现在需要使用 pm2 启动 FVTT，并且让 pm2 记住需要保持 FVTT 的运行，如此就可以让 pm2 在每次服务器重启时都会跟随启动，不需要手动。&lt;/p>
 &lt;p>使用 pm2 启动 FVTT，还是一样 &lt;code>[xxx]&lt;/code> 替换为登录服务器使用的用户名：&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">pm2 start &lt;span style="color:#4e9a06">&amp;#34;node /home/[XXX]/foundry/resources/app/main.js&amp;#34;&lt;/span> --name &lt;span style="color:#4e9a06">&amp;#34;foundry&amp;#34;&lt;/span> -- --port&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">8080&lt;/span>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">pm2 start &lt;span style="color:#4e9a06">&amp;#34;node &lt;/span>&lt;span style="color:#000">$HOME&lt;/span>&lt;span style="color:#4e9a06">/foundry/resources/app/main.js&amp;#34;&lt;/span> --name &lt;span style="color:#4e9a06">&amp;#34;foundry&amp;#34;&lt;/span> -- --port&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">8080&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
 &lt;p>端口号&lt;code>8080&lt;/code>可以调整，但是后续的端口号都需要对应修改。&lt;/p>
 &lt;/blockquote>
@@ -221,7 +221,123 @@ header_up X-Forwarded-Proto {scheme}
 &lt;div class="alert alert-warning" role="alert">
 &lt;h4 class="alert-heading">注意&lt;/h4>
 如果无法访问，检查是否开启服务器防火墙的 80/443 端口，这两个端口需要打开
-&lt;/div></description></item><item><title>Deployment: CentOS 部署 FoundryVTT 教程</title><link>https://fvtt-cn.github.io/deployment/gettingstarted/centos/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/deployment/gettingstarted/centos/</guid><description/></item><item><title>Deployment: Docker 部署 FoundryVTT 教程</title><link>https://fvtt-cn.github.io/deployment/gettingstarted/docker/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/deployment/gettingstarted/docker/</guid><description>
+&lt;/div></description></item><item><title>Deployment: CentOS 部署 FoundryVTT 教程</title><link>https://fvtt-cn.github.io/deployment/gettingstarted/centos/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/deployment/gettingstarted/centos/</guid><description>
+&lt;p>这里介绍&lt;a href="https://www.peatsuki.com/008.html">雙月ひめは的 CentOS 教程&lt;/a>以及其&lt;a href="https://www.peatsuki.com/010.html">一键部署脚本教程&lt;/a>。&lt;/p>
+&lt;hr>
+&lt;h2 id="脚本部署">脚本部署&lt;/h2>
+&lt;p>命令如下：&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo su root
+&lt;span style="color:#204a87">cd&lt;/span>
+wget https://www.peatsuki.com/sh/InstallFVTT.sh --no-check-certificate
+sh InstallFVTT.sh
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="https://foundryvtt.com/">官网地址&lt;/a> 登录以购买的账户以获取下载链接。&lt;/p>
+&lt;p>然后再选择后台模式中输入 &lt;code>非【P】 以nohup进行后台运行&lt;/code>。&lt;/p>
+&lt;p>若需要使用 PM2，需要有足够的基本知识方可使用。&lt;/p>
+&lt;p>如需上传文件，需要设置 root 账号密码后使用 SFTP 工具上传，例如 WinSCP 等。&lt;/p>
+&lt;hr>
+&lt;p>如果因为设置密码造成的系统重启，则需要在远程连接中执行如下内容：（执行后需要等待2-3分钟系统运行即可访问）&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo su root
+&lt;span style="color:#204a87">cd&lt;/span>
+sh startfvtt.sh
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="使用脚本在阿里云-centos-机器上部署的教程视频">使用脚本在阿里云 CentOS 机器上部署的教程视频&lt;/h3>
+&lt;style>
+.aspect-ratio {
+position: relative;
+width: 100%;
+height: 0;
+padding-bottom: 75%;
+}
+.aspect-ratio iframe {
+position: absolute;
+width: 100%;
+height: 100%;
+left: 0;
+top: 0;
+}
+&lt;/style>
+&lt;div class="aspect-ratio">
+&lt;iframe src="https://player.bilibili.com/player.html?bvid=BV1Q54y1v7FX&amp;&amp;page=1&amp;as_wide=1&amp;high_quality=1&amp;danmaku=0"
+scrolling="no"
+frameborder="no"
+framespacing="0"
+allowfullscreen="true">
+&lt;/iframe>
+&lt;/div>
+&lt;h2 id="手动部署">手动部署&lt;/h2>
+&lt;h3 id="0x00-目标服务器">0x00 目标服务器&lt;/h3>
+&lt;p>阿里云轻量服务器是一个物美价廉的香港服务器。&lt;/p>
+&lt;p>目前定价为 1U1G=24 元、1U2G=34 元。（截至 2020/7/1 日）&lt;/p>
+&lt;p>峰值带宽为 30M，流量为 1T-2T 左右。已经足够当我们的服务器使用。&lt;/p>
+&lt;p>请注意：由于非大陆地域的虚拟主机提供国际带宽，如在中国大陆使用，会有较大的网络延迟。&lt;/p>
+&lt;h3 id="0x01-我的服务器状况">0x01 我的服务器状况&lt;/h3>
+&lt;p>我的服务器上已经做了 apache+php+wordpress，并且配置了全域 SSL 和加入 HSTS Preload List。&lt;/p>
+&lt;p>经过考虑，我让 FoundryVTT 和这个 wordpress 博客挤一挤。以下制作代码建立在我的环境之下。&lt;/p>
+&lt;p>阿里云自带的 WordPress 4.8.1 或许能提供类似环境（不保证）&lt;/p>
+&lt;h3 id="0x02-安装nodejs环境来源于官方指导">0x02 安装node.js环境（来源于官方指导）&lt;/h3>
+&lt;p>依次运行以下语句&lt;/p>
+&lt;pre>&lt;code>sudo yum install -y openssl-devel
+curl --silent --location https://rpm.nodesource.com/setup_12.x | sudo bash -
+sudo yum install -y nodejs
+&lt;/code>&lt;/pre>&lt;h3 id="0x03-创建对应文件夹并下载foundryvtt运作档来源于官方指导">0x03 创建对应文件夹并下载FoundryVTT运作档（来源于官方指导）&lt;/h3>
+&lt;p>依次运行以下语句，其中斜线部分需要去你的FoundrtVTT授权页面点击node.js后方的链条按钮获得临时下载地址，并替换斜体部分。&lt;/p>
+&lt;pre>
+cd $HOME
+mkdir foundryvtt
+mkdir foundrydata
+cd foundryvtt
+wget -O foundryvtt.zip "&lt;em>https://foundryvtt.s3.amazonaws.com/releases/0.6.4/foundryvtt-0.6.4.zip&lt;/em>"
+unzip foundryvtt.zip
+&lt;/pre>
+&lt;h3 id="0x04-使用直接运行的方式测试foundrtvtt来源于官方指导">0x04 使用直接运行的方式测试FoundrtVTT（来源于官方指导）&lt;/h3>
+&lt;p>运行以下语句并访问你的服务器公网地址测试，例如：&lt;code>http://127.0.0.1:30000&lt;/code>&lt;/p>
+&lt;pre>&lt;code>node resources/app/main.js --dataPath=$HOME/foundrydata
+&lt;/code>&lt;/pre>&lt;h3 id="0x05-使用pm2创建nodejs值守进程来源于社区指导">0x05 使用PM2创建node.js值守进程（来源于社区指导）&lt;/h3>
+&lt;p>依次运行以下语句，安装pm2并创建值守进程&lt;/p>
+&lt;pre>&lt;code>cd $home
+npm install -g pm2
+pm2 start foundrtvtt/resources/app/main.js
+&lt;/code>&lt;/pre>&lt;h3 id="0x06-安装ssl证书">0x06 安装SSL证书&lt;/h3>
+&lt;pre>&lt;code>cd /foundrydata
+mkdir ssl
+&lt;/code>&lt;/pre>&lt;p>然后将证书的 crt、key 文件拷贝到 ssl 文件夹下。（建议采用 FTP 方式或者 SFTP 方式）&lt;/p>
+&lt;p>打开 FoundryVTT，在 Configuration 中修改以下内容（斜体部分需要根据实际情况修改）&lt;/p>
+&lt;ul>
+&lt;li>UserDataPath修改为 &lt;em>&lt;code>/root/foundrydata&lt;/code>&lt;/em>&lt;/li>
+&lt;li>填写SSL Certifilcate &lt;em>&lt;code>/root/foundrydata/ssl/yourdomain.crt&lt;/code>&lt;/em>&lt;/li>
+&lt;li>填写SSL Private Key &lt;em>&lt;code>/root/foundrydata/ssl/yourdomain.key&lt;/code>&lt;/em>&lt;/li>
+&lt;/ul>
+&lt;p>然后点击 Save Changes 保存配置文件&lt;/p>
+&lt;h3 id="0x07配置apache实现反向代理">0x07配置apache实现反向代理&lt;/h3>
+&lt;p>修改 &lt;code>/usr/local/apache/conf/httpd.conf&lt;/code> 的内容，添加以下字段：&lt;/p>
+&lt;pre>&lt;code>LoadModule proxy_module modules/mod_proxy.so
+LoadModule proxy_http_module modules/mod_proxy_http.so
+LoadModule proxy_connect_module modules/mod_proxy_connect.so
+LoadModule proxy_wstunnel_module modules/mod_proxy_wstunnel.so
+LoadModule proxy_ftp_module modules/mod_proxy_ftp.so
+&lt;/code>&lt;/pre>&lt;p>修改 &lt;code>/usr/local/apache/conf/extra/httpd-ssl.conf&lt;/code> 文件，添加以下字段，其中斜下划线部分需要根据实际情况修改：&lt;/p>
+&lt;pre>
+&amp;lt;VirtualHost *:443&amp;gt;
+ServerName &lt;em>&lt;u>yourdomain.com&lt;/u>&lt;/em>
+ServerAlias &lt;em>&lt;u>yourdomain.com&lt;/u>&lt;/em>
+RewriteEngine On
+RewriteCond %{REQUEST_URI} ^/socket.io [NC]
+RewriteCond %{QUERY_STRING} transport=websocket [NC]
+RewriteRule /(.*) &lt;em>&lt;u>wss://yourdomain.com:30000/$1&lt;/u>&lt;/em> [P,L]
+SSLEngine On
+SSLProxyEngine on
+SSLCertificateFile &lt;em>&lt;u>/root/foundrydata/ssl/yourdomain.crt&lt;/u>&lt;/em>
+SSLCertificateKeyFile &lt;em>&lt;u>/root/foundrydata/ssl/yourdomain.key&lt;/u>&lt;/em>
+SSLCertificateChainFile &lt;em>&lt;u>/root/foundrydata/ssl/yourdomain_ca.crt&lt;/u>&lt;/em>
+Options FollowSymLinks
+AllowOverride All
+Require all granted
+ProxyRequests Off
+ProxyPass / "&lt;em>&lt;u>https://yourdomain.com:30000/&lt;/u>&lt;/em>"
+ProxyPassReverse / "&lt;em>&lt;u>https://yourdomain.com:30000/&lt;/u>&lt;/em>"
+&amp;lt;/VirtualHost&amp;gt;
+&lt;/pre>
+&lt;p>最后重启apache：
+&lt;code>/usr/local/apache/bin/apachectl restart&lt;/code>&lt;/p></description></item><item><title>Deployment: Docker 部署 FoundryVTT 教程</title><link>https://fvtt-cn.github.io/deployment/gettingstarted/docker/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/deployment/gettingstarted/docker/</guid><description>
 &lt;p>Foundry VTT 目前拥有若干个来自不同用户实现的 Dockerfile，这些实现中，较为推荐 &lt;a href="https://github.com/felddy/foundryvtt-docker">felddy/foundryvtt&lt;/a> 的镜像。&lt;/p>
 &lt;h2 id="介绍">介绍&lt;/h2>
 &lt;p>目前可以通过中文社区的自动脚本进行容器化部署，也可以手动启动容器。&lt;/p>
