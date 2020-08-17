@@ -140,12 +140,14 @@
 &lt;p>首先，假设已经登入了 Ubuntu Server 服务器，并且能够获得 root 权限&lt;/p>
 &lt;h3 id="第一步安装-nodejs-npm-和-unzip">第一步：安装 Node.js, npm 和 Unzip&lt;/h3>
 &lt;p>运行下面命令（适用于 Ubuntu，其他 Linux 发行版使用的命令可能不一致）：&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">curl -sL https://deb.nodesource.com/setup_13.x &lt;span style="color:#000;font-weight:bold">|&lt;/span> sudo -E bash -
-sudo apt-get install -y nodejs unzip
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">curl -sL https://deb.nodesource.com/setup_12.x &lt;span style="color:#000;font-weight:bold">|&lt;/span> sudo bash -
+sudo apt install -y nodejs unzip
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>以上命令会安装 node.js 以及包管理器 npm。使用 &lt;code>node --version&lt;/code> 和 &lt;code>npm --version&lt;/code> 来确认安装是否成功以及版本号。&lt;/p>
 &lt;h3 id="第二步安装-caddy">第二步：安装 Caddy&lt;/h3>
 &lt;p>运行以下命令将会安装 Caddy：&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">curl -fsSL https://github.com/caddyserver/getcaddy.com/raw/master/index.txt &lt;span style="color:#000;font-weight:bold">|&lt;/span> sudo bash
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;deb [trusted=yes] https://apt.fury.io/caddy/ /&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> sudo tee -a /etc/apt/sources.list.d/caddy-fury.list
+sudo apt update
+sudo apt install caddy
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>接下来将 Caddy 设置为系统服务：&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo groupadd --system caddy
 sudo useradd --system --gid caddy --create-home --home-dir /var/lib/caddy --shell /usr/sbin/nologin --comment &lt;span style="color:#4e9a06">&amp;#34;Caddy web server&amp;#34;&lt;/span> caddy
@@ -157,16 +159,17 @@ sudo systemctl &lt;span style="color:#204a87">enable&lt;/span> caddy
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo npm install -g pm2
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="第四步下载-fvtt-并测试">第四步：下载 FVTT 并测试&lt;/h3>
 &lt;p>创建 FVTT 使用的目录并切换：&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">mkdir ~/foundry &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span> &lt;span style="color:#204a87">cd&lt;/span> ~/foundry
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">mkdir /tmp/foundrydata &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span> mkdir ~/foundrydata
+mkdir ~/foundry &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span> &lt;span style="color:#204a87">cd&lt;/span> ~/foundry
 &lt;span style="color:#204a87">pwd&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>pwd&lt;/code> 命令输出结果应当是 &lt;code>/home/[XXX]/foundry&lt;/code>，&lt;code>[XXX]&lt;/code> 是登录服务器使用的 Linux 用户名。&lt;/p>
 &lt;p>从官网上获取 FVTT 下载链接（Linux），在服务器上运行：&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">wget https://foundryvtt.s3-us-west-2.amazonaws.com/releases/&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>Key&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>/FoundryVirtualTabletop-linux-x64.zip
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">wget &lt;span style="color:#4e9a06">&amp;#34;https://foundryvtt.s3-us-west-2.amazonaws.com/releases/[Key]/FoundryVirtualTabletop-linux-x64.zip&amp;#34;&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>后面的这段链接替换为从官网处复制到的链接&lt;/strong>&lt;/p>
 &lt;p>下载完毕后，解压 FVTT（如果文件名不一致，更换为下载保存的 FVTT 压缩包文件名）：&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">unzip FoundryVirtualTabletop-linux-x64.zip
 rm FoundryVirtualTabletop-linux-x64.zip
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>然后测试确认 FVTT 是否能够正常运行：&lt;code>node $HOME/foundry/resources/app/main.js --port=62621&lt;/code>&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>然后测试确认 FVTT 是否能够正常运行：&lt;code>node $HOME/foundry/resources/app/main.js --port=62621 --dataPath=/tmp/foundrydata&lt;/code>&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">FoundryVTT &lt;span style="color:#000;font-weight:bold">|&lt;/span> 2020-07-06 07:48:44 &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>info&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> Foundry Virtual Tabletop - Version 0.6.5
 FoundryVTT &lt;span style="color:#000;font-weight:bold">|&lt;/span> 2020-07-06 07:48:44 &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>info&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> Running on Node.js - Version 12.18.2
 FoundryVTT &lt;span style="color:#000;font-weight:bold">|&lt;/span> 2020-07-06 07:48:44 &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>info&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> Application Options:
@@ -192,12 +195,15 @@ FoundryVTT &lt;span style="color:#000;font-weight:bold">|&lt;/span> 2020-07-06 0
 [PM2] To setup the Startup Script, copy/paste the following command:
 sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u [XXX] --hp /home/[XXX]
 &lt;/code>&lt;/pre>&lt;p>它生成了一个命令，即&lt;code>sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u [XXX] --hp /home/[XXX]&lt;/code>这一部分，其中 &lt;code>[XXX]&lt;/code> 会被自动替换为当前登录使用的用户。复制输出的这段命令（而非从网页上复制）并且执行：&lt;/p>
+&lt;blockquote>
+&lt;p>如果使用 root 执行 &lt;code>pm2 startup&lt;/code> 命令，则会直接配置为系统服务，不需要复制粘贴命令执行。&lt;/p>
+&lt;/blockquote>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>PM2&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>v&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> Command successfully executed.
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>如果输出结果中含有以上这段，基本上 pm2 已经被配置为系统服务。&lt;/p>
 &lt;h3 id="pm2-启动-fvtt-并持续运行">pm2 启动 FVTT 并持续运行&lt;/h3>
 &lt;p>现在需要使用 pm2 启动 FVTT，并且让 pm2 记住需要保持 FVTT 的运行，如此就可以让 pm2 在每次服务器重启时都会跟随启动，不需要手动。&lt;/p>
 &lt;p>使用 pm2 启动 FVTT，还是一样 &lt;code>[xxx]&lt;/code> 替换为登录服务器使用的用户名：&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">pm2 start &lt;span style="color:#4e9a06">&amp;#34;node &lt;/span>&lt;span style="color:#000">$HOME&lt;/span>&lt;span style="color:#4e9a06">/foundry/resources/app/main.js&amp;#34;&lt;/span> --name &lt;span style="color:#4e9a06">&amp;#34;foundry&amp;#34;&lt;/span> -- --port&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">8080&lt;/span>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">pm2 start &lt;span style="color:#4e9a06">&amp;#34;node &lt;/span>&lt;span style="color:#000">$HOME&lt;/span>&lt;span style="color:#4e9a06">/foundry/resources/app/main.js&amp;#34;&lt;/span> --name &lt;span style="color:#4e9a06">&amp;#34;foundry&amp;#34;&lt;/span> -- --port&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">8080&lt;/span> --dataPath&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000">$HOME&lt;/span>/foundrydata
 &lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
 &lt;p>端口号&lt;code>8080&lt;/code>可以调整，但是后续的端口号都需要对应修改。&lt;/p>
 &lt;/blockquote>
