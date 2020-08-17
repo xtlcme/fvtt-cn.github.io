@@ -137,7 +137,7 @@
 &lt;li>Node.js 运行时，其对应的软件包管理器 npm，以及使用 npm 安装的 pm2（进程管理工具）&lt;/li>
 &lt;li>反向代理软件 Caddy，以及其暴露端口的防火墙（比如 80、443）&lt;/li>
 &lt;/ul>
-&lt;p>首先，假设已经登入了 Ubuntu Server 服务器，并且能够获得 root 权限&lt;/p>
+&lt;p>首先，假设已经登入了 Ubuntu Server 服务器，并且能够获得 root 权限。&lt;/p>
 &lt;h3 id="第一步安装-nodejs-npm-和-unzip">第一步：安装 Node.js, npm 和 Unzip&lt;/h3>
 &lt;p>运行下面命令（适用于 Ubuntu，其他 Linux 发行版使用的命令可能不一致）：&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">curl -sL https://deb.nodesource.com/setup_12.x &lt;span style="color:#000;font-weight:bold">|&lt;/span> sudo bash -
@@ -148,12 +148,8 @@ sudo apt install -y nodejs unzip
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;deb [trusted=yes] https://apt.fury.io/caddy/ /&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> sudo tee -a /etc/apt/sources.list.d/caddy-fury.list
 sudo apt update
 sudo apt install caddy
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>接下来将 Caddy 设置为系统服务：&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo groupadd --system caddy
-sudo useradd --system --gid caddy --create-home --home-dir /var/lib/caddy --shell /usr/sbin/nologin --comment &lt;span style="color:#4e9a06">&amp;#34;Caddy web server&amp;#34;&lt;/span> caddy
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>以上命令将会创建用于启动 Caddy 的 Linux 用户和用户组，接下来将设置好服务：&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo wget -O /etc/systemd/system/caddy.service https://github.com/caddyserver/dist/raw/master/init/caddy.service
-sudo systemctl &lt;span style="color:#204a87">enable&lt;/span> caddy
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>以上命令将会同时创建用于启动 Caddy 的 Linux 用户和用户组，接下来启用 Caddy 服务：&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo systemctl &lt;span style="color:#204a87">enable&lt;/span> caddy
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="第三步安装-nodejs-进程管理工具pm2">第三步：安装 Node.js 进程管理工具：pm2&lt;/h3>
 &lt;p>使用刚才安装的 npm，全局安装 pm2：&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo npm install -g pm2
@@ -175,6 +171,7 @@ FoundryVTT &lt;span style="color:#000;font-weight:bold">|&lt;/span> 2020-07-06 0
 FoundryVTT &lt;span style="color:#000;font-weight:bold">|&lt;/span> 2020-07-06 07:48:44 &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>info&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> Application Options:
 &lt;span style="color:#ce5c00;font-weight:bold">{&lt;/span>
 &lt;span style="color:#4e9a06">&amp;#34;port&amp;#34;&lt;/span>: 62621,
+&lt;span style="color:#4e9a06">&amp;#34;dataPath&amp;#34;&lt;/span>: &lt;span style="color:#4e9a06">&amp;#34;/tmp/foundrydata&amp;#34;&lt;/span>,
 &lt;span style="color:#4e9a06">&amp;#34;upnp&amp;#34;&lt;/span>: false,
 &lt;span style="color:#4e9a06">&amp;#34;fullscreen&amp;#34;&lt;/span>: false,
 &lt;span style="color:#4e9a06">&amp;#34;hostname&amp;#34;&lt;/span>: null,
@@ -203,7 +200,7 @@ sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -
 &lt;h3 id="pm2-启动-fvtt-并持续运行">pm2 启动 FVTT 并持续运行&lt;/h3>
 &lt;p>现在需要使用 pm2 启动 FVTT，并且让 pm2 记住需要保持 FVTT 的运行，如此就可以让 pm2 在每次服务器重启时都会跟随启动，不需要手动。&lt;/p>
 &lt;p>使用 pm2 启动 FVTT，还是一样 &lt;code>[xxx]&lt;/code> 替换为登录服务器使用的用户名：&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">pm2 start &lt;span style="color:#4e9a06">&amp;#34;node &lt;/span>&lt;span style="color:#000">$HOME&lt;/span>&lt;span style="color:#4e9a06">/foundry/resources/app/main.js&amp;#34;&lt;/span> --name &lt;span style="color:#4e9a06">&amp;#34;foundry&amp;#34;&lt;/span> -- --port&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">8080&lt;/span> --dataPath&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000">$HOME&lt;/span>/foundrydata
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">pm2 start &lt;span style="color:#000">$HOME&lt;/span>/foundry/resources/app/main.js --name foundry -- --port&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">8080&lt;/span> --dataPath&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000">$HOME&lt;/span>/foundrydata
 &lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
 &lt;p>端口号&lt;code>8080&lt;/code>可以调整，但是后续的端口号都需要对应修改。&lt;/p>
 &lt;/blockquote>
@@ -213,7 +210,7 @@ sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -
 ┌──────────┬────┬─────────┬──────┬───────┬────────┬─────────┬────────┬─────┬───────────┬────────┬──────────┐
 │ App name │ id │ version │ mode │ pid │ status │ restart │ uptime │ cpu │ mem │ user │ watching │
 ├──────────┼────┼─────────┼──────┼───────┼────────┼─────────┼────────┼─────┼───────────┼────────┼──────────┤
-│ foundry │ &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span> │ 0.3.2 │ fork │ &lt;span style="color:#0000cf;font-weight:bold">31130&lt;/span> │ online │ &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span> │ 0s │ 0% │ 8.9 MB │ &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>XXX&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> │ disabled │
+│ foundry │ &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span> │ 0.6.5 │ fork │ &lt;span style="color:#0000cf;font-weight:bold">31130&lt;/span> │ online │ &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span> │ 0s │ 0% │ 8.9 MB │ &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>XXX&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> │ disabled │
 └──────────┴────┴─────────┴──────┴───────┴────────┴─────────┴────────┴─────┴───────────┴────────┴──────────┘
 Use &lt;span style="color:#4e9a06">`&lt;/span>pm2 show &amp;lt;id&lt;span style="color:#000;font-weight:bold">|&lt;/span>name&amp;gt;&lt;span style="color:#4e9a06">`&lt;/span> to get more details about an app
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>pm2 会展示如上所示的列表，并且展示大量有用的信息，比如是否运行中，进程重启次数，运行时间， CPU 使用率和内存使用率等等。使用 &lt;code>pm2 show foundry&lt;/code> 可以展示更详尽的关于启动的 FVTT 进程的信息。&lt;/p>
