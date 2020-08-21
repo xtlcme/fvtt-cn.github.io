@@ -296,7 +296,7 @@ top: 0;
 }
 &lt;/style>
 &lt;div class="aspect-ratio">
-&lt;iframe src="https://player.bilibili.com/player.html?bvid=BV1Q54y1v7FX&amp;t=&amp;page=1&amp;as_wide=1&amp;high_quality=1&amp;danmaku=0"
+&lt;iframe src="https://player.bilibili.com/player.html?bvid=BV1Q54y1v7FX&amp;page=1&amp;as_wide=1&amp;high_quality=1&amp;danmaku=0"
 scrolling="no"
 frameborder="no"
 framespacing="0"
@@ -616,7 +616,7 @@ top: 0;
 }
 &lt;/style>
 &lt;div class="aspect-ratio">
-&lt;iframe src="https://player.bilibili.com/player.html?bvid=BV1gE411A7c4&amp;t=0h26m12s&amp;page=1&amp;as_wide=1&amp;high_quality=1&amp;danmaku=0"
+&lt;iframe src="https://player.bilibili.com/player.html?bvid=BV1gE411A7c4&amp;page=1&amp;as_wide=1&amp;high_quality=1&amp;danmaku=0"
 scrolling="no"
 frameborder="no"
 framespacing="0"
