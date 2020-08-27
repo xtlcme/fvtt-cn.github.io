@@ -183,7 +183,7 @@ FoundryVTT &lt;span style="color:#000;font-weight:bold">|&lt;/span> 2020-07-06 0
 &lt;span style="color:#4e9a06">&amp;#34;proxyPort&amp;#34;&lt;/span>: null
 &lt;span style="color:#ce5c00;font-weight:bold">}&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>如果显示类似于上述的输出结果并且没有显示什么错误，证明 FVTT 已经可以正常运行了！&lt;/p>
-&lt;p>然后按下 &lt;kbd>Ctrl+C&lt;/kbd> 直接杀掉用来测试的 FVTT 进程，准备进行下一步。&lt;/p>
+&lt;p>然后按下 &lt;kbd>Ctrl&lt;/kbd>+&lt;kbd>C&lt;/kbd> 直接杀掉用来测试的 FVTT 进程，准备进行下一步。&lt;/p>
 &lt;h2 id="pm2-运行-fvtt">pm2 运行 FVTT&lt;/h2>
 &lt;p>需要的运行环境都已经配置完毕，接下来需要将 pm2 设置为随系统启动，并让 pm2 管理和运行 FVTT 进程。&lt;/p>
 &lt;h3 id="pm2-配置为系统服务">pm2 配置为系统服务&lt;/h3>
@@ -252,7 +252,7 @@ header_up X-Forwarded-Proto {scheme}
 }
 &lt;/code>&lt;/pre>&lt;/li>
 &lt;/ul>
-&lt;p>输入或者粘贴完毕后，按下 &lt;kbd>Ctrl+X&lt;/kbd>，接着按 &lt;kbd>y&lt;/kbd> 并且回车，确认保存文件。&lt;/p>
+&lt;p>输入或者粘贴完毕后，按下 &lt;kbd>Ctrl&lt;/kbd>+&lt;kbd>X&lt;/kbd>，接着按 &lt;kbd>y&lt;/kbd> 并且回车，确认保存文件。&lt;/p>
 &lt;p>然后启动已经配置好的 Caddy 服务即可：&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo systemctl start caddy
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>等待一段时间后，通过你设置的域名或者服务器 IP 地址，即可访问已经部署完毕的 FVTT，尽情使用吧。&lt;/p>
@@ -493,8 +493,8 @@ ProxyPassReverse / "&lt;em>&lt;u>https://yourdomain.com:30000/&lt;/u>&lt;/em>"
 &lt;/blockquote>
 &lt;/li>
 &lt;li>
-&lt;p>启动 Caddy
-使用 Caddy 作为反代，可以有效降低的 HTTPS 的部署成本，毕竟全自动申请免费的 LetsEncrypt 的 HTTPS 证书且自动更新，无需额外配置&lt;/p>
+&lt;p>启动 Caddy&lt;/p>
+&lt;p>使用 Caddy 作为反代，可以有效降低的 HTTPS 的部署成本，毕竟全自动申请免费的 LetsEncrypt 的 HTTPS 证书且自动更新，无需额外配置&lt;/p>
 &lt;p>先绑定好域名，假设绑定到这台机器的域名的是 &lt;code>my.fvtt.com&lt;/code>&lt;/p>
 &lt;p>那么执行：&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">nano Caddyfile
@@ -507,7 +507,7 @@ header_up X-Forwarded-For {remote_host}
 header_up X-Forwarded-Proto {scheme}
 }
 }
-&lt;/code>&lt;/pre>&lt;p>无论是否有域名，输入或者粘贴完毕后，按 &lt;kbd>Ctrl+X&lt;/kbd>，会提示是否覆写编辑内容，按 &lt;kbd>y&lt;/kbd> 并且回车确认保存&lt;/p>
+&lt;/code>&lt;/pre>&lt;p>无论是否有域名，输入或者粘贴完毕后，按 &lt;kbd>Ctrl&lt;/kbd>+&lt;kbd>X&lt;/kbd>，会提示是否覆写编辑内容，按 &lt;kbd>y&lt;/kbd> 并且回车确认保存&lt;/p>
 &lt;p>接着启动 Caddy 进行反代，执行：&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo docker run -d &lt;span style="color:#4e9a06">\
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span>--name&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>caddy &lt;span style="color:#4e9a06">\
@@ -544,7 +544,7 @@ header_up X-Forwarded-For {remote_host}
 header_up X-Forwarded-Proto {scheme}
 }
 }
-&lt;/code>&lt;/pre>&lt;p>同样在输入或者粘贴完毕后，按 &lt;kbd>Ctrl+X&lt;/kbd> 然后按 &lt;kbd>y&lt;/kbd> 并且回车确认保存&lt;/p>
+&lt;/code>&lt;/pre>&lt;p>同样在输入或者粘贴完毕后，按 &lt;kbd>Ctrl&lt;/kbd>+&lt;kbd>X&lt;/kbd> 然后按 &lt;kbd>y&lt;/kbd> 并且回车确认保存&lt;/p>
 &lt;p>接着，重启 Caddy 以使其启用对 FileBrowser 的反代：&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo docker restart caddy
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
@@ -582,7 +582,7 @@ header_up X-Forwarded-Proto {scheme}
 &lt;li>&lt;img src="https://fvtt-cn.github.io/images/deployment/download-url.png" alt="">&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;li>将压缩包通过 &lt;em>远程桌面&lt;/em> 复制到服务器上，直接拖拽或者 &lt;kbd>Ctrl+C/V&lt;/kbd> 均可，然后解压到某文件夹内（比如桌面）&lt;/li>
+&lt;li>将压缩包通过 &lt;em>远程桌面&lt;/em> 复制到服务器上，直接拖拽或者 &lt;kbd>Ctrl&lt;/kbd>+&lt;kbd>C/V&lt;/kbd> 均可，然后解压到某文件夹内（比如桌面）&lt;/li>
 &lt;li>在这个目录下，启动 CMD。如图所示，在资源管理器地址栏下输入 &lt;code>cmd&lt;/code>，然后回车打开 CMD 窗口
 &lt;ul>
 &lt;li>&lt;img src="https://fvtt-cn.github.io/images/deployment/win-unzip-cmd.png" alt="">&lt;/li>
