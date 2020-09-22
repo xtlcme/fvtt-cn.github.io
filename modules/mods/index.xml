@@ -7,7 +7,7 @@
 &lt;ul>
 &lt;li>作者：xtlcme&lt;/li>
 &lt;li>系统兼容性：D&amp;amp;D5e&lt;/li>
-&lt;li>MOD 兼容性：依赖于 &lt;a href="../#babele">Babele&lt;/a>&lt;/li>
+&lt;li>MOD 兼容性：部分依赖于 &lt;a href="../#babele">Babele&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h4 id="链接">链接&lt;/h4>
 &lt;ul>
@@ -17,19 +17,33 @@
 &lt;h4 id="详情">详情&lt;/h4>
 &lt;p>翻译了 5e 系统的大部分内容，同时整合了大量 5e 合集包资源方便直接开始游玩（需要开启 Babele）。&lt;/p>
 &lt;hr>
+&lt;h3 id="5e-中文职业合集包">5e 中文职业合集包&lt;/h3>
+&lt;ul>
+&lt;li>作者：HJSmile&lt;/li>
+&lt;li>系统兼容性：D&amp;amp;D5e&lt;/li>
+&lt;li>MOD 兼容性：开启 &lt;a href="../#babele">Babele&lt;/a> 后会降低加载性能&lt;/li>
+&lt;/ul>
+&lt;h4 id="链接-1">链接&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/HJSmile/classpack">项目地址&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://raw.githubusercontent.com/HJSmile/classpack/master/dnd5e_classpack/module.json">清单文件地址&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="详情-1">详情&lt;/h4>
+&lt;p>整合了大部分种族，职业，物品，法术，方便车卡，该 MOD 与 &lt;a href="../#babele">Babele&lt;/a> 兼容性很差，请自行决定是否开启。&lt;/p>
+&lt;hr>
 &lt;h3 id="better-rolls-for-5e">Better Rolls for 5e&lt;/h3>
 &lt;ul>
 &lt;li>作者：Red Reign#5128（Discord 社区服）&lt;/li>
 &lt;li>系统兼容性：D&amp;amp;D5e&lt;/li>
 &lt;li>MOD 兼容性：无已知冲突&lt;/li>
 &lt;/ul>
-&lt;h4 id="链接-1">链接&lt;/h4>
+&lt;h4 id="链接-2">链接&lt;/h4>
 &lt;ul>
 &lt;li>&lt;a href="https://github.com/RedReign/FoundryVTT-BetterRolls5e">项目地址&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://raw.githubusercontent.com/RedReign/FoundryVTT-BetterRolls5e/master/betterrolls5e/module.json">清单文件地址&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://cdn.sbea.in/raw.githubusercontent.com/RedReign/FoundryVTT-BetterRolls5e/master/betterrolls5e/module.json">清单文件地址（国内镜像）&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h4 id="详情-1">详情&lt;/h4>
+&lt;h4 id="详情-2">详情&lt;/h4>
 &lt;ul>
 &lt;li>合并掷骰（掷攻击的同时掷伤害）&lt;/li>
 &lt;li>同时掷双骰&lt;/li>
@@ -43,13 +57,13 @@
 &lt;li>系统兼容性：D&amp;amp;D5e&lt;/li>
 &lt;li>MOD 兼容性：无已知冲突&lt;/li>
 &lt;/ul>
-&lt;h4 id="链接-2">链接&lt;/h4>
+&lt;h4 id="链接-3">链接&lt;/h4>
 &lt;ul>
 &lt;li>&lt;a href="https://gitlab.com/hooking/foundry-vtt---chat-damage-buttons">项目地址&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://gitlab.com/hooking/foundry-vtt---chat-damage-buttons/blob/master/module.json">清单文件地址&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://cdn.sbea.in/gitlab.com/hooking/foundry-vtt---chat-damage-buttons/blob/master/module.json">清单文件地址（国内镜像）&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h4 id="详情-2">详情&lt;/h4>
+&lt;h4 id="详情-3">详情&lt;/h4>
 &lt;p>修改了掷骰结果显示的聊天消息的右键菜单，并且添加了按钮，允许快速运用伤害、治疗结果等。&lt;/p>
 &lt;hr>
 &lt;h3 id="dynamic-effects">Dynamic Effects&lt;/h3>
@@ -58,13 +72,13 @@
 &lt;li>系统兼容性：通用（D&amp;amp;D5e 最佳）&lt;/li>
 &lt;li>MOD 兼容性：无已知冲突&lt;/li>
 &lt;/ul>
-&lt;h4 id="链接-3">链接&lt;/h4>
+&lt;h4 id="链接-4">链接&lt;/h4>
 &lt;ul>
 &lt;li>&lt;a href="https://gitlab.com/tposney/dynamiceffects">项目地址&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://gitlab.com/tposney/dynamiceffects/raw/master/package/module.json">清单文件地址&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://cdn.sbea.in/gitlab.com/tposney/dynamiceffects/raw/master/package/module.json">清单文件地址（国内镜像）&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h4 id="详情-3">详情&lt;/h4>
+&lt;h4 id="详情-4">详情&lt;/h4>
 &lt;ul>
 &lt;li>允许设置每件物品、法术等的效果。效果可以应用到自己或者目标的指示物上，实现诸如增减攻击/伤害加值，增减生命值上限，改变阵营，改变 AC 等等。角色卡上大部分数值都可以被 Dynamic Effects 调整。&lt;/li>
 &lt;li>搭配 &lt;a href="../#about-time">About Time&lt;/a>，实现效果持续时间，如一轮/一分钟后，效果自动消失等。&lt;/li>
@@ -77,12 +91,12 @@
 &lt;li>系统兼容性：D&amp;amp;D5e&lt;/li>
 &lt;li>MOD 兼容性：无已知冲突&lt;/li>
 &lt;/ul>
-&lt;h4 id="链接-4">链接&lt;/h4>
+&lt;h4 id="链接-5">链接&lt;/h4>
 &lt;ul>
 &lt;li>&lt;a href="https://github.com/RaySSharma/fvtt-encounter-builder">项目地址&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://raw.githubusercontent.com/RaySSharma/fvtt-encounter-builder/master/encounter-builder/module.json">清单文件地址&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h4 id="详情-4">详情&lt;/h4>
+&lt;h4 id="详情-5">详情&lt;/h4>
 &lt;p>增加了辅助构筑遭遇的功能。和 &lt;a href="https://kobold.club/fight/#/encounter-builder">Kobold Fight Club&lt;/a> 设计近似，通过计算添加进的所有 PC 和 NPC/怪物的对比自动计算遭遇难度。&lt;/p>
 &lt;ul>
 &lt;li>通过 DMG 中的 XP 表计算战斗难度&lt;/li>
@@ -98,13 +112,13 @@
 &lt;li>系统兼容性：D&amp;amp;D5e&lt;/li>
 &lt;li>MOD 兼容性：无已知冲突&lt;/li>
 &lt;/ul>
-&lt;h4 id="链接-5">链接&lt;/h4>
+&lt;h4 id="链接-6">链接&lt;/h4>
 &lt;ul>
 &lt;li>&lt;a href="https://github.com/kakaroto/fvtt-module-lmrtfy">项目地址&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://raw.githubusercontent.com/kakaroto/fvtt-module-lmrtfy/master/module.json">清单文件地址&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://cdn.sbea.in/raw.githubusercontent.com/kakaroto/fvtt-module-lmrtfy/master/module.json">清单文件地址（国内镜像）&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h4 id="详情-5">详情&lt;/h4>
+&lt;h4 id="详情-6">详情&lt;/h4>
 &lt;p>LMRTFY 让 GM 可以直接通过点击请求玩家进行某一项掷骰。可以避免出现问出“我这次要点哪儿?”这样的问题，或者在其他玩家不知道的情况下，对某一个玩家要求掷骰。&lt;/p>
 &lt;p>配合 &lt;a href="#minor-qol-improvements">Minor-QOL&lt;/a>，可以自动提示玩家对法术、物品等的效应进行豁免。&lt;/p>
 &lt;hr>
@@ -114,13 +128,13 @@
 &lt;li>系统兼容性：D&amp;amp;D5e&lt;/li>
 &lt;li>MOD 兼容性：无已知冲突&lt;/li>
 &lt;/ul>
-&lt;h4 id="链接-6">链接&lt;/h4>
+&lt;h4 id="链接-7">链接&lt;/h4>
 &lt;ul>
 &lt;li>&lt;a href="https://gitlab.com/jopeek/fvtt---loot-sheet-npc-5e">项目地址&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://gitlab.com/jopeek/fvtt---loot-sheet-npc-5e/raw/master/module.json">清单文件地址&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://cdn.sbea.in/gitlab.com/jopeek/fvtt---loot-sheet-npc-5e/raw/master/module.json">清单文件地址（国内镜像）&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h4 id="详情-6">详情&lt;/h4>
+&lt;h4 id="详情-7">详情&lt;/h4>
 &lt;p>这个模组添加了额外的 NPC 的表格用于作为宝箱、商人等，拖动法术到这个表格会自动转成法术卷轴。&lt;/p>
 &lt;hr>
 &lt;h3 id="minor-qol-improvements">Minor QOL Improvements&lt;/h3>
@@ -129,13 +143,13 @@
 &lt;li>系统兼容性：D&amp;amp;D5e&lt;/li>
 &lt;li>MOD 兼容性：与 midi-qol 不兼容&lt;/li>
 &lt;/ul>
-&lt;h4 id="链接-7">链接&lt;/h4>
+&lt;h4 id="链接-8">链接&lt;/h4>
 &lt;ul>
 &lt;li>&lt;a href="https://gitlab.com/tposney/minor-qol">项目地址&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://gitlab.com/tposney/minor-qol/raw/master/module.json">清单文件地址&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://cdn.sbea.in/gitlab.com/tposney/minor-qol/raw/master/module.json">清单文件地址（国内镜像）&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h4 id="详情-7">详情&lt;/h4>
+&lt;h4 id="详情-8">详情&lt;/h4>
 &lt;p>非常强大的自动化 MOD，可以帮助自动化一大部分的战斗中的掷骰。支持基础的 5e 系统的骰子和使用 &lt;a href="#better-rolls-for-5e">BetterRolls5e&lt;/a> 的双骰。通过选中的指示物来进行命中、伤害、豁免等检定和其后续效果的处理。&lt;/p>
 &lt;ul>
 &lt;li>消耗应该被消耗的资源（比如弹药、充能、环位等）&lt;/li>
@@ -156,13 +170,13 @@
 &lt;li>系统兼容性：D&amp;amp;D5e&lt;/li>
 &lt;li>MOD 兼容性：无已知冲突&lt;/li>
 &lt;/ul>
-&lt;h4 id="链接-8">链接&lt;/h4>
+&lt;h4 id="链接-9">链接&lt;/h4>
 &lt;ul>
 &lt;li>&lt;a href="https://github.com/kakaroto/fvtt-module-polyglot">项目地址&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://raw.githubusercontent.com/kakaroto/fvtt-module-polyglot/master/module.json">清单文件地址&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://cdn.sbea.in/raw.githubusercontent.com/kakaroto/fvtt-module-polyglot/master/module.json">清单文件地址（国内镜像）&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h4 id="详情-8">详情&lt;/h4>
+&lt;h4 id="详情-9">详情&lt;/h4>
 &lt;p>可以根据选择的角色所会使用的语言发出文字消息，对于不会这个语言的玩家而言，发出的文字消息会变为乱码。&lt;/p>
 &lt;hr>
 &lt;h3 id="plutonium">Plutonium&lt;/h3>
@@ -172,13 +186,28 @@
 &lt;li>MOD 兼容性：无已知冲突&lt;/li>
 &lt;li>版权：&lt;strong>无&lt;/strong>&lt;/li>
 &lt;/ul>
-&lt;h4 id="链接-9">链接&lt;/h4>
+&lt;h4 id="链接-10">链接&lt;/h4>
 &lt;ul>
 &lt;li>&lt;a href="https://5e.tools/plutonium.html">项目地址&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://wiki.5e.tools/index.php/FoundryTools:_User_Guide">文档地址&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://get.5e.tools/plutonium/module.json">清单文件地址&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://cdn.sbea.in/get.5e.tools/plutonium/module.json">清单文件地址（国内镜像）&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h4 id="详情-9">详情&lt;/h4>
+&lt;h4 id="详情-10">详情&lt;/h4>
 &lt;p>Plutonium 是 &lt;a href="https://5e.tools">5etools&lt;/a> 的附属项目，支持将 5etools 的内容导入到 FVTT 中，具体使用可以参见官方文档，使用 Plutonium 可以非常方便的放怪、车卡，可以说是大幅简化了 5e 的备团流程。&lt;/p>
-&lt;p>除此之外，对 FVTT 还添加了不少和 5e 无关的功能，比如 Art Browser，支持搜索网络上的图片资源将其直接变为指示物或图块放进场景之中。&lt;/p></description></item></channel></rss>
+&lt;p>除此之外，对 FVTT 还添加了不少和 5e 无关的功能，比如 Art Browser，支持搜索网络上的图片资源将其直接变为指示物或图块放进场景之中。&lt;/p>
+&lt;hr>
+&lt;h3 id="tidy-5e-sheet">Tidy 5e Sheet&lt;/h3>
+&lt;ul>
+&lt;li>作者：sdenec&lt;/li>
+&lt;li>系统兼容性：D&amp;amp;D5e&lt;/li>
+&lt;li>MOD 兼容性：无已知冲突&lt;/li>
+&lt;/ul>
+&lt;h4 id="链接-11">链接&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/sdenec/tidy5e-sheet">项目地址&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://raw.githubusercontent.com/sdenec/tidy5e-sheet/master/module.json">清单文件地址&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cdn.sbea.in/raw.githubusercontent.com/sdenec/tidy5e-sheet/master/module.json">清单文件地址（国内镜像）&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="详情-11">详情&lt;/h4>
+&lt;p>Tidy 5e 用于替换 5e 系统自带的角色卡，提供了更加简洁的 UI，并且支持中文，可高度配置其样式。&lt;/p></description></item></channel></rss>

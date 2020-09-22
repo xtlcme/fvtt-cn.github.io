@@ -499,15 +499,15 @@ ProxyPassReverse / "&lt;em>&lt;u>https://yourdomain.com:30000/&lt;/u>&lt;/em>"
 &lt;p>那么执行：&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">nano Caddyfile
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>然后会进入一个编辑文件的界面，在这个界面里，写下 Caddy 的配置文件，可以修改 &lt;code>my.fvtt.com&lt;/code> 后直接复制粘贴，示例如下：&lt;/p>
-&lt;pre>&lt;code class="language-Caddyfile" data-lang="Caddyfile">my.fvtt.com &amp;lt;= 修改这个 {
-reverse_proxy fvtt:30000 {
-header_up Host {host}
-header_up X-Real-IP {remote_host}
-header_up X-Forwarded-For {remote_host}
-header_up X-Forwarded-Proto {scheme}
-}
-}
-&lt;/code>&lt;/pre>&lt;p>无论是否有域名，输入或者粘贴完毕后，按 &lt;kbd>Ctrl&lt;/kbd>+&lt;kbd>X&lt;/kbd>，会提示是否覆写编辑内容，按 &lt;kbd>y&lt;/kbd> 并且回车确认保存&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Caddyfile" data-lang="Caddyfile">&lt;span style="color:#000080;font-weight:bold">my.fvtt.com&lt;/span> &lt;span style="color:#000080;font-weight:bold">&amp;lt;=&lt;/span> &lt;span style="color:#000080;font-weight:bold">修改这个&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">reverse_proxy&lt;/span> &lt;span style="color:#000">fvtt&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">30000&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">header_up&lt;/span> &lt;span style="color:#4e9a06">Host&lt;/span> &lt;span style="color:#4e9a06">{host}&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">header_up&lt;/span> &lt;span style="color:#4e9a06">X-Real-IP&lt;/span> &lt;span style="color:#4e9a06">{remote_host}&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">header_up&lt;/span> &lt;span style="color:#4e9a06">X-Forwarded-For&lt;/span> &lt;span style="color:#4e9a06">{remote_host}&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">header_up&lt;/span> &lt;span style="color:#4e9a06">X-Forwarded-Proto&lt;/span> &lt;span style="color:#4e9a06">{scheme}&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>无论是否有域名，输入或者粘贴完毕后，按 &lt;kbd>Ctrl&lt;/kbd>+&lt;kbd>X&lt;/kbd>，会提示是否覆写编辑内容，按 &lt;kbd>y&lt;/kbd> 并且回车确认保存&lt;/p>
 &lt;p>接着启动 Caddy 进行反代，执行：&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo docker run -d &lt;span style="color:#4e9a06">\
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span>--name&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>caddy &lt;span style="color:#4e9a06">\
@@ -536,15 +536,15 @@ header_up X-Forwarded-Proto {scheme}
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>建议再给这台运行 FVTT 的机器绑定一个新的域名用于访问文件管理器，例如 &lt;code>file.fvtt.com&lt;/code>，然后修改 Caddyfile 让 Caddy 也反代 FileBrowser，执行：&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">nano Caddyfile
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>然后用方向键调整到末尾，可以修改 &lt;code>file.fvtt.com&lt;/code> 后直接粘贴到文件末尾，示例如下：&lt;/p>
-&lt;pre>&lt;code class="language-Caddyfile" data-lang="Caddyfile">file.fvtt.com {
-reverse_proxy filebrowser:80 {
-header_up Host {host}
-header_up X-Real-IP {remote_host}
-header_up X-Forwarded-For {remote_host}
-header_up X-Forwarded-Proto {scheme}
-}
-}
-&lt;/code>&lt;/pre>&lt;p>同样在输入或者粘贴完毕后，按 &lt;kbd>Ctrl&lt;/kbd>+&lt;kbd>X&lt;/kbd> 然后按 &lt;kbd>y&lt;/kbd> 并且回车确认保存&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Caddyfile" data-lang="Caddyfile">&lt;span style="color:#000080;font-weight:bold">file.fvtt.com&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">reverse_proxy&lt;/span> &lt;span style="color:#000">filebrowser&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">80&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">header_up&lt;/span> &lt;span style="color:#4e9a06">Host&lt;/span> &lt;span style="color:#4e9a06">{host}&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">header_up&lt;/span> &lt;span style="color:#4e9a06">X-Real-IP&lt;/span> &lt;span style="color:#4e9a06">{remote_host}&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">header_up&lt;/span> &lt;span style="color:#4e9a06">X-Forwarded-For&lt;/span> &lt;span style="color:#4e9a06">{remote_host}&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">header_up&lt;/span> &lt;span style="color:#4e9a06">X-Forwarded-Proto&lt;/span> &lt;span style="color:#4e9a06">{scheme}&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>同样在输入或者粘贴完毕后，按 &lt;kbd>Ctrl&lt;/kbd>+&lt;kbd>X&lt;/kbd> 然后按 &lt;kbd>y&lt;/kbd> 并且回车确认保存&lt;/p>
 &lt;p>接着，重启 Caddy 以使其启用对 FileBrowser 的反代：&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo docker restart caddy
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
