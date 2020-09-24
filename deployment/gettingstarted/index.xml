@@ -268,11 +268,12 @@ header_up X-Forwarded-Proto {scheme}
 &lt;p>命令如下：&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo su root
 &lt;span style="color:#204a87">cd&lt;/span>
-wget https://www.peatsuki.com/sh/InstallFVTT.sh --no-check-certificate
+wget https://sh.peatsuki.com/fvtt/InstallFVTT.sh --no-check-certificate
 sh InstallFVTT.sh
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="https://foundryvtt.com/">官网地址&lt;/a> 登录以购买的账户以获取下载链接。&lt;/p>
-&lt;p>然后再选择后台模式中输入 &lt;code>非【P】 以nohup进行后台运行&lt;/code>。&lt;/p>
-&lt;p>若需要使用 PM2，需要有足够的基本知识方可使用。&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;del>&lt;a href="https://foundryvtt.com/">官网地址&lt;/a> 登录以购买的账户以获取下载链接。&lt;/del>
+现无需输入官网地址，已经重定向到镜像，但仍需要登入官网购买licence以便激活系统&lt;/p>
+&lt;p>安装过程中需要中输入非【P】的任意字符选择 &lt;code>以nohup进行后台运行&lt;/code>。&lt;/p>
+&lt;p>若需要使用 PM2 作为后台监视程序，建议有足够的OPS知识后进行选择。&lt;/p>
 &lt;p>如需上传文件，需要设置 root 账号密码后使用 SFTP 工具上传，例如 WinSCP 等。&lt;/p>
 &lt;hr>
 &lt;p>如果因为设置密码造成的系统重启，则需要在远程连接中执行如下内容：（执行后需要等待2-3分钟系统运行即可访问）&lt;/p>
