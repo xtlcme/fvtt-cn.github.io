@@ -1,6 +1,6 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>FoundryVTT 中文社区 – 服务器部署入门</title><link>https://fvtt-cn.github.io/deployment/gettingstarted/</link><description>Recent content in 服务器部署入门 on FoundryVTT 中文社区</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://fvtt-cn.github.io/deployment/gettingstarted/index.xml" rel="self" type="application/rss+xml"/><item><title>Deployment: 云服务器挑选/购买指南</title><link>https://fvtt-cn.github.io/deployment/gettingstarted/cloud/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/deployment/gettingstarted/cloud/</guid><description>
 &lt;div class="pageinfo pageinfo-primary">
-&lt;p>云服务器挑选和购买指南，&lt;em>利益无关&lt;/em>&lt;/p>
+&lt;p>云服务器挑选和购买指南，与各云服务提供商&lt;em>利益无关&lt;/em>&lt;/p>
 &lt;/div>
 &lt;h2 id="选购建议">选购建议&lt;/h2>
 &lt;h3 id="配置">配置&lt;/h3>
@@ -386,15 +386,15 @@ ProxyPassReverse / "&lt;em>&lt;u>https://yourdomain.com:30000/&lt;/u>&lt;/em>"
 &lt;h3 id="使用-docker-的优点">使用 Docker 的优点&lt;/h3>
 &lt;ul>
 &lt;li>无需关心系统环境：只要是主流发行版的 Linux，甚至于 Windows 服务器，只要安装了 Docker，即和其他用户的部署行为一致，难以因系统环境问题出错&lt;/li>
-&lt;li>直接使用 Docker 的后台管理：Docker 自己会监控容器内运行的进程状态，如果意外情况导致 FVTT 崩溃，可以不需要 pm2 等进程监控工具即可自动重启、还原&lt;/li>
+&lt;li>直接使用 Docker 的后台管理：Docker 自己会监控容器内运行的进程状态、网站可访问状态，如果意外情况导致 FVTT 崩溃或无法访问，可以不需要 pm2 等进程监控工具即可自动重启、还原&lt;/li>
 &lt;li>目前主流的 FVTT 的 Docker 镜像包含内置的自动获取下载地址和授权的脚本，可以简化部署流程&lt;/li>
 &lt;li>&amp;hellip;&lt;/li>
 &lt;/ul>
 &lt;h3 id="使用-docker-的缺点">使用 Docker 的缺点&lt;/h3>
 &lt;ul>
-&lt;li>Docker 本身需要安装，同时拉取镜像、容器本身都消耗了一定冗余的存储空间&lt;/li>
-&lt;li>如果使用卷挂载，直接访问 FVTT 的数据文件会变得略困难（可以通过 Docker 启动其他容器简化文件访问）&lt;/li>
-&lt;li>目前主流的 FVTT 的 Docker 镜像升级时需要重建，而不能通过 FVTT 内置更新&lt;/li>
+&lt;li>Docker 本身需要安装，同时拉取镜像、容器本身都消耗了一定冗余的存储空间（但不超过 100M）&lt;/li>
+&lt;li>如果使用卷挂载，直接访问 FVTT 的数据文件会变得略困难（可以通过 Docker 启动其他容器简化文件访问，如以下自动部署脚本已解决该问题）&lt;/li>
+&lt;li>目前主流的 FVTT 的 Docker 镜像升级时需要重建容器，而不能通过 FVTT 内置更新（以下自动部署脚本可以大幅简化更新流程）&lt;/li>
 &lt;li>&amp;hellip;&lt;/li>
 &lt;/ul>
 &lt;h2 id="安装流程">安装流程&lt;/h2>
@@ -412,26 +412,31 @@ ProxyPassReverse / "&lt;em>&lt;u>https://yourdomain.com:30000/&lt;/u>&lt;/em>"
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo ./fvtt.sh
 &lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
 &lt;p>安装时会检查是否能获取 root 权限，并且如果没有安装 Docker 会自动安装 Docker&lt;/p>
-&lt;p>境内服务器下载镜像时会等待较长时间，可以耐心等待&lt;/p>
+&lt;p>境内服务器下载镜像时会等待较长时间，可以耐心等待，或者使用星界投影镜像&lt;/p>
 &lt;/blockquote>
 &lt;p>然后脚本会提示输入参数，每条参数输入完成后回车即可，参数包含（✅：必需 | ⭕：可选）：
 &lt;img src="https://fvtt-cn.github.io/images/deployment/docker-script-input.png" alt="">&lt;/p>
 &lt;ul>
 &lt;li>✅ FVTT 账号&lt;/li>
 &lt;li>✅ FVTT 密码&lt;/li>
-&lt;li>⭕ 版本号
+&lt;li>⭕ 版本号/下载地址
 &lt;ul>
-&lt;li>直接回车跳过输入版本号，使用最新稳定版即可&lt;/li>
+&lt;li>直接回车跳过输入版本号，使用最新稳定版即可；注意：如果使用境内服务器，从 FVTT 官方下载安装包可能较慢，可以考虑粘贴星界投影的镜像下载源的 Linux 版本下载链接&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;li>⭕ 自定义管理密码
 &lt;ul>
-&lt;li>安装完成后，如果设置了这个密码，需要使用密码才能管理 FVTT，推荐进行设置；回车跳过就不设置密码&lt;/li>
+&lt;li>安装完成后，如果设置了这个密码，需要使用密码才能管理 FVTT，强烈推荐进行设置；回车跳过就不设置密码&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;li>⭕ FVTT 绑定域名
 &lt;ul>
-&lt;li>如果为这台服务器绑定了给 FVTT 使用的域名，可以输入，否则直接回车跳过&lt;/li>
+&lt;li>如果为这台服务器绑定了给 FVTT 使用的域名，可以输入域名（不带 HTTP/HTTPS），否则直接回车跳过&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>⭕ FVTT CDN 加速域名
+&lt;ul>
+&lt;li>如果想要使用 CDN，可以配置一个 CDN 加速域名，详情可见 &lt;a href="../cdn">CDN 配置&lt;/a>章节，否则直接回车跳过&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;li>⭕ 使用 Web 文件管理器
@@ -458,115 +463,7 @@ ProxyPassReverse / "&lt;em>&lt;u>https://yourdomain.com:30000/&lt;/u>&lt;/em>"
 &lt;div class="alert alert-info" role="alert">
 &lt;h4 class="alert-heading">Tips&lt;/h4>
 升级 FVTT 或者修改启动配置，请参见&lt;a href="https://github.com/fvtt-cn/FoundryDeploy">脚本仓库&lt;/a>中的文档
-&lt;/div>
-&lt;hr>
-&lt;h3 id="手动运行-fvtt-容器教程">手动运行 FVTT 容器教程&lt;/h3>
-&lt;p>&lt;em>手动更适合希望自定义部署步骤，并且不嫌麻烦的用户&lt;/em>&lt;/p>
-&lt;div class="alert alert-warning" role="alert">
-&lt;h4 class="alert-heading">注意&lt;/h4>
-&lt;strong>手动运行和自动脚本故意设计为会发生冲突，请只选择其中一种方式部署&lt;/strong>
-&lt;/div>
-&lt;ol>
-&lt;li>
-&lt;p>首先，假设已经登入了 Linux 服务器，并且能够获得 root 权限&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>确保 Docker 已安装，执行：&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">curl -fsSL https://get.docker.com &lt;span style="color:#000;font-weight:bold">|&lt;/span> sudo sh
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>等待执行完毕就可以进入下一步&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>先创建一个 Docker 网桥，执行：&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo docker network create caddy_network
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>修改下面的命令，然后复制粘贴后执行&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo docker run -d &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>--name&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>fvtt &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>--restart&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>unless-stopped &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>--network&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>caddy_network &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>-v fvtt_data:/data &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>-e &lt;span style="color:#000">FOUNDRY_USERNAME&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;FVTT官网用户名&amp;#39;&lt;/span> &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>-e &lt;span style="color:#000">FOUNDRY_PASSWORD&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;FVTT官网密码&amp;#39;&lt;/span> &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>-e &lt;span style="color:#000">FOUNDRY_ADMIN_KEY&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;设置一个部署完成后管理FVTT的密码&amp;#39;&lt;/span> &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>felddy/foundryvtt:release
-&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
-&lt;p>需要注意的是，之后访问 FVTT 不要使用任何服务器设置功能来更改选项，会被现在的设置直接覆盖（包括 FVTT 管理密码，但保存的世界、系统、MOD 等等不受影响）&lt;/p>
-&lt;p>并且已经屏蔽自动升级功能，需要升级或者修改服务器其他设置的话参见下文（访问域名、端口等修改 Caddy 配置）&lt;/p>
-&lt;/blockquote>
-&lt;/li>
-&lt;li>
-&lt;p>启动 Caddy&lt;/p>
-&lt;p>使用 Caddy 作为反代，可以有效降低的 HTTPS 的部署成本，毕竟全自动申请免费的 LetsEncrypt 的 HTTPS 证书且自动更新，无需额外配置&lt;/p>
-&lt;p>先绑定好域名，假设绑定到这台机器的域名的是 &lt;code>my.fvtt.com&lt;/code>&lt;/p>
-&lt;p>那么执行：&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">nano Caddyfile
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>然后会进入一个编辑文件的界面，在这个界面里，写下 Caddy 的配置文件，可以修改 &lt;code>my.fvtt.com&lt;/code> 后直接复制粘贴，示例如下：&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Caddyfile" data-lang="Caddyfile">&lt;span style="color:#000080;font-weight:bold">my.fvtt.com&lt;/span> &lt;span style="color:#000080;font-weight:bold">&amp;lt;=&lt;/span> &lt;span style="color:#000080;font-weight:bold">修改这个&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">reverse_proxy&lt;/span> &lt;span style="color:#000">fvtt&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">30000&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">header_up&lt;/span> &lt;span style="color:#4e9a06">Host&lt;/span> &lt;span style="color:#4e9a06">{host}&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">header_up&lt;/span> &lt;span style="color:#4e9a06">X-Real-IP&lt;/span> &lt;span style="color:#4e9a06">{remote_host}&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">header_up&lt;/span> &lt;span style="color:#4e9a06">X-Forwarded-For&lt;/span> &lt;span style="color:#4e9a06">{remote_host}&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">header_up&lt;/span> &lt;span style="color:#4e9a06">X-Forwarded-Proto&lt;/span> &lt;span style="color:#4e9a06">{scheme}&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>无论是否有域名，输入或者粘贴完毕后，按 &lt;kbd>Ctrl&lt;/kbd>+&lt;kbd>X&lt;/kbd>，会提示是否覆写编辑内容，按 &lt;kbd>y&lt;/kbd> 并且回车确认保存&lt;/p>
-&lt;p>接着启动 Caddy 进行反代，执行：&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo docker run -d &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>--name&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>caddy &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>--restart&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>unless-stopped &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>--network&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>caddy_network &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>-p 80:80 &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>-p 443:443 &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>-p 8080:8080 &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>-v cdata:/data &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>-v &lt;span style="color:#000">$PWD&lt;/span>/Caddyfile:/etc/caddy/Caddyfile &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>caddy
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>启动后等待不到几秒后（大部分情况下），就应该已经可以访问 FVTT 了，直接在浏览器输入绑定的域名就可以&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>启动 FileBrowser（可选）&lt;/p>
-&lt;p>我们都知道 FoundryVTT 目前的文件管理非常的麻，比如暂不支持删除、移动等等必需功能&lt;/p>
-&lt;p>如果你本来用 Windows Server 部署，那么你还可以远程桌面来试图管理（其实也不是特别方便），如果你使用 Linux 并且像上面一样使用 Docker 来部署，那么就不要考虑直接在用命令移动、删除文件了&lt;/p>
-&lt;p>为了解决这个问题，最好的方法是启动一个 Web 文件管理器的 Docker 容器，让它挂载我们的 FVTT 的数据文件，然后我们用浏览器打开这个 Web 文件管理器就可以方便地管理文件&lt;/p>
-&lt;p>这里推荐使用基于 Golang 的 FileBrowser，使用足够方便：&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo docker run -d &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>--name&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>filebrowser &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>--restart&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>unless-stopped &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>--network&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>caddy_network &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>-v fvtt_data:/srv &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>filebrowser/filebrowser
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>建议再给这台运行 FVTT 的机器绑定一个新的域名用于访问文件管理器，例如 &lt;code>file.fvtt.com&lt;/code>，然后修改 Caddyfile 让 Caddy 也反代 FileBrowser，执行：&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">nano Caddyfile
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>然后用方向键调整到末尾，可以修改 &lt;code>file.fvtt.com&lt;/code> 后直接粘贴到文件末尾，示例如下：&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Caddyfile" data-lang="Caddyfile">&lt;span style="color:#000080;font-weight:bold">file.fvtt.com&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">reverse_proxy&lt;/span> &lt;span style="color:#000">filebrowser&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">80&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">header_up&lt;/span> &lt;span style="color:#4e9a06">Host&lt;/span> &lt;span style="color:#4e9a06">{host}&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">header_up&lt;/span> &lt;span style="color:#4e9a06">X-Real-IP&lt;/span> &lt;span style="color:#4e9a06">{remote_host}&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">header_up&lt;/span> &lt;span style="color:#4e9a06">X-Forwarded-For&lt;/span> &lt;span style="color:#4e9a06">{remote_host}&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">header_up&lt;/span> &lt;span style="color:#4e9a06">X-Forwarded-Proto&lt;/span> &lt;span style="color:#4e9a06">{scheme}&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>同样在输入或者粘贴完毕后，按 &lt;kbd>Ctrl&lt;/kbd>+&lt;kbd>X&lt;/kbd> 然后按 &lt;kbd>y&lt;/kbd> 并且回车确认保存&lt;/p>
-&lt;p>接着，重启 Caddy 以使其启用对 FileBrowser 的反代：&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo docker restart caddy
-&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;li>
-&lt;p>升级 FVTT 版本或者修改配置
-先移除正在运行的 FVTT 的容器，执行：&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo docker rm -f fvtt
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>并且更新 FVTT 镜像，执行：&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo docker pull felddy/foundryvtt:release
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>然后执行和启动时一模一样的命令：&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo docker run -d &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>--name&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>fvtt &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>--restart&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>unless-stopped &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>--network&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>caddy_network &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>-v fvtt_data:/data &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>-e &lt;span style="color:#000">FOUNDRY_USERNAME&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;FVTT官网用户名&amp;#39;&lt;/span> &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>-e &lt;span style="color:#000">FOUNDRY_USERNAME&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;FVTT官网密码&amp;#39;&lt;/span> &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>-e &lt;span style="color:#000">FOUNDRY_ADMIN_KEY&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;设置一个部署完成后管理FVTT的密码&amp;#39;&lt;/span> &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>felddy/foundryvtt:release
-&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;/ol></description></item><item><title>Deployment: Windows 部署 FoundryVTT 教程</title><link>https://fvtt-cn.github.io/deployment/gettingstarted/windows/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/deployment/gettingstarted/windows/</guid><description>
+&lt;/div></description></item><item><title>Deployment: Windows 部署 FoundryVTT 教程</title><link>https://fvtt-cn.github.io/deployment/gettingstarted/windows/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/deployment/gettingstarted/windows/</guid><description>
 &lt;blockquote>
 &lt;p>本篇教程参考 FVTT 英文社群网站 &lt;a href="https://foundry-vtt-community.github.io/wiki/Windows/">Windows 托管教程&lt;/a>和&lt;a href="http://www.goddessfantasy.net/bbs/index.php?topic=117014.0">猫斯基的 Windows Server 部署教程&lt;/a>。&lt;/p>
 &lt;/blockquote>
@@ -623,4 +520,135 @@ frameborder="no"
 framespacing="0"
 allowfullscreen="true">
 &lt;/iframe>
-&lt;/div></description></item></channel></rss>
+&lt;/div></description></item><item><title>Deployment: FoundryVTT 使用 CDN 教程</title><link>https://fvtt-cn.github.io/deployment/gettingstarted/cdn/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/deployment/gettingstarted/cdn/</guid><description>
+&lt;div class="pageinfo pageinfo-primary">
+&lt;p>CDN 使用指南，基于 &lt;a href="../docker/#%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2%E8%84%9A%E6%9C%AC%E4%B8%AD%E6%96%87%E7%A4%BE%E5%8C%BA-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B">Docker 部署教程&lt;/a>进行，与各云服务提供商&lt;em>利益无关&lt;/em>&lt;/p>
+&lt;/div>
+&lt;h2 id="faq">FAQ&lt;/h2>
+&lt;h3 id="cdn-是什么干什么解决了什么问题">CDN 是什么/干什么/解决了什么问题？&lt;/h3>
+&lt;p>CDN 是云厂商提供的内容分发网络服务，厂商在各地部署成千上万的服务器，而这些服务器上将会缓存你需要加速访问的站点上的多媒体、脚本、样式等体积较大的&lt;strong>静态内容&lt;/strong>（以及使用全站加速时，代理访问你的站点上的动态内容，比如 FVTT 用到的 WebSocket 连接）。&lt;/p>
+&lt;p>通过这些缓存与代理，用户在访问站点时，通常会根据网络情况，自动就近选择离用户近、网络质量好的服务器，代替你原本站点的服务器来提供内容。&lt;/p>
+&lt;p>即使你原本站点带宽很小（比如 1Mbps）、与用户之间延迟很高，甚至服务器性能不足。对于一张 10M 大小的图片文件，传递给 5 个用户，每个用户可能需要 7 分钟才能都加载出来。而 CDN 在缓存后，能够以 CDN 自身的速率（可以轻松超过 100 Mbps）就近传输给用户，可能只需一两秒，大大加快了访问速度。&lt;/p>
+&lt;p>上面的例子也可以看出，使用 CDN 之后，不再需要考虑“同时多少个用户访问之后，服务器带宽不足，每个人都变很慢”的问题，CDN 服务带宽永远是配置足够的。&lt;/p>
+&lt;p>而且，境内云服务的 CDN 流量价格，常常要比服务器按流量计费来得便宜，静态内容加速通常是 0.2 元/GB 左右或更低（预付费流量包等方式）。&lt;/p>
+&lt;p>很多 CDN 服务也提供静态内容压缩功能，可以代替你的服务器，对缓存的图片、脚本、样式表文件进行压缩之后传递给用户，降低服务器开销。更棒的是，有些 CDN 服务可以对图片、音频、视频等多媒体资源的缓存，进行动态的剪裁、缩放、压制，大幅降低文件尺寸，实现更快地访问。&lt;/p>
+&lt;div class="alert alert-info" role="alert">
+&lt;h4 class="alert-heading">太长，不看&lt;/h4>
+CDN 主要解决 FVTT 服务器可能会遇到的带宽不足、延迟高等网络问题，以及一定情况下降低服务器的性能开销与花费开支
+&lt;/div>
+&lt;h3 id="加速-fvtt-需要使用什么样的-cdn">加速 FVTT 需要使用什么样的 CDN？&lt;/h3>
+&lt;p>使用 FVTT 进行跑团，会有大量的图片、脚本文件等静态内容，天然的，非常适合使用 CDN 进行加速，几乎是 CDN 最标准的使用场景。&lt;/p>
+&lt;p>但同时也会发现，FVTT 是实时应用程序。比如指示物的移动等、聊天消息的发送接受，都是实时更新的。这些基于 &lt;strong>WebSocket 协议&lt;/strong>的实时数据传输，以及其他的 API 请求，即是&lt;strong>动态内容&lt;/strong>。动态内容，没有办法进行真正意义上的“缓存”。&lt;em>尽管 WebSocket 是动态内容的一种，但不是所有支持动态内容加速的 CDN 都支持 WebSocket，这一点一定要注意&lt;/em>。&lt;/p>
+&lt;p>这就需要支持动态内容加速的 CDN 服务，而国内规模大的云厂商，比如阿里云、腾讯云的全站加速功能，都支持动态内容和 WebSocket 的加速，即符合 FVTT 使用的需求。&lt;/p>
+&lt;p>即，FVTT 使用的 CDN 需要支持：&lt;/p>
+&lt;ul>
+&lt;li>静态内容，用于提供多媒体、脚本、样式表等各种文件的静态内容加速（只要是 CDN 服务，均支持）&lt;/li>
+&lt;li>动态内容，用于提供 API 请求的加速（除非自己配置动静分离，需要 CDN 支持）&lt;/li>
+&lt;li>WebSocket，用于提供 FVTT 最常用的 WS 协议的加速（除非自己配置动静分离，需要 CDN 支持）&lt;/li>
+&lt;/ul>
+&lt;div class="alert alert-info" role="alert">
+&lt;h4 class="alert-heading">太长，不看&lt;/h4>
+一般来说，最好直接使用阿里云、腾讯云的全站加速服务，免于自己配置动静分离（如果你会配置，应该也不需要看这篇文章）
+&lt;/div>
+&lt;h3 id="购买时境内境外全球应该怎么选">购买时，境内/境外/全球应该怎么选？&lt;/h3>
+&lt;p>正如教程中域名一章里提到的一样，在境内使用域名提供互联网服务尤其是 CDN 服务，是一定需要&lt;a href="../domain-name/#%E5%A4%87%E6%A1%88">备案&lt;/a>的。因此，只要想在境内使用 CDN，你也同样要对你的域名进行备案，然后使用这个备案的域名来加速。&lt;/p>
+&lt;p>境外 CDN 则没有这个问题，在境外提供互联网服务无需备案。而且，境外 CDN 也可以在国内访问。但是，境内的玩家访问境外 CDN 速度不甚理想。如果你的服务器在境内，而 CDN 使用“纯”境外，玩家使用 CDN 时可能不仅起不到加速作用，反而拖累了访问速度，这是出口带宽拥挤和墙所导致的问题，除非使用特定手段访问，或者线路不错，否则不建议当你的玩家都在境内时这么做。&lt;/p>
+&lt;p>而很多 CDN 包含全球服务，即境内+境外。因为涉及到了提供境内服务，所以同样需要备案。如果你的玩家正好有位于境内的也有境外的，可以考虑使用全球 CDN，一次性解决境内外玩家的加速访问。&lt;/p>
+&lt;h2 id="购买配置-cdn">购买/配置 CDN&lt;/h2>
+&lt;p>接下来介绍如何购买和配置 CDN。&lt;/p>
+&lt;h3 id="docker-部署流程中的注意事项">Docker 部署流程中的注意事项&lt;/h3>
+&lt;p>在购买前，先按照 &lt;a href="../docker">Docker 部署教程&lt;/a>进行自动脚本部署，注意在填写参数时，&lt;strong>要输入“FoundryVTT 使用 CDN 时的加速域名”，而且一定不能和“FoundryVTT 已绑定该服务器的域名”一样&lt;/strong>。&lt;/p>
+&lt;p>比如你拥有 &amp;ldquo;fvtt.com&amp;rdquo; 域名，计划使用 &amp;ldquo;my.fvtt.com&amp;rdquo; 作为 FVTT 绑定域名，使用 &amp;ldquo;cdn.fvtt.com&amp;rdquo; 作为加速后的域名。&lt;/p>
+&lt;p>那么“FoundryVTT 已绑定该服务器的域名”就填写 &amp;ldquo;my.fvtt.com&amp;rdquo;（引号内，不带引号）后回车，“FoundryVTT 使用 CDN 时的加速域名”就填写 &amp;ldquo;cdn.fvtt.com&amp;rdquo; 后回车。&lt;/p>
+&lt;p>部署相关的其他信息参见 &lt;a href="../docker/#%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2%E8%84%9A%E6%9C%AC%E4%B8%AD%E6%96%87%E7%A4%BE%E5%8C%BA-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B">Docker 部署教程&lt;/a>。&lt;/p>
+&lt;div class="alert alert-info" role="alert">
+&lt;h4 class="alert-heading">Tips&lt;/h4>
+如果使用 CDN 加速域名，可以考虑不使用 FVTT 绑定域名，在输入参数时回车跳过“FoundryVTT 使用 CDN 时的加速域名”即可
+&lt;/div>
+&lt;p>如此，FVTT 就准备好了使用这个域名进行 CDN 加速，然后可以按下列步骤，配置对应域名的 CDN。&lt;/p>
+&lt;h3 id="以阿里云为例配置全站加速">以阿里云为例，配置全站加速&lt;/h3>
+&lt;p>以刚才的加速域名 &amp;ldquo;cdn.fvtt.com&amp;rdquo; 为例，接下来是如何在阿里云上配置全站加速的例子，阿里云界面若更新，或者使用其他云服务，操作大同小异。&lt;/p>
+&lt;p>记住，对境内提供 CDN 一定需要先备案。&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>登入控制台后，找到&lt;strong>全站加速&lt;/strong>，并且按提示开通对应服务
+&lt;img src="https://fvtt-cn.github.io/images/deployment/cdn/ali-list.png" alt="">&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>在全站加速的管理页中，选择&lt;strong>域名管理&lt;/strong>，点击&lt;em>添加域名&lt;/em>，然后填写表单&lt;/p>
+&lt;ul>
+&lt;li>加速域名：使用 CDN 访问 FVTT 的域名，即例中的 &amp;ldquo;cdn.fvtt.com&amp;rdquo;&lt;/li>
+&lt;li>加速区域：按&lt;a href="#%E8%B4%AD%E4%B9%B0%E6%97%B6%E5%A2%83%E5%86%85%E5%A2%83%E5%A4%96%E5%85%A8%E7%90%83%E5%BA%94%E8%AF%A5%E6%80%8E%E4%B9%88%E9%80%89">上述 FAQ&lt;/a>按需选择&lt;/li>
+&lt;li>端口：和默认一样，选择 80 端口即可&lt;/li>
+&lt;/ul>
+&lt;p>这里主要需要注意的是，源站信息的&lt;strong>类型&lt;/strong>和&lt;strong>域名/IP&lt;/strong> 两项内容的填写&lt;/p>
+&lt;ul>
+&lt;li>如果你使用了 FVTT 绑定域名：
+&lt;ul>
+&lt;li>&lt;strong>类型&lt;/strong>：选择源站域名&lt;/li>
+&lt;li>&lt;strong>域名&lt;/strong>：输入框中填入 FVTT 绑定域名（不能是加速域名），优先级不需要修改（例：my.fvtt.com）&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>如果你没有使用 FVTT 绑定域名：
+&lt;ul>
+&lt;li>&lt;strong>类型&lt;/strong>：选择 IP&lt;/li>
+&lt;li>&lt;strong>IP&lt;/strong>：输入框中填入你运行 FVTT 服务器的公网 IP 地址，优先级不需要修改&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>确认后，回到域名管理界面，会显示对应域名的 CNAME 项&lt;/p>
+&lt;p>复制这一段 CNAME，我们需要把我们这个加速域名（fvtt.cdn.com）的 CNAME 记录设置为这一段的值&lt;/p>
+&lt;p>阿里云的面板上，提供了如何配置 CNAME 的&lt;a href="https://help.aliyun.com/document_detail/64928.html">帮助文档&lt;/a>，其他域名解析服务也大同小异&lt;/p>
+&lt;p>在你的域名解析管理面板，类似如此配置子域名的 CNAME 即可，比如域名解析服务设置界面如下&lt;/p>
+&lt;p>&lt;img src="https://fvtt-cn.github.io/images/deployment/cdn/cname-set.png" alt="">&lt;/p>
+&lt;p>注意，别名或者 CNAME 处记录，是从之前全站加速的域名管理面板复制来的&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>配置 CDN
+在全站加速域名管理面板中点击对应域名的配置，进入配置页面&lt;/p>
+&lt;ul>
+&lt;li>基本配置：无需修改，只需确认源站信息输入正确即可&lt;/li>
+&lt;li>回源配置：我们需要修改两项，&lt;strong>回源 HOST&lt;/strong> 以及&lt;strong>静态协议跟随回源&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>回源 HOST&lt;/strong>：开启，并直接选加速域名即可；或者选自定义域名，然后填写你的加速域名（例：fvtt.cdn.com）&lt;/li>
+&lt;li>&lt;strong>静态协议跟随回源&lt;/strong>：开启，并选择 HTTP 即可&lt;/li>
+&lt;li>可选：回源请求超时时间，可以酌情调整，比如改为 180 秒&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>动静态加速规则：
+&lt;ul>
+&lt;li>&lt;strong>动态加速&lt;/strong>：确认开关处于开启状态，默认是开启的&lt;/li>
+&lt;li>&lt;strong>协议跟随回源&lt;/strong>：这里的回源是为动态内容设置的，改为 HTTP 即可&lt;/li>
+&lt;li>可选：静态文件类型，开启自适应缓存，然后在缓存配置里，详细设置不同规则下文件的过期时间&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>HTTPS 配置：强烈推荐开启 HTTPS 访问，尽管使用 HTTPS 访问，CDN会额外收取 HTTPS 费用（价格很低）
+&lt;ul>
+&lt;li>&lt;strong>HTTPS 证书&lt;/strong>：推荐开启 HTTPS 安全加速，证书来源，如无必要，选择免费证书然后同意授权并确认即可&lt;/li>
+&lt;li>&lt;strong>HTTP/2 设置&lt;/strong>：HTTPS 启用后才可以开启，默认使用 HTTPS 就会开启，有效提升站点访问速度&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>性能优化：
+&lt;ul>
+&lt;li>&lt;strong>页面优化&lt;/strong>：推荐开启，除非你是 MOD 开发者并使用 CDN 加速站进行开发&lt;/li>
+&lt;li>&lt;strong>智能压缩&lt;/strong>：推荐开启，可以小幅度降低静态内容的文件尺寸&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>WebSocket：一定要确保 &lt;strong>WebSocket 开关&lt;/strong>处于&lt;strong>开启&lt;/strong>状态
+&lt;ul>
+&lt;li>&lt;strong>心跳时间&lt;/strong>：可以酌情调整，比如改为 120 秒&lt;/li>
+&lt;li>&lt;strong>回源协议&lt;/strong>：这里的回源是为 WebSocket 设置的，选择 HTTP 即可&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;p>如果开启了 HTTPS 访问，等待云服务下发好证书后，即可通过加速域名（例：fvtt.cdn.com）访问&lt;/p>
+&lt;p>如果没有使用 HTTPS，直接浏览器里打开加速域名即可&lt;/p>
+&lt;/blockquote>
+&lt;p>如果以上配置完毕后，仍然无法正常连接加速域名，请检查域名 CNAME 解析是否正确。&lt;/p>
+&lt;p>配置完成后，云服务提供商即会开始按流量、访问次数或者其他计费方式，开始计费。&lt;/p>
+&lt;p>如果没有特殊需求的话，可以看一下云服务提供商是否有 CDN 流量包（购买前要确认是否适用于全站加速），预先购买这些流量包可以降低开销。&lt;/p></description></item></channel></rss>
