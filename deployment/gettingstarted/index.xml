@@ -424,7 +424,8 @@ ProxyPassReverse / "&lt;em>&lt;u>https://yourdomain.com:30000/&lt;/u>&lt;/em>"
 &lt;li>✅ FVTT 密码 （用于获取 FVTT 下载地址/授权信息）&lt;/li>
 &lt;li>⭕ 版本号/下载地址
 &lt;ul>
-&lt;li>直接回车跳过输入版本号，使用最新稳定版即可；注意：如果使用境内服务器，从 FVTT 官方下载安装包可能较慢，可以考虑粘贴星界投影的镜像下载源的 Linux 版本下载链接&lt;/li>
+&lt;li>直接回车跳过输入版本号，使用最新稳定版即可；注意：如果使用境内服务器，从 FVTT 官方下载安装包会比较慢，可以考虑粘贴&lt;a href="../../../modules/#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E8%A7%A3%E5%86%B3%E7%B3%BB%E7%BB%9F%E5%92%8C-mod-%E9%9A%BE%E4%BB%A5%E5%AE%89%E8%A3%85%E7%9A%84%E9%97%AE%E9%A2%98">星界投影&lt;/a>的镜像下载源的 Linux 版本下载链接&lt;/li>
+&lt;li>Linux 版 FVTT 的星界投影的镜像下载地址为：&lt;code>https://cdn.sbea.in/foundry/linux/foundryvtt-0.7.5.zip&lt;/code>。如果需要使用其他版本，替换链接中的 &lt;code>0.7.5&lt;/code> 即可&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;li>⭕ 自定义管理密码
