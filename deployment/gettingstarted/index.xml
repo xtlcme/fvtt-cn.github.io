@@ -490,6 +490,30 @@ ProxyPassReverse / "&lt;em>&lt;u>https://yourdomain.com:30000/&lt;/u>&lt;/em>"
 &lt;div class="alert alert-info" role="alert">
 &lt;h4 class="alert-heading">提示&lt;/h4>
 为了方便升级和二次部署，脚本运行后默认会存储输入的参数信息。如果不需要存储配置，避免服务器被黑之后信息泄露，请在脚本运行完毕后删除 &lt;code>fvtt-config&lt;/code> 文件
+&lt;/div>
+&lt;h3 id="部署教程视频">部署教程视频&lt;/h3>
+&lt;style>
+.aspect-ratio {
+position: relative;
+width: 100%;
+height: 0;
+padding-bottom: 75%;
+}
+.aspect-ratio iframe {
+position: absolute;
+width: 100%;
+height: 100%;
+left: 0;
+top: 0;
+}
+&lt;/style>
+&lt;div class="aspect-ratio">
+&lt;iframe src="https://player.bilibili.com/player.html?bvid=BV1Bv41167n6&amp;page=1&amp;as_wide=1&amp;high_quality=1&amp;danmaku=0"
+scrolling="no"
+frameborder="no"
+framespacing="0"
+allowfullscreen="true">
+&lt;/iframe>
 &lt;/div></description></item><item><title>Deployment: Windows 部署 FoundryVTT 教程</title><link>https://fvtt-cn.github.io/deployment/gettingstarted/windows/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/deployment/gettingstarted/windows/</guid><description>
 &lt;blockquote>
 &lt;p>本篇教程参考 FVTT 英文社群网站 &lt;a href="https://foundry-vtt-community.github.io/wiki/Windows/">Windows 托管教程&lt;/a>和&lt;a href="http://www.goddessfantasy.net/bbs/index.php?topic=117014.0">猫斯基的 Windows Server 部署教程&lt;/a>。&lt;/p>
