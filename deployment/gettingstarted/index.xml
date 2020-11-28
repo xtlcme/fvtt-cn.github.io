@@ -456,6 +456,16 @@ ProxyPassReverse / "&lt;em>&lt;u>https://yourdomain.com:30000/&lt;/u>&lt;/em>"
 &lt;li>如果需要给 Web 文件管理器绑定域名进行使用，可以输入，否则直接回车跳过&lt;/li>
 &lt;/ul>
 &lt;/li>
+&lt;li>⭕ 使用 Docker 仪表盘
+&lt;ul>
+&lt;li>Docker 仪表盘用来方便的管理服务器上运行的容器（重启、监测状态等），比如 FVTT 和 Web 文件管理器等；默认不会使用，可以直接回车跳过&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>⭕ 如果使用 Docker 仪表盘，可以绑定域名
+&lt;ul>
+&lt;li>如果需要给 Docker 仪表盘绑定域名进行使用，可以输入，否则直接回车跳过&lt;/li>
+&lt;/ul>
+&lt;/li>
 &lt;/ul>
 &lt;p>确认输入好的参数之后，便可以回车等待部署完成&lt;/p>
 &lt;/li>
