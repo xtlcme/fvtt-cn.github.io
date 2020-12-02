@@ -83,6 +83,26 @@
 &lt;h4 id="详情-4">详情&lt;/h4>
 &lt;p>修改了掷骰结果显示的聊天消息的右键菜单，并且添加了按钮，允许快速运用伤害、治疗结果等。&lt;/p>
 &lt;hr>
+&lt;h3 id="crashs-5e-downtime-tracking">Crash&amp;rsquo;s 5e Downtime Tracking&lt;/h3>
+&lt;ul>
+&lt;li>作者：crash1115&lt;/li>
+&lt;li>系统兼容性：通用&lt;/li>
+&lt;li>MOD 兼容性：无已知冲突&lt;/li>
+&lt;/ul>
+&lt;h4 id="链接-5">链接&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/crash1115/5e-training">项目地址&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://raw.githubusercontent.com/crash1115/5e-training/master/module.json">清单文件地址&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cdn.sbea.in/raw.githubusercontent.com/crash1115/5e-training/master/module.json">清单文件地址（国内镜像）&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="详情-5">详情&lt;/h4>
+&lt;p>跟踪玩家的活动，支持不同检定，方便 DM 进行记录和整理。&lt;/p>
+&lt;ul>
+&lt;li>支持简单进度（按时间推进）、基于检定进度（每次检定推进检定结果）、和基于DC进度（检定成功进度+1）&lt;/li>
+&lt;li>丰富的自定义，如角色卡上开关休整活动的栏目、栏目名称，默认的休整活动进度类型等&lt;/li>
+&lt;li>活动完成时可以给玩家发送消息，比如跟踪的任务进度完成了、休整活动完成等等&lt;/li>
+&lt;/ul>
+&lt;hr>
 &lt;h3 id="dynamic-active-effects">Dynamic Active Effects&lt;/h3>
 &lt;ul>
 &lt;li>作者：@tposney&lt;/li>
@@ -90,13 +110,13 @@
 &lt;li>系统兼容性：D&amp;amp;D5e&lt;/li>
 &lt;li>MOD 兼容性：与 dynamic effects, Midi-QOL 不兼容&lt;/li>
 &lt;/ul>
-&lt;h4 id="链接-5">链接&lt;/h4>
+&lt;h4 id="链接-6">链接&lt;/h4>
 &lt;ul>
 &lt;li>&lt;a href="https://gitlab.com/tposney/dae">项目地址&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://gitlab.com/tposney/dae/raw/master/package/module.json">清单文件地址&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://cdn.sbea.in/gitlab.com/tposney/dae/raw/master/package/module.json">清单文件地址（国内镜像）&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h4 id="详情-5">详情&lt;/h4>
+&lt;h4 id="详情-6">详情&lt;/h4>
 &lt;ul>
 &lt;li>允许设置每件物品、法术等的效果。效果可以应用到自己或者目标的指示物上，实现诸如增减攻击/伤害加值，增减生命值上限，改变阵营，改变 AC 等等。角色卡上大部分数值都可以被 Dynamic Active Effects 调整。&lt;/li>
 &lt;li>相比原本的 Dynamic Effects，使用了 FVTT 0.7 以上版本引入的 Active Effects，与其他 MOD 兼容性预计更好，而且支持手动修改，更容易控制各种效果的生效时间等。&lt;/li>
@@ -110,12 +130,12 @@
 &lt;li>系统兼容性：D&amp;amp;D5e&lt;/li>
 &lt;li>MOD 兼容性：无已知冲突&lt;/li>
 &lt;/ul>
-&lt;h4 id="链接-6">链接&lt;/h4>
+&lt;h4 id="链接-7">链接&lt;/h4>
 &lt;ul>
 &lt;li>&lt;a href="https://github.com/RaySSharma/fvtt-encounter-builder">项目地址&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://raw.githubusercontent.com/RaySSharma/fvtt-encounter-builder/master/encounter-builder/module.json">清单文件地址&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h4 id="详情-6">详情&lt;/h4>
+&lt;h4 id="详情-7">详情&lt;/h4>
 &lt;p>增加了辅助构筑遭遇的功能。和 &lt;a href="https://kobold.club/fight/#/encounter-builder">Kobold Fight Club&lt;/a> 设计近似，通过计算添加进的所有 PC 和 NPC/怪物的对比自动计算遭遇难度。&lt;/p>
 &lt;ul>
 &lt;li>通过 DMG 中的 XP 表计算战斗难度&lt;/li>
@@ -131,13 +151,13 @@
 &lt;li>系统兼容性：D&amp;amp;D5e&lt;/li>
 &lt;li>MOD 兼容性：无已知冲突&lt;/li>
 &lt;/ul>
-&lt;h4 id="链接-7">链接&lt;/h4>
+&lt;h4 id="链接-8">链接&lt;/h4>
 &lt;ul>
 &lt;li>&lt;a href="https://github.com/kakaroto/fvtt-module-lmrtfy">项目地址&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://raw.githubusercontent.com/kakaroto/fvtt-module-lmrtfy/master/module.json">清单文件地址&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://cdn.sbea.in/raw.githubusercontent.com/kakaroto/fvtt-module-lmrtfy/master/module.json">清单文件地址（国内镜像）&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h4 id="详情-7">详情&lt;/h4>
+&lt;h4 id="详情-8">详情&lt;/h4>
 &lt;p>LMRTFY 让 GM 可以直接通过点击请求玩家进行某一项掷骰。可以避免出现问出“我这次要点哪儿?”这样的问题，或者在其他玩家不知道的情况下，对某一个玩家要求掷骰。&lt;/p>
 &lt;p>配合 &lt;a href="#minor-qol-improvements">Minor-QOL&lt;/a>，可以自动提示玩家对法术、物品等的效应进行豁免。&lt;/p>
 &lt;hr>
@@ -147,13 +167,13 @@
 &lt;li>系统兼容性：D&amp;amp;D5e&lt;/li>
 &lt;li>MOD 兼容性：无已知冲突&lt;/li>
 &lt;/ul>
-&lt;h4 id="链接-8">链接&lt;/h4>
+&lt;h4 id="链接-9">链接&lt;/h4>
 &lt;ul>
 &lt;li>&lt;a href="https://gitlab.com/jopeek/fvtt---loot-sheet-npc-5e">项目地址&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://gitlab.com/jopeek/fvtt---loot-sheet-npc-5e/raw/master/module.json">清单文件地址&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://cdn.sbea.in/gitlab.com/jopeek/fvtt---loot-sheet-npc-5e/raw/master/module.json">清单文件地址（国内镜像）&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h4 id="详情-8">详情&lt;/h4>
+&lt;h4 id="详情-9">详情&lt;/h4>
 &lt;p>这个模组添加了额外的 NPC 的表格用于作为宝箱、商人等，拖动法术到这个表格会自动转成法术卷轴。&lt;/p>
 &lt;hr>
 &lt;h3 id="midi-qol-improvements">Midi QOL Improvements&lt;/h3>
@@ -162,13 +182,13 @@
 &lt;li>系统兼容性：D&amp;amp;D5e&lt;/li>
 &lt;li>MOD 兼容性：与 dynamic effects, Minor-QOL 不兼容&lt;/li>
 &lt;/ul>
-&lt;h4 id="链接-9">链接&lt;/h4>
+&lt;h4 id="链接-10">链接&lt;/h4>
 &lt;ul>
 &lt;li>&lt;a href="https://gitlab.com/tposney/midi-qol">项目地址&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://gitlab.com/tposney/midi-qol/raw/master/package/module.json">清单文件地址&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://cdn.sbea.in/gitlab.com/tposney/midi-qol/raw/master/package/module.json">清单文件地址（国内镜像）&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h4 id="详情-9">详情&lt;/h4>
+&lt;h4 id="详情-10">详情&lt;/h4>
 &lt;p>非常强大的自动化 MOD，可以帮助自动化一大部分的战斗中的掷骰。通过选中的指示物来进行命中、伤害、豁免等检定和其后续效果的处理。&lt;/p>
 &lt;ul>
 &lt;li>消耗应该被消耗的资源（比如弹药、充能、环位等）&lt;/li>
@@ -189,13 +209,13 @@
 &lt;li>系统兼容性：D&amp;amp;D5e&lt;/li>
 &lt;li>MOD 兼容性：无已知冲突&lt;/li>
 &lt;/ul>
-&lt;h4 id="链接-10">链接&lt;/h4>
+&lt;h4 id="链接-11">链接&lt;/h4>
 &lt;ul>
 &lt;li>&lt;a href="https://github.com/kakaroto/fvtt-module-polyglot">项目地址&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://raw.githubusercontent.com/kakaroto/fvtt-module-polyglot/master/module.json">清单文件地址&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://cdn.sbea.in/raw.githubusercontent.com/kakaroto/fvtt-module-polyglot/master/module.json">清单文件地址（国内镜像）&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h4 id="详情-10">详情&lt;/h4>
+&lt;h4 id="详情-11">详情&lt;/h4>
 &lt;p>可以根据选择的角色所会使用的语言发出文字消息，对于不会这个语言的玩家而言，发出的文字消息会变为乱码。&lt;/p>
 &lt;hr>
 &lt;h3 id="plutonium">Plutonium&lt;/h3>
@@ -205,14 +225,14 @@
 &lt;li>MOD 兼容性：无已知冲突&lt;/li>
 &lt;li>版权：&lt;strong>无&lt;/strong>&lt;/li>
 &lt;/ul>
-&lt;h4 id="链接-11">链接&lt;/h4>
+&lt;h4 id="链接-12">链接&lt;/h4>
 &lt;ul>
 &lt;li>&lt;a href="https://5e.tools/plutonium.html">项目地址&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://wiki.5e.tools/index.php/FoundryTools:_User_Guide">文档地址&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://get.5e.tools/plutonium/module.json">清单文件地址&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://cdn.sbea.in/get.5e.tools/plutonium/module.json">清单文件地址（国内镜像）&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h4 id="详情-11">详情&lt;/h4>
+&lt;h4 id="详情-12">详情&lt;/h4>
 &lt;p>Plutonium 是 &lt;a href="https://5e.tools">5etools&lt;/a> 的附属项目，支持将 5etools 的内容导入到 FVTT 中，具体使用可以参见官方文档，使用 Plutonium 可以非常方便的放怪、车卡，可以说是大幅简化了 5e 的备团流程。&lt;/p>
 &lt;p>除此之外，对 FVTT 还添加了不少和 5e 无关的功能，比如 Art Browser，支持搜索网络上的图片资源将其直接变为指示物或图块放进场景之中。&lt;/p>
 &lt;hr>
@@ -222,11 +242,11 @@
 &lt;li>系统兼容性：D&amp;amp;D5e&lt;/li>
 &lt;li>MOD 兼容性：无已知冲突&lt;/li>
 &lt;/ul>
-&lt;h4 id="链接-12">链接&lt;/h4>
+&lt;h4 id="链接-13">链接&lt;/h4>
 &lt;ul>
 &lt;li>&lt;a href="https://github.com/sdenec/tidy5e-sheet">项目地址&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://raw.githubusercontent.com/sdenec/tidy5e-sheet/master/module.json">清单文件地址&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://cdn.sbea.in/raw.githubusercontent.com/sdenec/tidy5e-sheet/master/module.json">清单文件地址（国内镜像）&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h4 id="详情-12">详情&lt;/h4>
+&lt;h4 id="详情-13">详情&lt;/h4>
 &lt;p>Tidy 5e 用于替换 5e 系统自带的角色卡，提供了更加简洁的 UI，并且支持中文，可高度配置其样式。&lt;/p></description></item></channel></rss>
