@@ -7,12 +7,12 @@
 &lt;p>以当前的 FVTT 运行情况看，如果服务器上只运行 FVTT，那么 1G 内存的 Linux 服务器和 2G 内存的 Windows 服务器足够使用。&lt;/p>
 &lt;p>CPU 核心数尽管对运行效率有直接影响，但单核心也足以满足多人游玩 FVTT。&lt;/p>
 &lt;p>最重要的因素其实是带宽，如果购买 1Mbps 带宽的服务器用来跑 5 个人的团，意味着每个人在游玩时仅能分配到 200 Kbps = 25 KB/s。
-如果一个新场景内的地图 2.5M 大小，则所有玩家平均需要等待 100 秒来下载完毕整张地图，更不必提还需要下载其他资源&lt;em>尤其是在服务器上存储了音乐等情况&lt;/em>。&lt;/p>
+如果一个新场景内的地图 2.5M 大小，则所有玩家平均需要等待 100 秒来下载完毕整张地图，更不必提还需要下载其他资源，&lt;em>尤其是在服务器上存储了音乐等情况&lt;/em>。&lt;/p>
 &lt;p>通常认为，运行 FVTT 的服务器带宽最好要在 &lt;strong>5Mbps 以上&lt;/strong>（越高越好）。&lt;/p>
 &lt;p>&lt;strong>然而&lt;/strong>，云服务的按带宽计费的价格非常高，如果要提升到 5+Mbps 往往需要远高于其他配置的成本，并且会造成闲时带宽的浪费。如果可以接受按流量计费（每 GB 一般 0.8 元上下），则带宽大小本身不会被计费，可以设置到 100+Mbps，运行 FVTT 绰绰有余。&lt;/p>
 &lt;h3 id="系统">系统&lt;/h3>
 &lt;p>参见&lt;a href="../#%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%E6%96%B9%E5%BC%8F%E5%AF%B9%E6%AF%94">部署方式对比&lt;/a>。&lt;/p>
-&lt;p>&lt;em>值得注意的是，Docker 部署方式可使用任意一个主流的 Linux 发行版作为操作系统。&lt;/em>&lt;/p>
+&lt;p>&lt;em>值得注意的是，Docker 部署方式可使用任意一个主流的 Linux 发行版作为操作系统&lt;/em>。&lt;/p>
 &lt;h3 id="地域">地域&lt;/h3>
 &lt;p>云服务器的数据中心地理位置可能是最能直接影响体验的 &lt;em>非直观&lt;/em> 要素，需要斟酌。&lt;/p>
 &lt;p>数据中心的地理位置，可以决定以下几个重要的判断要素：&lt;/p>
@@ -43,8 +43,9 @@
 &lt;p>厂商虽然对使用云服务的体验影响很大，但没必要比较性能（FVTT 不太吃性能），也不必评论谁好谁坏。&lt;/p>
 &lt;p>主流购买选择：&lt;/p>
 &lt;blockquote>
-&lt;p>境内：阿里云、腾讯云&lt;/p>
-&lt;p>境外：阿里云（香港为主）、 AWS、 Azure、搬瓦工&lt;/p>
+&lt;p>境内：阿里云、腾讯云
+&lt;br/>
+境外：阿里云（香港为主）、 AWS、 Azure、搬瓦工&lt;/p>
 &lt;/blockquote>
 &lt;h3 id="学生机">学生机&lt;/h3>
 &lt;p>阿里云、腾讯云、百度云等等，会对国内学生提供学生优惠。&lt;/p>
@@ -69,7 +70,7 @@
 &lt;p>无论使用那种方式部署，完毕后，如果无法访问，常常是因为云服务器的防火墙设置，尚未放行 FVTT 正在使用的端口。&lt;/p>
 &lt;p>一般来说，如果设置了域名并反代，需要设置&lt;strong>入方向&lt;/strong>的端口 80, 443 开放。&lt;/p>
 &lt;p>而如果只是使用 30000 端口或者修改的其他端口，只需要设置对应端口在&lt;strong>入方向&lt;/strong>上开放即可。&lt;/p>
-&lt;p>或者，可以放行所有端口，更方便用户正常使用&lt;/p>
+&lt;p>或者，可以放行所有端口，更方便用户正常使用。&lt;/p>
 &lt;blockquote>
 &lt;p>&lt;a href="../docker/#%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2%E8%84%9A%E6%9C%AC%E5%AE%89%E8%A3%85%E6%B5%81%E7%A8%8B">Docker 部署方式自动脚本&lt;/a>如果不使用域名，文件管理器的网站需要打开入方向 30001 端口，仪表盘需要打开入方向 30002 端口。&lt;/p>
 &lt;/blockquote>
@@ -127,7 +128,7 @@
 &lt;p>其他设置都使用默认设置即可。&lt;/p>
 &lt;p>&lt;img src="https://fvtt-cn.github.io/images/deployment/domain-name.png" alt="">&lt;/p></description></item><item><title>Deployment: Ubuntu 部署 FoundryVTT 教程</title><link>https://fvtt-cn.github.io/deployment/gettingstarted/ubuntu/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/deployment/gettingstarted/ubuntu/</guid><description>
 &lt;blockquote>
-&lt;p>本篇教程参考 FVTT 英文社群网站 &lt;a href="https://foundry-vtt-community.github.io/wiki/Ubuntu-VM/">Ubuntu VM 部署教程&lt;/a>。&lt;/p>
+&lt;p>本篇教程参考 FVTT 英文社群网站 &lt;a href="https://foundry-vtt-community.github.io/wiki/Ubuntu-VM/">Ubuntu VM 部署教程&lt;/a>&lt;/p>
 &lt;/blockquote>
 &lt;hr>
 &lt;h2 id="介绍">介绍&lt;/h2>
@@ -165,11 +166,11 @@ mkdir ~/foundry &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;am
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>pwd&lt;/code> 命令输出结果应当是 &lt;code>/home/[XXX]/foundry&lt;/code>，&lt;code>[XXX]&lt;/code> 是登录服务器使用的 Linux 用户名。&lt;/p>
 &lt;p>从官网上获取 FVTT 下载链接（Linux），在服务器上运行：&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">wget &lt;span style="color:#4e9a06">&amp;#34;https://foundryvtt.s3-us-west-2.amazonaws.com/releases/[Key]/FoundryVirtualTabletop-linux-x64.zip&amp;#34;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>后面的这段链接替换为从官网处复制到的链接&lt;/strong>&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>后面的这段链接替换为从官网处复制到的链接&lt;/strong>。&lt;/p>
 &lt;p>下载完毕后，解压 FVTT（如果文件名不一致，更换为下载保存的 FVTT 压缩包文件名）：&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">unzip FoundryVirtualTabletop-linux-x64.zip
 rm FoundryVirtualTabletop-linux-x64.zip
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>然后测试确认 FVTT 是否能够正常运行：&lt;code>node $HOME/foundry/resources/app/main.js --port=62621 --dataPath=/tmp/foundrydata&lt;/code>&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>然后测试确认 FVTT 是否能够正常运行：&lt;code>node $HOME/foundry/resources/app/main.js --port=62621 --dataPath=/tmp/foundrydata&lt;/code>：&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">FoundryVTT &lt;span style="color:#000;font-weight:bold">|&lt;/span> 2020-07-06 07:48:44 &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>info&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> Foundry Virtual Tabletop - Version 0.6.5
 FoundryVTT &lt;span style="color:#000;font-weight:bold">|&lt;/span> 2020-07-06 07:48:44 &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>info&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> Running on Node.js - Version 12.18.2
 FoundryVTT &lt;span style="color:#000;font-weight:bold">|&lt;/span> 2020-07-06 07:48:44 &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>info&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> Application Options:
@@ -197,7 +198,7 @@ FoundryVTT &lt;span style="color:#000;font-weight:bold">|&lt;/span> 2020-07-06 0
 sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u [XXX] --hp /home/[XXX]
 &lt;/code>&lt;/pre>&lt;p>它生成了一个命令，即&lt;code>sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u [XXX] --hp /home/[XXX]&lt;/code>这一部分，其中 &lt;code>[XXX]&lt;/code> 会被自动替换为当前登录使用的用户。复制输出的这段命令（而非从网页上复制）并且执行：&lt;/p>
 &lt;blockquote>
-&lt;p>如果使用 root 执行 &lt;code>pm2 startup&lt;/code> 命令，则会直接配置为系统服务，不需要复制粘贴命令执行。&lt;/p>
+&lt;p>如果使用 root 执行 &lt;code>pm2 startup&lt;/code> 命令，则会直接配置为系统服务，不需要复制粘贴命令执行&lt;/p>
 &lt;/blockquote>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>PM2&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>v&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> Command successfully executed.
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>如果输出结果中含有以上这段，基本上 pm2 已经被配置为系统服务。&lt;/p>
@@ -206,7 +207,7 @@ sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -
 &lt;p>使用 pm2 启动 FVTT，还是一样 &lt;code>[xxx]&lt;/code> 替换为登录服务器使用的用户名：&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">pm2 start &lt;span style="color:#000">$HOME&lt;/span>/foundry/resources/app/main.js --name foundry -- --port&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">8080&lt;/span> --dataPath&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000">$HOME&lt;/span>/foundrydata
 &lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
-&lt;p>端口号&lt;code>8080&lt;/code>可以调整，但是后续的端口号都需要对应修改。&lt;/p>
+&lt;p>端口号&lt;code>8080&lt;/code>可以调整，但是后续的端口号都需要对应修改&lt;/p>
 &lt;/blockquote>
 &lt;p>运行完毕后，使用 &lt;code>pm2 list&lt;/code> 来查看 pm2 正在管理的进程实例：&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>PM2&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> Starting /home/&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>XXX&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>/foundry/resources/app/main.js in fork_mode &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> instance&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>
@@ -462,7 +463,7 @@ ProxyPassReverse / "&lt;em>&lt;u>https://yourdomain.com:30000/&lt;/u>&lt;/em>"
 &lt;/li>
 &lt;li>⭕ 使用 Docker 仪表盘
 &lt;ul>
-&lt;li>Docker 仪表盘用来方便的管理服务器上运行的容器（重启、监测状态等），比如 FVTT 和 Web 文件管理器等；默认不会使用，可以直接回车跳过&lt;/li>
+&lt;li>Docker 仪表盘（Portainer）用来方便的管理服务器上运行的容器（重启、监测状态等），比如 FVTT 和 Web 文件管理器等；默认不会使用，可以直接回车跳过&lt;/li>
 &lt;li>例：直接回车（不使用仪表盘）&lt;/li>
 &lt;/ul>
 &lt;/li>
@@ -473,7 +474,7 @@ ProxyPassReverse / "&lt;em>&lt;u>https://yourdomain.com:30000/&lt;/u>&lt;/em>"
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;p>确认输入好的参数之后，便可以回车等待部署完成&lt;/p>
+&lt;p>确认输入好的参数之后，便可以回车等待部署完成。&lt;/p>
 &lt;p>&lt;em>部署完成后，Foundry VTT 可能还需要等待一会儿，完成软件的下载&lt;/em>&lt;/p>
 &lt;/li>
 &lt;li>
@@ -628,8 +629,9 @@ allowfullscreen="true">
 &lt;hr>
 &lt;p>如果你没有公网 IP，又不缺一台服务器的钱，那么你可以考虑租一台服务器并架设一个 FoundryVTT 在上面。&lt;/p>
 &lt;p>服务器有数种系统，例如 Windows、Linux、MacOS、Ubuntu 等。本教程以 Windows 系统为例。&lt;/p>
-&lt;p>那么我们假设你已经购买了服务器，并且安装好了 Windows Server 系统，连接上了&lt;strong>远程桌面&lt;/strong>，接下来就进行部署：&lt;/p>
+&lt;p>那么假设你已经购买了服务器，并且安装好了 Windows Server 系统，连接上了&lt;strong>远程桌面&lt;/strong>，接下来就进行部署：&lt;/p>
 &lt;h2 id="基础配置">基础配置&lt;/h2>
+&lt;h3 id="手动部署过程">手动部署过程&lt;/h3>
 &lt;ol>
 &lt;li>下载并安装 Node.js，在 &lt;a href="https://nodejs.org/zh-cn/download/">Node.js 官网安装页面&lt;/a>上，点击 Windows 安装包下载&lt;/li>
 &lt;li>将 Node.js 安装包通过 &lt;em>远程桌面&lt;/em> 复制到服务器上，然后在服务器上点击安装包文件，一路确认，安装 Node.js&lt;/li>
@@ -652,6 +654,9 @@ allowfullscreen="true">
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">FoundryVTT &lt;span style="color:#000;font-weight:bold">|&lt;/span> 2020-08-15 14:50:37 &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>info&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> Foundry Virtual Tabletop - Version 0.6.5
 FoundryVTT &lt;span style="color:#000;font-weight:bold">|&lt;/span> 2020-08-15 14:50:37 &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>info&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> Running on Node.js - Version 14.8.0
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>在自己电脑的浏览器上输入 &lt;code>http://[服务器IP]:30000&lt;/code> 即可访问 FVTT，然后就可以把远程桌面关闭了。&lt;/p>
+&lt;blockquote>
+&lt;p>服务器 IP 一般是云服务器控制台网页上的公网 IP&lt;/p>
+&lt;/blockquote>
 &lt;h3 id="在腾讯云-windows-server-服务器上部署的教程视频">在腾讯云 Windows Server 服务器上部署的教程视频&lt;/h3>
 &lt;blockquote>
 &lt;p>从 26:12 秒开始是部署过程&lt;/p>
@@ -757,12 +762,12 @@ CDN 主要解决 FVTT 服务器可能会遇到的带宽不足、延迟高等网�
 &lt;/li>
 &lt;li>
 &lt;p>确认后，回到域名管理界面，会显示对应域名的 CNAME 项&lt;/p>
-&lt;p>复制这一段 CNAME，我们需要把我们这个加速域名 &lt;code>fvtt.cdn.com&lt;/code> 的 CNAME 记录设置为这一段的值&lt;/p>
-&lt;p>阿里云的面板上，提供了如何配置 CNAME 的&lt;a href="https://help.aliyun.com/document_detail/64928.html">帮助文档&lt;/a>，其他域名解析服务也大同小异&lt;/p>
-&lt;p>在你的域名解析管理面板，类似如此配置子域名的 CNAME 即可，比如域名解析服务设置界面如下&lt;/p>
+&lt;p>复制这一段 CNAME，我们需要把我们这个加速域名 &lt;code>fvtt.cdn.com&lt;/code> 的 CNAME 记录设置为这一段的值。&lt;/p>
+&lt;p>阿里云的面板上，提供了如何配置 CNAME 的&lt;a href="https://help.aliyun.com/document_detail/64928.html">帮助文档&lt;/a>，其他域名解析服务也大同小异。&lt;/p>
+&lt;p>在你的域名解析管理面板，类似如此配置子域名的 CNAME 即可，比如域名解析服务设置界面如下。&lt;/p>
 &lt;p>&lt;img src="https://fvtt-cn.github.io/images/deployment/cdn/cname-set.png" alt="">&lt;/p>
-&lt;p>注意，别名或者 CNAME 处记录，是从之前全站加速的域名管理面板复制来的&lt;/p>
-&lt;p>如何绑定域名也可以参见 &lt;a href="../domain-name/#%E7%BB%91%E5%AE%9A%E5%AD%90%E5%9F%9F%E5%90%8D">绑定（子）域名&lt;/a>&lt;/p>
+&lt;p>注意，别名或者 CNAME 处记录，是从之前全站加速的域名管理面板复制来的。&lt;/p>
+&lt;p>如何绑定域名也可以参见 &lt;a href="../domain-name/#%E7%BB%91%E5%AE%9A%E5%AD%90%E5%9F%9F%E5%90%8D">绑定（子）域名&lt;/a>。&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>配置 CDN
@@ -806,8 +811,9 @@ CDN 主要解决 FVTT 服务器可能会遇到的带宽不足、延迟高等网�
 &lt;/li>
 &lt;/ol>
 &lt;blockquote>
-&lt;p>如果开启了 HTTPS 访问，等待云服务下发好证书后，即可通过加速域名（例 &lt;code>fvtt.cdn.com&lt;/code>）访问&lt;/p>
-&lt;p>如果没有使用 HTTPS，直接浏览器里打开加速域名即可&lt;/p>
+&lt;p>如果开启了 HTTPS 访问，等待云服务下发好证书后，即可通过加速域名（例 &lt;code>fvtt.cdn.com&lt;/code>）访问
+&lt;br/>
+如果没有使用 HTTPS，直接浏览器里打开加速域名即可&lt;/p>
 &lt;/blockquote>
 &lt;p>如果以上配置完毕后，仍然无法正常连接加速域名，请检查域名 CNAME 解析是否正确。&lt;/p>
 &lt;p>配置完成后，云服务提供商即会开始按流量、访问次数或者其他计费方式，开始计费。&lt;/p>
