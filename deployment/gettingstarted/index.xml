@@ -424,7 +424,7 @@ ProxyPassReverse / "&lt;em>&lt;u>https://yourdomain.com:30000/&lt;/u>&lt;/em>"
 &lt;li>⭕ 版本号/下载地址
 &lt;ul>
 &lt;li>直接回车跳过输入版本号，使用最新稳定版即可&lt;/li>
-&lt;li>&lt;strong>注意&lt;/strong>：如果使用境内服务器，从 FVTT 官方下载安装包会比较慢，可以考虑粘贴&lt;a href="../../../modules/#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E8%A7%A3%E5%86%B3%E7%B3%BB%E7%BB%9F%E5%92%8C-mod-%E9%9A%BE%E4%BB%A5%E5%AE%89%E8%A3%85%E7%9A%84%E9%97%AE%E9%A2%98">星界投影&lt;/a>的镜像下载源的 Linux 版本下载链接。&lt;strong>境内服务器推荐使用镜像；境外服务器建议直接输入版本号&lt;/strong>！&lt;/li>
+&lt;li>&lt;strong>注意&lt;/strong>：如果使用境内服务器，从 FVTT 官方下载安装包会比较慢，可以考虑粘贴&lt;a href="../../../modules/#fvtt-%E8%BD%AF%E4%BB%B6%E9%95%9C%E5%83%8F">星界投影&lt;/a>的镜像下载源的 Linux 版本下载链接。&lt;strong>境内服务器推荐使用镜像；境外服务器建议直接输入版本号&lt;/strong>！&lt;/li>
 &lt;li>Linux 版 FVTT （即本脚本需要使用的）的星界投影的镜像下载地址为：&lt;code>https://cdn.sbea.in/foundry/linux/foundryvtt-0.7.9.zip&lt;/code>。如果需要使用其他版本，替换链接中的 &lt;code>0.7.9&lt;/code> 即可&lt;/li>
 &lt;li>✅ 如果跳过了 FVTT 账号/密码的输入，则必须输入直链下载地址而非版本号来安装，否则无法获取 FVTT 下载地址&lt;/li>
 &lt;li>例：&lt;code>0.7.9&lt;/code> 或 &lt;code>https://cdn.sbea.in/foundry/linux/foundryvtt-0.7.9.zip&lt;/code>&lt;/li>
@@ -577,7 +577,7 @@ allowfullscreen="true">
 &lt;p>错误：拉取 &amp;hellip; 失败&lt;/p>
 &lt;/blockquote>
 &lt;p>境内服务器更容易出现该错误，当网络出现波动，多次尝试后仍然无法成功下载 Docker 镜像后，即报此错。&lt;/p>
-&lt;p>报错推出后，可以在执行脚本部署命令前，通过手动拉取解决该问题：&lt;/p>
+&lt;p>报错退出后，可以在再次执行脚本部署命令前，通过手动拉取解决该问题：&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo docker pull ...
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>将 &lt;code>...&lt;/code> 替换为拉取失败的镜像，镜像名称参见下表，境内服务器使用 &lt;code>USTC 源镜像名&lt;/code> 一列：&lt;/p>
 &lt;table>
@@ -645,8 +645,8 @@ allowfullscreen="true">
 &lt;p>查看&lt;strong>下载速度&lt;/strong>后的最后几行，如果正在下载 FVTT 文件，则此处会显示下载进度的记录。根据最后一行的指示顺序，可以查看到当前的下载状态，最后一列是当前的下载速度。&lt;/p>
 &lt;p>类似这种结果，代表还在下载：
 &lt;img src="https://fvtt-cn.github.io/images/deployment/docker-script-dlspeed.png" alt="">&lt;/p>
-&lt;p>如果&lt;strong>当前下载速度&lt;/strong>降低到难以完成下载（通常是在境内服务器直接输入版本号或者回车跳过时），可以考虑删除旧有容器，然后重新部署，并使用星界投影镜像的下载地址，加速 FVTT 下载，完整流程基本等于升级的步骤，具体可以参见上文&lt;a href="#fvtt-%E5%8D%87%E7%BA%A7%E6%9B%B4%E6%96%B0%E6%B5%81%E7%A8%8B">升级流程&lt;/a>。&lt;/p>
-&lt;p>&lt;em>境内服务器如果不使用星界投影源（比如星界投影镜像下线时），尽量考虑在白天进行下载，网络连接状况会好一些&lt;/em>。&lt;/p>
+&lt;p>如果&lt;strong>当前下载速度&lt;/strong>降低到难以完成下载（通常是在境内服务器直接输入版本号或者回车跳过时），可以考虑删除旧有容器，然后重新部署，并使用&lt;a href="../../../modules/#fvtt-%E8%BD%AF%E4%BB%B6%E9%95%9C%E5%83%8F">星界投影&lt;/a>镜像的下载地址，加速 FVTT 下载，完整流程基本等于升级的步骤，具体可以参见上文&lt;a href="#fvtt-%E5%8D%87%E7%BA%A7%E6%9B%B4%E6%96%B0%E6%B5%81%E7%A8%8B">升级流程&lt;/a>。&lt;/p>
+&lt;p>&lt;em>境内服务器如果不使用镜像（比如镜像下线无法连接时），尽量考虑在白天进行下载，网络连接状况会好一些&lt;/em>。&lt;/p>
 &lt;hr>
 &lt;blockquote>
 &lt;p>&lt;strong>FoundryVTT 容器状态&lt;/strong>显示 &lt;code>running&lt;/code>，但是&lt;strong>登录状态&lt;/strong>显示 &lt;code>登录失败&lt;/code>，且&lt;strong>下载状态&lt;/strong>始终显示 &lt;code>未完成&lt;/code>&lt;/p>
@@ -654,7 +654,7 @@ allowfullscreen="true">
 &lt;p>这种情况代表输入参数时，填写了 FoundryVTT 的用户名和密码，但是用户名/密码错误，导致无法成功登录。&lt;/p>
 &lt;p>按照升级流程，删除旧有容器，然后重新部署，参见上文&lt;a href="#fvtt-%E5%8D%87%E7%BA%A7%E6%9B%B4%E6%96%B0%E6%B5%81%E7%A8%8B">升级流程&lt;/a>。&lt;/p>
 &lt;p>需要注意的是，更新过程中在询问&lt;strong>是否直接使用已存储的上次部署使用的配置&lt;/strong>的时候，因为上次部署使用的用户名/密码并不正确，所以需要放弃使用：输入 &lt;code>n&lt;/code> 然后回车，拒绝使用，然后按照正常安装流程输入参数进行。&lt;/p>
-&lt;p>&lt;em>如果暂时无法提供正确的 FVTT 用户名/密码，可以在输入用户名和密码时，都回车跳过。但这种情况下，必须要使用星界投影镜像或者其他镜像填写&lt;strong>版本号或下载地址&lt;/strong>，否则无法成功下载 FVTT 文件&lt;/em>。&lt;/p>
+&lt;p>&lt;em>如果暂时无法提供正确的 FVTT 用户名/密码，可以在输入用户名和密码时，都回车跳过。但这种情况下，必须要使用可下载镜像地址（比如&lt;a href="../../../modules/#fvtt-%E8%BD%AF%E4%BB%B6%E9%95%9C%E5%83%8F">星界投影&lt;/a>）或者从 FVTT 官网获取的直链来填写&lt;strong>版本号或下载地址&lt;/strong>，否则无法成功下载 FVTT 软件文件，也就无法运行&lt;/em>。&lt;/p>
 &lt;hr>
 &lt;blockquote>
 &lt;p>&lt;strong>FoundryVTT 容器状态&lt;/strong>显示 &lt;code>exited&lt;/code>，&lt;strong>可访问性&lt;/strong>显示 &lt;code>unhealthy&lt;/code>，&lt;strong>FoundryVTT 文件状态&lt;/strong>却显示 &lt;code>可以运行&lt;/code>&lt;/p>
