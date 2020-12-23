@@ -554,6 +554,7 @@ allowfullscreen="true">
 &lt;h2 id="docker-部署-faq">Docker 部署 FAQ&lt;/h2>
 &lt;h3 id="无法完成部署">无法完成部署&lt;/h3>
 &lt;p>部署过程中，由于指令输入错误、网络波动之类的原因，可能会出现下载错误，弹出 &lt;code>错误：...&lt;/code> 一类消息并中断部署过程。根据弹出的错误提示，可以进行以下排错。&lt;/p>
+&lt;hr>
 &lt;blockquote>
 &lt;p>错误：安装 Docker 失败，请查看使用教程 FAQ 或联系脚本作者
 &lt;br/>
@@ -562,6 +563,7 @@ allowfullscreen="true">
 &lt;p>正在使用的 Linux 发行版可能内核版本过时或并非官方认可，以致无法通过官方脚本安装或者使用 Docker。&lt;/p>
 &lt;p>比如 Android 手机内核过时无法启动 Docker、群晖 NAS 无法通过官方安装脚本安装 Docker。&lt;/p>
 &lt;p>解决方法是使用 Linux 主流发行版操作系统，如： &lt;code>Ubuntu 16.04+&lt;/code>, &lt;code>CentOS 6+&lt;/code>, &lt;code>Debian Stretch+&lt;/code>, &lt;code>RHEL 7+&lt;/code>, &lt;code>Fedora 32+&lt;/code> 等等。如果采用云服务器进行部署，通常在购买时以及购买后都可以任意选择需要安装的 Linux 发行版，尽量选择主流版本比如 &lt;code>Ubuntu 20.04&lt;/code>。&lt;/p>
+&lt;hr>
 &lt;blockquote>
 &lt;p>错误：&amp;hellip; 端口被占用，无法 &amp;hellip; 部署
 &lt;br/>
@@ -570,6 +572,7 @@ allowfullscreen="true">
 错误：&amp;hellip; 容器启动失败&lt;/p>
 &lt;/blockquote>
 &lt;p>出现这种情况的通常原因是已经部署过 FVTT 并且没有按照升级流程的步骤，首先移除旧有容器，需要先执行：&lt;code>sudo ./fvtt.sh remove&lt;/code> 以移除，具体步骤可以参见上文&lt;a href="#%E5%8D%87%E7%BA%A7%E6%B5%81%E7%A8%8B">升级流程&lt;/a>。&lt;/p>
+&lt;hr>
 &lt;blockquote>
 &lt;p>错误：拉取 &amp;hellip; 失败&lt;/p>
 &lt;/blockquote>
@@ -606,12 +609,18 @@ allowfullscreen="true">
 &lt;td>docker.mirrors.ustc.edu.cn/portainer/portainer-ce&lt;/td>
 &lt;td>portainer/portainer-ce&lt;/td>
 &lt;/tr>
+&lt;tr>
+&lt;td>ImageOptim&lt;/td>
+&lt;td>docker.mirrors.ustc.edu.cn/hmqgg/image_optim&lt;/td>
+&lt;td>hmqgg/image_optim&lt;/td>
+&lt;/tr>
 &lt;/tbody>
 &lt;/table>
 &lt;p>拉取成功后，再执行脚本部署命令。&lt;/p>
 &lt;p>如果手动拉取 USTC 源镜像，但也始终提示 &lt;code>Error response from ...&lt;/code> 无法成功拉取对应镜像，可以考虑更换为官方源（境内下载偏慢）。如果这样做，执行脚本部署命令需要加上 &lt;code>FORCE_GLO=true&lt;/code>，改为：&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo &lt;span style="color:#000">FORCE_GLO&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#204a87">true&lt;/span> ./fvtt.sh
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;em>更新时同理，在后面添加&lt;/em> &lt;code>recreate&lt;/code> 变为 &lt;code>sudo FORCE_GLO=true ./fvtt.sh recreate&lt;/code>。&lt;/p>
+&lt;hr>
 &lt;div class="alert alert-primary" role="alert">
 &lt;h4 class="alert-heading">注意&lt;/h4>
 &lt;p>如果多次提示部署失败，可以使用 &lt;code>sudo ./fvtt.sh clear&lt;/code> 接着输入两次 &lt;code>y&lt;/code> 和回车以确认，清空已经完成的所有配置和存储，然后重新尝试全新安装&lt;/p>
@@ -624,10 +633,12 @@ allowfullscreen="true">
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>运行诊断时将会如下图一般输出结果，正常情况下结果应类似：
 &lt;img src="https://fvtt-cn.github.io/images/deployment/docker-script-diagnose.png" alt="">&lt;/p>
 &lt;p>该诊断可以多次运行；根据以上输出的结果，可以进行以下判断：&lt;/p>
+&lt;hr>
 &lt;blockquote>
 &lt;p>以上状态均正常，但是浏览器无法打开 FVTT，&lt;em>以及无法打开 Web 文件管理器和 Docker 仪表盘（如果选择启用）&lt;/em>&lt;/p>
 &lt;/blockquote>
 &lt;p>检查服务器防火墙设置，具体可以参见云服务器指南中的&lt;a href="../cloud/#%E9%83%A8%E7%BD%B2%E5%AE%8C%E6%AF%95%E5%90%8E%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE">部署完毕后无法访问&lt;/a>。&lt;/p>
+&lt;hr>
 &lt;blockquote>
 &lt;p>&lt;strong>FoundryVTT 容器状态&lt;/strong>显示 &lt;code>running&lt;/code>，&lt;strong>登录状态&lt;/strong>显示 &lt;code>登录成功&lt;/code>，但是&lt;strong>下载状态&lt;/strong>等待许久而始终显示 &lt;code>未完成&lt;/code>&lt;/p>
 &lt;/blockquote>
@@ -636,6 +647,7 @@ allowfullscreen="true">
 &lt;img src="https://fvtt-cn.github.io/images/deployment/docker-script-dlspeed.png" alt="">&lt;/p>
 &lt;p>如果&lt;strong>当前下载速度&lt;/strong>降低到难以完成下载（通常是在境内服务器直接输入版本号或者回车跳过时），可以考虑删除旧有容器，然后重新部署，并使用星界投影镜像的下载地址，加速 FVTT 下载，完整流程基本等于升级的步骤，具体可以参见上文&lt;a href="#fvtt-%E5%8D%87%E7%BA%A7%E6%9B%B4%E6%96%B0%E6%B5%81%E7%A8%8B">升级流程&lt;/a>。&lt;/p>
 &lt;p>&lt;em>境内服务器如果不使用星界投影源（比如星界投影镜像下线时），尽量考虑在白天进行下载，网络连接状况会好一些&lt;/em>。&lt;/p>
+&lt;hr>
 &lt;blockquote>
 &lt;p>&lt;strong>FoundryVTT 容器状态&lt;/strong>显示 &lt;code>running&lt;/code>，但是&lt;strong>登录状态&lt;/strong>显示 &lt;code>登录失败&lt;/code>，且&lt;strong>下载状态&lt;/strong>始终显示 &lt;code>未完成&lt;/code>&lt;/p>
 &lt;/blockquote>
@@ -643,17 +655,32 @@ allowfullscreen="true">
 &lt;p>按照升级流程，删除旧有容器，然后重新部署，参见上文&lt;a href="#fvtt-%E5%8D%87%E7%BA%A7%E6%9B%B4%E6%96%B0%E6%B5%81%E7%A8%8B">升级流程&lt;/a>。&lt;/p>
 &lt;p>需要注意的是，更新过程中在询问&lt;strong>是否直接使用已存储的上次部署使用的配置&lt;/strong>的时候，因为上次部署使用的用户名/密码并不正确，所以需要放弃使用：输入 &lt;code>n&lt;/code> 然后回车，拒绝使用，然后按照正常安装流程输入参数进行。&lt;/p>
 &lt;p>&lt;em>如果暂时无法提供正确的 FVTT 用户名/密码，可以在输入用户名和密码时，都回车跳过。但这种情况下，必须要使用星界投影镜像或者其他镜像填写&lt;strong>版本号或下载地址&lt;/strong>，否则无法成功下载 FVTT 文件&lt;/em>。&lt;/p>
+&lt;hr>
 &lt;blockquote>
 &lt;p>&lt;strong>FoundryVTT 容器状态&lt;/strong>显示 &lt;code>exited&lt;/code>，&lt;strong>可访问性&lt;/strong>显示 &lt;code>unhealthy&lt;/code>，&lt;strong>FoundryVTT 文件状态&lt;/strong>却显示 &lt;code>可以运行&lt;/code>&lt;/p>
 &lt;/blockquote>
 &lt;p>FVTT 容器意外退出且没有重启，可以重启所有容器，执行：&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo ./fvtt.sh restart
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>重启后等待几十秒，如果仍然无法访问可以考虑按照&lt;a href="#fvtt-%E5%8D%87%E7%BA%A7%E6%9B%B4%E6%96%B0%E6%B5%81%E7%A8%8B">升级流程&lt;/a>重新部署。&lt;/p>
+&lt;hr>
 &lt;div class="alert alert-warning" role="alert">
 &lt;h4 class="alert-heading">注意&lt;/h4>
 &lt;p>如果多次提示部署失败或者出现部署后诊断一切正常但仍无法打开，可以使用 &lt;code>sudo ./fvtt.sh clear&lt;/code> 接着输入两次 &lt;code>y&lt;/code> 和回车以确认，清空已经完成的所有配置，然后重新尝试安装&lt;/p>
 &lt;p>但需要注意，如果之前已经通过此法部署并使用过 FVTT，拥有世界、合集、模组等游戏文件，清空会&lt;strong>一并删除所有数据&lt;/strong>！在如此做之前，请确定你知道你在做什么&lt;/p>
-&lt;/div></description></item><item><title>Deployment: Windows 部署 FoundryVTT 教程</title><link>https://fvtt-cn.github.io/deployment/gettingstarted/windows/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/deployment/gettingstarted/windows/</guid><description>
+&lt;/div>
+&lt;hr>
+&lt;h2 id="脚本额外功能">脚本额外功能&lt;/h2>
+&lt;h3 id="图片自动压缩优化">图片自动压缩/优化&lt;/h3>
+&lt;blockquote>
+&lt;p>需要脚本版本 &lt;code>v1.5.0+&lt;/code>&lt;/p>
+&lt;/blockquote>
+&lt;p>自动部署脚本中包含自动监控并优化 FVTT 数据目录下图片 &lt;code>(jpg|png|gif|svg)&lt;/code> 的容器：当有图片加入 &lt;code>/data&lt;/code> 数据目录下，如果已经部署了优化容器，将会操作图片并进行&lt;em>有损压缩&lt;/em>，在尽量少损失图片质量的情况下，减小图片的文件体积。&lt;/p>
+&lt;p>FVTT 安装 MOD 和系统时，会清空文件夹并重新填充内容，故而本容器配置时会跳过 &lt;code>modules&lt;/code>/&lt;code>systems&lt;/code> 文件夹下的所有图片。&lt;/p>
+&lt;h4 id="启动图片优化容器">启动图片优化容器&lt;/h4>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo ./fvtt.sh do_optim
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="移除图片优化容器">移除图片优化容器&lt;/h4>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo ./fvtt.sh undo_optim
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;em>移除 FVTT 或清空也会移除图片优化容器&lt;/em>。&lt;/p></description></item><item><title>Deployment: Windows 部署 FoundryVTT 教程</title><link>https://fvtt-cn.github.io/deployment/gettingstarted/windows/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/deployment/gettingstarted/windows/</guid><description>
 &lt;blockquote>
 &lt;p>本篇教程参考 FVTT 英文社群网站 &lt;a href="https://foundry-vtt-community.github.io/wiki/Windows/">Windows 托管教程&lt;/a>和&lt;a href="http://www.goddessfantasy.net/bbs/index.php?topic=117014.0">猫斯基的 Windows Server 部署教程&lt;/a>。&lt;/p>
 &lt;/blockquote>
