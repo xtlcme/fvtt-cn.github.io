@@ -424,7 +424,7 @@ ProxyPassReverse / "&lt;em>&lt;u>https://yourdomain.com:30000/&lt;/u>&lt;/em>"
 &lt;li>⭕ 版本号/下载地址
 &lt;ul>
 &lt;li>直接回车跳过输入版本号，使用最新稳定版即可&lt;/li>
-&lt;li>&lt;strong>注意&lt;/strong>：如果使用境内服务器，从 FVTT 官方下载安装包会比较慢，可以考虑粘贴&lt;a href="../../../modules/#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E8%A7%A3%E5%86%B3%E7%B3%BB%E7%BB%9F%E5%92%8C-mod-%E9%9A%BE%E4%BB%A5%E5%AE%89%E8%A3%85%E7%9A%84%E9%97%AE%E9%A2%98">星界投影&lt;/a>的镜像下载源的 Linux 版本下载链接。&lt;strong>境内服务器强烈推荐使用镜像；境外服务器建议直接输入版本号&lt;/strong>！&lt;/li>
+&lt;li>&lt;strong>注意&lt;/strong>：如果使用境内服务器，从 FVTT 官方下载安装包会比较慢，可以考虑粘贴&lt;a href="../../../modules/#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E8%A7%A3%E5%86%B3%E7%B3%BB%E7%BB%9F%E5%92%8C-mod-%E9%9A%BE%E4%BB%A5%E5%AE%89%E8%A3%85%E7%9A%84%E9%97%AE%E9%A2%98">星界投影&lt;/a>的镜像下载源的 Linux 版本下载链接。&lt;strong>境内服务器推荐使用镜像；境外服务器建议直接输入版本号&lt;/strong>！&lt;/li>
 &lt;li>Linux 版 FVTT （即本脚本需要使用的）的星界投影的镜像下载地址为：&lt;code>https://cdn.sbea.in/foundry/linux/foundryvtt-0.7.9.zip&lt;/code>。如果需要使用其他版本，替换链接中的 &lt;code>0.7.9&lt;/code> 即可&lt;/li>
 &lt;li>✅ 如果跳过了 FVTT 账号/密码的输入，则必须输入直链下载地址而非版本号来安装，否则无法获取 FVTT 下载地址&lt;/li>
 &lt;li>例：&lt;code>0.7.9&lt;/code> 或 &lt;code>https://cdn.sbea.in/foundry/linux/foundryvtt-0.7.9.zip&lt;/code>&lt;/li>
@@ -487,7 +487,7 @@ ProxyPassReverse / "&lt;em>&lt;u>https://yourdomain.com:30000/&lt;/u>&lt;/em>"
 &lt;h4 class="alert-heading">Tips&lt;/h4>
 自动部署脚本的其他使用方法和详情，请参见&lt;a href="https://github.com/fvtt-cn/FoundryDeploy">脚本仓库&lt;/a>中的文档
 &lt;/div>
-&lt;h3 id="使用自动部署脚本更新-foundry-vtt">使用自动部署脚本更新 Foundry VTT&lt;/h3>
+&lt;h3 id="fvtt-升级更新流程">FVTT 升级/更新流程&lt;/h3>
 &lt;p>Docker 容器为了保证运行时文件尽量不受改动，避免在不同时间启动容器产生了行为上的差异，使用了 &lt;code>--noUpdate&lt;/code> 参数启动容器内的 FVTT，关闭了 Foundry VTT 自动更新的功能，使得用户无法使用 FVTT 内置的检查更新来升级。&lt;/p>
 &lt;p>为了解决这个问题，自动部署脚本包含了如何升级容器内 FVTT 版本的方法，这个方法会保证数据文件夹内的文件不受改动，可以放心升级，&lt;em>但 FVTT 升级后再启动世界往往会对世界进行更新&lt;/em>。&lt;/p>
 &lt;p>&lt;strong>该方法不仅可以升级版本，还可以方便地用脚本重装同版本或者回退旧版本&lt;/strong>。&lt;/p>
@@ -504,7 +504,7 @@ ProxyPassReverse / "&lt;em>&lt;u>https://yourdomain.com:30000/&lt;/u>&lt;/em>"
 &lt;li>
 &lt;p>重建容器，使用新版本&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo ./fvtt.sh recreate
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>进入和安装流程非常类似的重建容器流程，默认使用已存储的配置文件&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>进入和安装流程非常类似的重建容器流程，默认使用已存储的配置文件，回车选择使用。&lt;/p>
 &lt;ul>
 &lt;li>&lt;strong>版本号或者下载地址&lt;/strong>：输入你想升级/回退的版本号或者对应下载地址即可
 &lt;ul>
@@ -609,9 +609,9 @@ allowfullscreen="true">
 &lt;/tbody>
 &lt;/table>
 &lt;p>拉取成功后，再执行脚本部署命令。&lt;/p>
-&lt;p>如果始终提示 &lt;code>Error response from ...&lt;/code> 无法成功拉取对应镜像，可以考虑更换为官方源（境内下载偏慢）。如果这样做，执行脚本部署命令需要加上 &lt;code>FORCE_GLO=true&lt;/code>，改为：&lt;/p>
+&lt;p>如果手动拉取 USTC 源镜像，但也始终提示 &lt;code>Error response from ...&lt;/code> 无法成功拉取对应镜像，可以考虑更换为官方源（境内下载偏慢）。如果这样做，执行脚本部署命令需要加上 &lt;code>FORCE_GLO=true&lt;/code>，改为：&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo &lt;span style="color:#000">FORCE_GLO&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#204a87">true&lt;/span> ./fvtt.sh
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;em>更新时同理，在后面添加&lt;/em> &lt;code>recreate&lt;/code> 即可。&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;em>更新时同理，在后面添加&lt;/em> &lt;code>recreate&lt;/code> 变为 &lt;code>sudo FORCE_GLO=true ./fvtt.sh recreate&lt;/code>。&lt;/p>
 &lt;div class="alert alert-primary" role="alert">
 &lt;h4 class="alert-heading">注意&lt;/h4>
 &lt;p>如果多次提示部署失败，可以使用 &lt;code>sudo ./fvtt.sh clear&lt;/code> 接着输入两次 &lt;code>y&lt;/code> 和回车以确认，清空已经完成的所有配置和存储，然后重新尝试全新安装&lt;/p>
@@ -622,7 +622,38 @@ allowfullscreen="true">
 &lt;p>部署完成后，可能会出现无法访问、文件管理器打不开等异常情况，可以使用脚本进行诊断（版本需要 &lt;code>v1.4.0+&lt;/code>，如果版本过低可以参见上文&lt;a href="#%E6%9B%B4%E6%96%B0%E8%84%9A%E6%9C%AC">更新脚本&lt;/a>），执行：&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo ./fvtt.sh check
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>运行诊断时将会如下图一般输出结果，正常情况下结果应类似：
-&lt;img src="https://fvtt-cn.github.io/images/deployment/docker-script-diagnose.png" alt="">&lt;/p></description></item><item><title>Deployment: Windows 部署 FoundryVTT 教程</title><link>https://fvtt-cn.github.io/deployment/gettingstarted/windows/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/deployment/gettingstarted/windows/</guid><description>
+&lt;img src="https://fvtt-cn.github.io/images/deployment/docker-script-diagnose.png" alt="">&lt;/p>
+&lt;p>该诊断可以多次运行；根据以上输出的结果，可以进行以下判断：&lt;/p>
+&lt;blockquote>
+&lt;p>以上状态均正常，但是浏览器无法打开 FVTT，&lt;em>以及无法打开 Web 文件管理器和 Docker 仪表盘（如果选择启用）&lt;/em>&lt;/p>
+&lt;/blockquote>
+&lt;p>检查服务器防火墙设置，具体可以参见云服务器指南中的&lt;a href="../cloud/#%E9%83%A8%E7%BD%B2%E5%AE%8C%E6%AF%95%E5%90%8E%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE">部署完毕后无法访问&lt;/a>。&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>FoundryVTT 容器状态&lt;/strong>显示 &lt;code>running&lt;/code>，&lt;strong>登录状态&lt;/strong>显示 &lt;code>登录成功&lt;/code>，但是&lt;strong>下载状态&lt;/strong>等待许久而始终显示 &lt;code>未完成&lt;/code>&lt;/p>
+&lt;/blockquote>
+&lt;p>查看&lt;strong>下载速度&lt;/strong>后的最后几行，如果正在下载 FVTT 文件，则此处会显示下载进度的记录。根据最后一行的指示顺序，可以查看到当前的下载状态，最后一列是当前的下载速度。&lt;/p>
+&lt;p>类似这种结果，代表还在下载：
+&lt;img src="https://fvtt-cn.github.io/images/deployment/docker-script-dlspeed.png" alt="">&lt;/p>
+&lt;p>如果&lt;strong>当前下载速度&lt;/strong>降低到难以完成下载（通常是在境内服务器直接输入版本号或者回车跳过时），可以考虑删除旧有容器，然后重新部署，并使用星界投影镜像的下载地址，加速 FVTT 下载，完整流程基本等于升级的步骤，具体可以参见上文&lt;a href="#fvtt-%E5%8D%87%E7%BA%A7%E6%9B%B4%E6%96%B0%E6%B5%81%E7%A8%8B">升级流程&lt;/a>。&lt;/p>
+&lt;p>&lt;em>境内服务器如果不使用星界投影源（比如星界投影镜像下线时），尽量考虑在白天进行下载，网络连接状况会好一些&lt;/em>。&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>FoundryVTT 容器状态&lt;/strong>显示 &lt;code>running&lt;/code>，但是&lt;strong>登录状态&lt;/strong>显示 &lt;code>登录失败&lt;/code>，且&lt;strong>下载状态&lt;/strong>始终显示 &lt;code>未完成&lt;/code>&lt;/p>
+&lt;/blockquote>
+&lt;p>这种情况代表输入参数时，填写了 FoundryVTT 的用户名和密码，但是用户名/密码错误，导致无法成功登录。&lt;/p>
+&lt;p>按照升级流程，删除旧有容器，然后重新部署，参见上文&lt;a href="#fvtt-%E5%8D%87%E7%BA%A7%E6%9B%B4%E6%96%B0%E6%B5%81%E7%A8%8B">升级流程&lt;/a>。&lt;/p>
+&lt;p>需要注意的是，更新过程中在询问&lt;strong>是否直接使用已存储的上次部署使用的配置&lt;/strong>的时候，因为上次部署使用的用户名/密码并不正确，所以需要放弃使用：输入 &lt;code>n&lt;/code> 然后回车，拒绝使用，然后按照正常安装流程输入参数进行。&lt;/p>
+&lt;p>&lt;em>如果暂时无法提供正确的 FVTT 用户名/密码，可以在输入用户名和密码时，都回车跳过。但这种情况下，必须要使用星界投影镜像或者其他镜像填写&lt;strong>版本号或下载地址&lt;/strong>，否则无法成功下载 FVTT 文件&lt;/em>。&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>FoundryVTT 容器状态&lt;/strong>显示 &lt;code>exited&lt;/code>，&lt;strong>可访问性&lt;/strong>显示 &lt;code>unhealthy&lt;/code>，&lt;strong>FoundryVTT 文件状态&lt;/strong>却显示 &lt;code>可以运行&lt;/code>&lt;/p>
+&lt;/blockquote>
+&lt;p>FVTT 容器意外退出且没有重启，可以重启所有容器，执行：&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo ./fvtt.sh restart
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>重启后等待几十秒，如果仍然无法访问可以考虑按照&lt;a href="#fvtt-%E5%8D%87%E7%BA%A7%E6%9B%B4%E6%96%B0%E6%B5%81%E7%A8%8B">升级流程&lt;/a>重新部署。&lt;/p>
+&lt;div class="alert alert-warning" role="alert">
+&lt;h4 class="alert-heading">注意&lt;/h4>
+&lt;p>如果多次提示部署失败或者出现部署后诊断一切正常但仍无法打开，可以使用 &lt;code>sudo ./fvtt.sh clear&lt;/code> 接着输入两次 &lt;code>y&lt;/code> 和回车以确认，清空已经完成的所有配置，然后重新尝试安装&lt;/p>
+&lt;p>但需要注意，如果之前已经通过此法部署并使用过 FVTT，拥有世界、合集、模组等游戏文件，清空会&lt;strong>一并删除所有数据&lt;/strong>！在如此做之前，请确定你知道你在做什么&lt;/p>
+&lt;/div></description></item><item><title>Deployment: Windows 部署 FoundryVTT 教程</title><link>https://fvtt-cn.github.io/deployment/gettingstarted/windows/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/deployment/gettingstarted/windows/</guid><description>
 &lt;blockquote>
 &lt;p>本篇教程参考 FVTT 英文社群网站 &lt;a href="https://foundry-vtt-community.github.io/wiki/Windows/">Windows 托管教程&lt;/a>和&lt;a href="http://www.goddessfantasy.net/bbs/index.php?topic=117014.0">猫斯基的 Windows Server 部署教程&lt;/a>。&lt;/p>
 &lt;/blockquote>
