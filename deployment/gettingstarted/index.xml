@@ -64,6 +64,26 @@
 &lt;li>&amp;hellip;&lt;/li>
 &lt;/ul>
 &lt;p>如果认证无法通过，那境内最好的选择可能就是阿里云轻量应用服务器，简单直接没有别的套路，5Mbps 还算能用，每个月 1TB 的流量跑 FVTT 管够。&lt;/p>
+&lt;h2 id="登入-linux-云服务器">登入 Linux 云服务器&lt;/h2>
+&lt;p>相较于 Windows 服务器通过远程桌面的连接方式，Linux 服务器通过 SSH（并不需要知道这是什么）进行连接对新接触的用户来说，稍微显得不友好了一些，但好在常见的云服务商都提供了文档，可以较为方便地连接。&lt;/p>
+&lt;p>以下介绍常见云服务提供商的 Linux 服务器连接方式：&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>阿里云&lt;/strong>：
+&lt;ul>
+&lt;li>云服务器 ECS：按照 &lt;a href="https://help.aliyun.com/document_detail/147650.html#title-rxh-1ss-110">ECS Workbench 文档&lt;/a>，使用终端连接&lt;/li>
+&lt;li>轻量应用服务器 SWAS：在服务器&lt;code>概览&lt;/code>页面，点击右上角的&lt;code>远程连接&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>腾讯云&lt;/strong>：
+&lt;ul>
+&lt;li>云服务器：按照&lt;a href="https://cloud.tencent.com/document/product/213/5436">标准登录方式&lt;/a>连接&lt;/li>
+&lt;li>轻量应用服务器：按照 &lt;a href="https://cloud.tencent.com/document/product/1207/44642">WebShell 方式&lt;/a>登录&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>Microsoft Azure&lt;/strong>：参见 &lt;a href="https://docs.microsoft.com/zh-cn/azure/virtual-machines/linux/ssh-from-windows">Azure SSH 文档&lt;/a>&lt;/li>
+&lt;li>&lt;strong>Amazon Web Services (AWS)&lt;/strong>：参见 &lt;a href="https://docs.aws.amazon.com/zh_cn/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html">AWS SSH 文档&lt;/a>&lt;/li>
+&lt;li>&lt;strong>Google Cloud Platform (GCP)&lt;/strong>：参见 &lt;a href="https://cloud.google.com/compute/docs/ssh-in-browser">GCP SSH 文档&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="其他问题">其他问题&lt;/h2>
 &lt;p>除了选购以外，使用云服务器过程中也可能遇到其他问题。&lt;/p>
 &lt;h3 id="部署完毕后无法访问">部署完毕后无法访问&lt;/h3>
@@ -406,6 +426,10 @@ ProxyPassReverse / "&lt;em>&lt;u>https://yourdomain.com:30000/&lt;/u>&lt;/em>"
 &lt;ol>
 &lt;li>
 &lt;p>首先，假设已经登入了 Linux 服务器，并且能够获得 root 权限&lt;/p>
+&lt;ul>
+&lt;li>如果还没有 Linux 服务器，可以参见&lt;a href="../cloud/#%E7%99%BB%E5%85%A5-linux-%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8">云服务器指南&lt;/a>，了解如何购买/基本操作&lt;/li>
+&lt;li>你无需了解什么是 root 权限，云服务通常会提供；如果确认无法获取，可咨询客服&lt;/li>
+&lt;/ul>
 &lt;/li>
 &lt;li>
 &lt;p>下载脚本&lt;/p>
@@ -901,7 +925,10 @@ CDN 主要解决 FVTT 服务器可能会遇到的带宽不足、延迟高等网�
 &lt;p>如果工厂没有新批次（服务器文件未更改），京东就会告诉你，你就喝你冰箱里的 10 月批次的就行了。&lt;/p>
 &lt;p>如果工厂有新批次（服务器文件更新），比如 12 月批次。京东就会立马从工厂下新订单，把自己仓库里的 10 月批次的全倒河里（CDN 淘汰过期缓存），然后储备 12 月的，并且给你发 12 月批次的快递，告诉你有新批次，喝这一批。以后即使你冰箱的喝完了（浏览器缓存清空），再找京东要，京东发给你的，也是最新的批次。&lt;/p>
 &lt;p>这样的话，即使工厂更新批次了，你也可以喝到京东送来的新批次，而不是过期的。&lt;/p>
+&lt;blockquote>
+&lt;p>进阶阅读：&lt;a href="https://support.cloudflare.com/hc/zh-cn/articles/115003206852">Cloudflare 源站缓存控制介绍&lt;/a>&lt;/p>
+&lt;/blockquote>
 &lt;div class="alert alert-info" role="alert">
 &lt;h4 class="alert-heading">Tips&lt;/h4>
-使用 &lt;a href="../docker/#%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2%E8%84%9A%E6%9C%AC%E5%AE%89%E8%A3%85%E6%B5%81%E7%A8%8B">Docker 脚本&lt;/a>（脚本版本 v1.3+）部署并按&lt;a href="#%E4%BB%A5%E9%98%BF%E9%87%8C%E4%BA%91%E4%B8%BA%E4%BE%8B%E9%85%8D%E7%BD%AE%E5%85%A8%E7%AB%99%E5%8A%A0%E9%80%9F">上文&lt;/a>的方法配置（没有设置缓存过期时间），CDN 的策略会是&lt;a href="#%E4%BD%BF%E7%94%A8-cdn%E5%B9%B6%E4%B8%94%E5%8D%8F%E5%95%86">使用 CDN 并且协商&lt;/a>。&lt;em>需要 CDN 支持 &lt;code>proxy-revalidate&lt;/code>&lt;/em>
+使用 &lt;a href="../docker/#%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2%E8%84%9A%E6%9C%AC%E5%AE%89%E8%A3%85%E6%B5%81%E7%A8%8B">Docker 脚本&lt;/a>（脚本版本 v1.3+）部署并按&lt;a href="#%E4%BB%A5%E9%98%BF%E9%87%8C%E4%BA%91%E4%B8%BA%E4%BE%8B%E9%85%8D%E7%BD%AE%E5%85%A8%E7%AB%99%E5%8A%A0%E9%80%9F">上文&lt;/a>的方法配置（没有设置缓存过期时间），CDN 的策略会是&lt;a href="#%E4%BD%BF%E7%94%A8-cdn%E5%B9%B6%E4%B8%94%E5%8D%8F%E5%95%86">使用 CDN 并且协商&lt;/a>，&lt;em>需要 CDN 支持 &lt;code>proxy-revalidate&lt;/code>&lt;/em>
 &lt;/div></description></item></channel></rss>
