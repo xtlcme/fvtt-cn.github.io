@@ -103,7 +103,7 @@
 &lt;/blockquote>
 &lt;h3 id="前言">前言&lt;/h3>
 &lt;p>本教学用于 Foundry VTT 平台的 D&amp;amp;D5E 系统角色卡创建。&lt;/p>
-&lt;p>作为 DM，需要安装「Plutonium」模组。这个模组是 5eTools 团队开发的，提供了 &lt;a href="https://5e.tools/">5eTools&lt;/a> 网站资源的强大便捷导入功能等。&lt;/p>
+&lt;p>作为 DM，需要安装「Plutonium」模组。本模组由 5eTools 团队开发，提供了 5eTools 网站资源的便捷导入等实用功能。&lt;/p>
 &lt;h3 id="进入-plutonium-导入器">进入 Plutonium 导入器&lt;/h3>
 &lt;p>打开角色卡，点击图示箭头所指的右上角的三点图标。&lt;/p>
 &lt;p>&lt;img src="https://fvtt-cn.github.io/images/tutorial/pl/plutonium-1.png" alt="截图1">&lt;/p>
