@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>FoundryVTT 中文社区 – D&amp;D 5e 系统 PL 使用指南</title><link>https://fvtt-cn.github.io/tutorial/pl/dnd5e/</link><description>Recent content in D&amp;D 5e 系统 PL 使用指南 on FoundryVTT 中文社区</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://fvtt-cn.github.io/tutorial/pl/dnd5e/index.xml" rel="self" type="application/rss+xml"/><item><title>Tutorial: D&amp;D5e PL 车卡指北</title><link>https://fvtt-cn.github.io/tutorial/pl/dnd5e/dnd5echar/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/tutorial/pl/dnd5e/dnd5echar/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>FoundryVTT 中文社区 – D&amp;D 5e 系统 PL 使用指南</title><link>https://fvtt-cn.github.io/tutorial/pl/dnd5e/</link><description>Recent content in D&amp;D 5e 系统 PL 使用指南 on FoundryVTT 中文社区</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://fvtt-cn.github.io/tutorial/pl/dnd5e/index.xml" rel="self" type="application/rss+xml"/><item><title>Tutorial: D&amp;D5e PL 车卡指北</title><link>https://fvtt-cn.github.io/tutorial/pl/dnd5e/dnd5e-char-classpack/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/tutorial/pl/dnd5e/dnd5e-char-classpack/</guid><description>
 &lt;h2 id="前置需求">前置需求&lt;/h2>
 &lt;p>本文旨在对新玩家进行简单的 D&amp;amp;D5e 车卡指导，教程中依赖以下 MOD：&lt;/p>
 &lt;ul>
@@ -96,7 +96,7 @@
 &lt;h3 id="推荐使用快速搜索">推荐使用快速搜索&lt;/h3>
 &lt;p>此外，在之前的例子中，我们都是从合集包拖入需要的资源，如果你的 DM 安装了 &lt;a href="../../../../modules/mods/#quick-insert">Quick Insert&lt;/a> 这个 MOD，那么在添加按钮的后面，便会出现一个放大镜小按钮。&lt;/p>
 &lt;p>点击此按钮，可以不打开合集包的前提下，快速查找自己需要的物品，但是如果你的 DM 没有更改 Quick Insert 的合集包默认设置的话，请按删除键手动删掉前缀的合集包指定。&lt;/p>
-&lt;p>例如这里的 &lt;code>@dnd5e.items&lt;/code>，因为其默认指向的合集包是 FVTT 原版的SRD合集包，内容并不齐全，去掉合集包指定，我们就能在所有合集包中对搜索内容进行查找，提供更快捷的车卡方式。&lt;/p></description></item><item><title>Tutorial: D&amp;D5e PL 使用 Plutonium 车卡指北</title><link>https://fvtt-cn.github.io/tutorial/pl/dnd5e/5echar_plutonium/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/tutorial/pl/dnd5e/5echar_plutonium/</guid><description>
+&lt;p>例如这里的 &lt;code>@dnd5e.items&lt;/code>，因为其默认指向的合集包是 FVTT 原版的SRD合集包，内容并不齐全，去掉合集包指定，我们就能在所有合集包中对搜索内容进行查找，提供更快捷的车卡方式。&lt;/p></description></item><item><title>Tutorial: D&amp;D5e PL 使用 Plutonium 车卡指北</title><link>https://fvtt-cn.github.io/tutorial/pl/dnd5e/dnd5e-char-plutonium/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/tutorial/pl/dnd5e/dnd5e-char-plutonium/</guid><description>
 &lt;div class="pageinfo pageinfo-primary">
 &lt;p>作者：ZzNoah&lt;/p>
 &lt;/div>
@@ -159,7 +159,7 @@
 &lt;p>勾选你需要的法术，下侧提供了「直接导入」与「导入并设置准备细节」两种功能，根据需要点击选择即可。&lt;/p>
 &lt;h3 id="其他导入与后续升级">其他导入与后续升级&lt;/h3>
 &lt;p>根据上文方法，也可以便利地导入「种族」、「背景」与「物品」等。&lt;/p>
-&lt;p>当你需要升级时，也只需要参考上文来导入新获得的职业等级即可，&lt;em>只需导入新的等级，不要勾选已经有的旧等级&lt;/em>。&lt;/p></description></item><item><title>Tutorial: D&amp;D5e 战斗指南</title><link>https://fvtt-cn.github.io/tutorial/pl/dnd5e/battle-guide/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/tutorial/pl/dnd5e/battle-guide/</guid><description>
+&lt;p>当你需要升级时，也只需要参考上文来导入新获得的职业等级即可，&lt;em>只需导入新的等级，不要勾选已经有的旧等级&lt;/em>。&lt;/p></description></item><item><title>Tutorial: D&amp;D5e 战斗指南</title><link>https://fvtt-cn.github.io/tutorial/pl/dnd5e/dnd5e-battle-guide/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://fvtt-cn.github.io/tutorial/pl/dnd5e/dnd5e-battle-guide/</guid><description>
 &lt;div class="pageinfo pageinfo-primary">
 &lt;p>作者：星尘&lt;/p>
 &lt;/div>
